@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Users</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+    /* General Styling */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f5fa;
+    }
+
+    /* Header Styling */
+    header {
+      background-color: #512da8;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Container Styling */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 20px;
+    }
+
+    /* Side Menu Styling */
+    .side-menu {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .side-menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .side-menu li {
+      margin-bottom: 10px;
+    }
+
+    .side-menu a {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      color: #512da8;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .side-menu a:hover {
+      background-color: #e1bee7;
+    }
+
+    .side-menu a i {
+      margin-right: 10px;
+    }
+
+    .side-menu a.active {
+      background-color: #e1bee7;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    /* Search Bar Styling */
+    .search-bar {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 300px;
+      max-width: 100%;
+      box-sizing: border-box;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .search-bar input:focus {
+      outline: none;
+      box-shadow: 0 0 4px rgba(81, 45, 168, 0.8);
+    }
+
+    /* User Card Styling */
+    .user-card {
+      background-color: #e1eaf1;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      margin-bottom: 20px;
+      animation: slide-up 0.4s ease-in-out;
+    }
+
+    .user-card h3 {
+      color: #512da8;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .user-card p {
+      margin: 5px 0;
+    }
+
+    .user-card .company-list {
+      margin: 10px 0;
+      padding-left: 20px;
+      list-style-type: disc;
+    }
+
+    .edit-button {
+      background-color: #512da8;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-right: 10px;
+    }
+
+    .edit-button:hover {
+      background-color: #e1bee7;
+    }
+
+    @keyframes slide-up {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Users</h1>
+  </header>
+
+  <div class="container">
+    <div class="side-menu">
+        <ul>
+            <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
+            <li><a href="users.html"><i class="material-icons">supervisor_account</i>Users</a></li>
+            <li><a href="companies.html"><i class="material-icons">business</i>Companies</a></li>
+            <li><a href="register-new-user.html"><i class="material-icons">person_add</i>Register New User</a></li>
+            <li><a href="edit.html" class="active"><i class="material-icons">edit</i>Modify Data</a></li>
+            <li><a href="#"><i class="material-icons">block</i>Block/Unblock User</a></li>
+          </ul>
+    </div>
+
+    <div>
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search users..." />
+      </div>
+
+      <div id="usersList"></div>
+    </div>
+  </div>
+
+  <script>
+    // User data
+    const userData = [
+  {
+    username: 'johnsmith',
+    password: 'password123',
+    companies: [
+      {
+        companyName: 'ABC Corporation',
+        companyLabel: 'Sdn Bhd',
+        registrationNumber: '123456789'
+      }
+    ],
+    personInCharge: 'John Smith',
+    phoneNumber: '+60123456789',
+    address: '123 Main Street',
+    secondaryAddress: 'Apt 4B',
+    email: 'johnsmith@example.com'
+  },
+  {
+    username: 'emilyjohnson',
+    password: 'password456',
+    companies: [
+      {
+        companyName: 'XYZ Holdings',
+        companyLabel: 'Private Limited',
+        registrationNumber: '987654321'
+      }
+    ],
+    personInCharge: 'Emily Johnson',
+    phoneNumber: '+60123456789',
+    address: '456 Elm Avenue',
+    secondaryAddress: 'Suite 202',
+    email: 'emilyjohnson@example.com'
+  },
+  {
+    username: 'ahmedkhalid',
+    password: 'password234',
+    companies: [
+      {
+        companyName: 'Khalid Engineering',
+        companyLabel: 'Private Limited',
+        registrationNumber: '827472849'
+      },
+      {
+        companyName: 'Khaldun',
+        companyLabel: 'Private Limited',
+        registrationNumber: '827467284'
+      },
+      {
+        companyName: 'Burger',
+        companyLabel: 'International',
+        registrationNumber: '883747384'
+      }
+    ],
+    personInCharge: 'Ahmed Khalid',
+    phoneNumber: '+60129876543',
+    address: '456 Jalan Teknik',
+    secondaryAddress: 'Block C',
+    email: 'ahmedkhalid@example.com'
+  },
+  {
+    username: 'malikahmad',
+    password: 'password789',
+    companies: [
+      {
+        companyName: 'Malik Holdings',
+        companyLabel: 'Sdn Bhd',
+        registrationNumber: '394829348'
+      }
+    ],
+    personInCharge: 'Malik Ahmad',
+    phoneNumber: '+60123456789',
+    address: '789 Elm Street',
+    secondaryAddress: 'Suite 501',
+    email: 'malikahmad@example.com'
+  },
+  {
+    username: 'laylabinti',
+    password: 'password321',
+    companies: [
+      {
+        companyName: 'Layla Corporation',
+        companyLabel: 'Private Limited',
+        registrationNumber: '827476589'
+      },
+      {
+        companyName: 'Layla Industries',
+        companyLabel: 'Public Limited',
+        registrationNumber: '983747239'
+      }
+    ],
+    personInCharge: 'Layla Binti',
+    phoneNumber: '+60129876543',
+    address: '293 Jalan Raya',
+    secondaryAddress: 'Block D',
+    email: 'laylabinti@example.com'
+  },
+  // 10 additional users with Malaysian names
+  {
+    username: 'muhammadali',
+    password: 'password246',
+    companies: [
+      {
+        companyName: 'Ali Enterprises',
+        companyLabel: 'Sdn Bhd',
+        registrationNumber: '293847561'
+      }
+    ],
+    personInCharge: 'Muhammad Ali',
+    phoneNumber: '+60123456789',
+    address: '456 Jalan Utama',
+    secondaryAddress: 'Block A',
+    email: 'muhammadali@example.com'
+  },
+  {
+    username: 'nurazizah',
+    password: 'password753',
+    companies: [
+      {
+        companyName: 'Azizah Trading',
+        companyLabel: 'Sdn Bhd',
+        registrationNumber: '918273645'
+      }
+    ],
+    personInCharge: 'Nur Azizah',
+    phoneNumber: '+60129876543',
+    address: '789 Jalan Mega',
+    secondaryAddress: 'Suite 101',
+    email: 'nurazizah@example.com'
+  },
+  {
+    username: 'amirahmed',
+    password: 'password864',
+    companies: [
+      {
+        companyName: 'Amirah Holdings',
+        companyLabel: 'Sdn Bhd',
+        registrationNumber: '657483920'
+      }
+    ],
+    personInCharge: 'Amir Ahmed',
+    phoneNumber: '+60123456789',
+    address: '293 Jalan Rakyat',
+    secondaryAddress: 'Block B',
+    email: 'amirahmed@example.com'
+  },
+  {
+    username: 'sitiyusof',
+    password: 'password951',
+    companies: [
+      {
+        companyName: 'Yusof Corporation',
+        companyLabel: 'Sdn Bhd',
+        registrationNumber: '183746592'
+      }
+    ],
+    personInCharge: 'Siti Yusof',
+    phoneNumber: '+60129876543',
+    address: '293 Jalan Perdana',
+    secondaryAddress: 'Block C',
+    email: 'sitiyusof@example.com'
+  },
+  {
+    username: 'ahmadali',
+    password: 'password753',
+    companies: [
+      {
+        companyName: 'Ali Group',
+        companyLabel: 'Sdn Bhd',
+        registrationNumber: '485739201'
+      }
+    ],
+    personInCharge: 'Ahmad Ali',
+    phoneNumber: '+60123456789',
+    address: '789 Jalan Maju',
+    secondaryAddress: 'Suite 201',
+    email: 'ahmadali@example.com'
+  },
+  {
+    username: 'nurasma',
+    password: 'password864',
+    companies: [
+      {
+        companyName: 'Asma Corporation',
+        companyLabel: 'Sdn Bhd',
+        registrationNumber: '374829506'
+      }
+    ],
+    personInCharge: 'Nur Asma',
+    phoneNumber: '+60129876543',
+    address: '293 Jalan Gemilang',
+    secondaryAddress: 'Block D',
+    email: 'nurasma@example.com'
+  },
+  {
+    username: 'azmikhalid',
+    password: 'password951',
+    companies: [
+      {
+        companyName: 'Khalid Holdings',
+        companyLabel: 'Sdn Bhd',
+        registrationNumber: '273849506'
+      }
+    ],
+    personInCharge: 'Azmi Khalid',
+    phoneNumber: '+60123456789',
+    address: '123 Jalan Indah',
+    secondaryAddress: 'Apt 2C',
+    email: 'azmikhalid@example.com'
+  },
+  {
+    username: 'norazizah',
+    password: 'password753',
+    companies: [
+      {
+        companyName: 'Azizah Industries',
+        companyLabel: 'Sdn Bhd',
+        registrationNumber: '839274651'
+      }
+    ],
+    personInCharge: 'Nor Azizah',
+    phoneNumber: '+60129876543',
+    address: '456 Jalan Seri',
+    secondaryAddress: 'Suite 301',
+    email: 'norazizah@example.com'
+  },
+  {
+    username: 'amirahmad',
+    password: 'password864',
+    companies: [
+      {
+        companyName: 'Amirah Corporation',
+        companyLabel: 'Sdn Bhd',
+        registrationNumber: '485739203'
+      }
+    ],
+    personInCharge: 'Amir Ahmad',
+    phoneNumber: '+60123456789',
+    address: '789 Jalan Indah',
+    secondaryAddress: 'Suite 401',
+    email: 'amirahmad@example.com'
+  },
+  {
+    username: 'nursiti',
+    password: 'password951',
+    companies: [
+      {
+        companyName: 'Siti Holdings',
+        companyLabel: 'Sdn Bhd',
+        registrationNumber: '374829508'
+      }
+    ],
+    personInCharge: 'Nur Siti',
+    phoneNumber: '+60129876543',
+    address: '123 Jalan Seri',
+    secondaryAddress: 'Apt 3B',
+    email: 'nursiti@example.com'
+  }
+];
+
+    // Function to create a user card
+    function createUserCard(user) {
+      const userCard = document.createElement('div');
+      userCard.classList.add('user-card');
+
+      const personInCharge = document.createElement('h3');
+      personInCharge.textContent = user.personInCharge;
+
+      const companiesOwned = document.createElement('p');
+      companiesOwned.textContent = `Number of Companies Owned: ${user.companies.length}`;
+
+      const companyList = document.createElement('ul');
+      companyList.classList.add('company-list');
+
+      user.companies.forEach(company => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${company.companyName} (${company.companyLabel})`;
+        companyList.appendChild(listItem);
+      });
+
+      const phoneNumber = document.createElement('p');
+      phoneNumber.textContent = `Phone Number: ${user.phoneNumber}`;
+
+      const email = document.createElement('p');
+      email.textContent = `Email: ${user.email}`;
+
+      const address = document.createElement('p');
+      address.textContent = `Address: ${user.address}`;
+
+      const secondaryAddress = document.createElement('p');
+      secondaryAddress.textContent = `Secondary Address: ${user.secondaryAddress}`;
+
+      const editButton = document.createElement('button');
+      editButton.classList.add('edit-button');
+      editButton.textContent = 'Edit User Data';
+      editButton.addEventListener('click', () => {
+        window.location.href = 'edit-user.html'; // Redirect to edit-user.html
+      });
+
+      userCard.appendChild(personInCharge);
+      userCard.appendChild(companiesOwned);
+      userCard.appendChild(companyList);
+      userCard.appendChild(phoneNumber);
+      userCard.appendChild(email);
+      userCard.appendChild(address);
+      userCard.appendChild(secondaryAddress);
+      userCard.appendChild(editButton);
+
+      return userCard;
+    }
+
+    // Function to render the user cards
+    function renderUserCards(users) {
+      const usersListContainer = document.getElementById('usersList');
+      usersListContainer.innerHTML = '';
+
+      users.forEach(user => {
+        const userCard = createUserCard(user);
+        usersListContainer.appendChild(userCard);
+      });
+    }
+
+    // Function to perform the search
+    function performSearch(query) {
+      const regex = new RegExp(query, 'i');
+      const searchResults = userData.filter(user => regex.test(user.username) || regex.test(user.personInCharge));
+
+      renderUserCards(searchResults);
+    }
+
+    // Event listener for search input changes
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', (event) => {
+      const query = event.target.value.trim();
+      performSearch(query);
+    });
+
+    renderUserCards(userData);
+  </script>
+</body>
+
+</html>

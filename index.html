@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Admin Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+    /* General Styling */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    
+    /* Header Styling */
+    header {
+      background-color: #512da8;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+    
+    /* Container Styling */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 20px;
+    }
+    
+    /* Side Menu Styling */
+    .side-menu {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    
+    .side-menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .side-menu li {
+      margin-bottom: 10px;
+    }
+    
+    .side-menu a {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      color: #512da8;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .side-menu a:hover {
+      background-color: #e1bee7;
+    }
+    
+    .side-menu a i {
+      margin-right: 10px;
+    }
+    
+    .side-menu a.active {
+      background-color: #e1bee7;
+      color: #fff;
+      font-weight: bold;
+    }
+    
+    /* Statistics Section Styling */
+    .statistics-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    
+    .statistics-box {
+      background-color: #f1f8ff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      text-align: center;
+      animation: slide-up 0.4s ease-in-out;
+    }
+    
+    .statistics-box h2 {
+      color: #512da8;
+      font-size: 24px;
+      margin: 0 0 10px;
+    }
+    
+    .statistics-box .stat {
+      font-size: 36px;
+      font-weight: bold;
+      color: #512da8;
+    }
+    
+    .statistics-box .view-button {
+      margin-top: 20px;
+    }
+    
+    .statistics-box .view-button a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #512da8;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .statistics-box .view-button a:hover {
+      background-color: #e1bee7;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      
+      .statistics-section {
+        grid-template-columns: 1fr;
+      }
+      
+      .side-menu {
+        margin-bottom: 20px;
+      }
+    }
+    
+    @keyframes slide-up {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Main Admin Dashboard</h1>
+  </header>
+  
+  <div class="container">
+    <div class="side-menu">
+      <ul>
+        <li><a href="#" class="active"><i class="material-icons">dashboard</i>Dashboard</a></li>
+        <li><a href="users.html"><i class="material-icons">supervisor_account</i>Users</a></li>
+        <li><a href="companies.html"><i class="material-icons">business</i>Companies</a></li>
+        <li><a href="register-new-user.html"><i class="material-icons">person_add</i>Register New User</a></li>
+        <li><a href="edit.html"><i class="material-icons">edit</i>Modify User</a></li>
+        <li><a href="#"><i class="material-icons">block</i>Block/Unblock User</a></li>
+      </ul>
+    </div>
+    
+    <div class="statistics-section">
+      <div class="statistics-box">
+        <h2>Total Users</h2>
+        <div class="stat">100</div>
+        <div class="view-button">
+          <a href="users.html">View All Users</a>
+        </div>
+      </div>
+      <div class="statistics-box">
+        <h2>Blocked Users</h2>
+        <div class="stat">10</div>
+        <div class="view-button">
+          <a href="#">View More</a>
+        </div>
+      </div>
+      <div class="statistics-box">
+        <h2>Total Companies</h2>
+        <div class="stat">20</div>
+        <div class="view-button">
+          <a href="companies.html">View Company Lists</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

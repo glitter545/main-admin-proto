@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* General Styling */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(90deg, #74ebd5, #9face6);
+    }
+
+    /* Container Styling */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 350px;
+      height: 400px;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(5px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    h3 {
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 1.2;
+      color: #fff;
+      margin-bottom: 30px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    label {
+      font-size: 18px;
+      font-weight: 500;
+      color: #fff;
+      margin-top: 15px;
+    }
+
+    .input-container {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    input {
+      height: 40px;
+      width: 100%;
+      max-width: 300px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 5px;
+      padding: 0 15px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #333;
+      transition: background-color 0.3s ease;
+    }
+
+    input:focus {
+      background-color: #e8f0fe;
+    }
+
+    ::placeholder {
+      color: #666;
+    }
+
+    .login-link {
+      text-decoration: none;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .login-button {
+      display: block;
+      margin-top: 30px;
+      background-color: #512da8;
+      color: #fff;
+      padding: 15px 0;
+      font-size: 18px;
+      font-weight: 600;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .login-button:hover {
+      background-color: #1d3b59;
+      transform: scale(1.05);
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 450px) {
+      .container {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <form id="loginForm" onsubmit="return handleLoginForm()">
+      <h3>Login Here</h3>
+
+      <div class="input-container">
+        <label for="username">Username</label>
+        <input type="text" placeholder="Email or Phone" id="username">
+      </div>
+
+      <div class="input-container">
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password">
+      </div>
+
+      <!-- Use a regular button to trigger form submission -->
+      <button type="submit" class="login-button">Log In</button>
+    </form>
+  </div>
+
+  <script>
+    function handleLoginForm() {
+      // For prototype purposes, navigate to the target page without any validation
+      // Replace "main-admin-dashboard.html" with the correct filename and path
+      window.location.href = "main-admin-dashboard.html";
+      
+      // Return false to prevent the default form submission behavior
+      return false;
+    }
+  </script>
+</body>
+
+</html>

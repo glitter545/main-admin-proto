@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make Your Own Donation Report</title>
+  <style>
+    /* General Styling */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    /* Header Styling */
+    header {
+      background-color: #512da8; /* Dark blue color */
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    /* Container Styling */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 20px;
+    }
+
+    /* Side Menu Styling */
+    .side-menu {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      color: #512da8; /* Dark blue color for default text color */
+    }
+
+    .side-menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .side-menu li {
+      margin-bottom: 10px;
+    }
+
+    .side-menu a {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      color: #512da8; /* Dark blue color */
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .side-menu a:hover {
+      background-color: #e1bee7;
+    }
+
+    .side-menu a i {
+      margin-right: 10px;
+    }
+
+    .side-menu a.active {
+      background-color: #e1bee7;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    /* Donation Report Styling ... (same as before) */
+
+    /* Donation Form Styling */
+    .donation-form {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      color: #512da8; /* Dark blue color for default text color */
+      animation: slide-up 0.4s ease-in-out; /* Add the animation here */
+    }
+
+    .donation-form h2 {
+      color: #512da8; /* Dark blue color for the title */
+      margin-top: 0;
+    }
+
+    .donation-form label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    .donation-form input,
+    .donation-form textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .donation-form button {
+      background-color: #512da8; /* Dark blue color for the button */
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .donation-form button:hover {
+      background-color: #3b2064; /* Darker shade on hover */
+    }
+    
+    /* Responsive Styling ... (same as before) */
+
+    /* Animation Styling (copied from users.html) */
+    @keyframes slide-up {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <h1>Donation Reports</h1>
+  </header>
+
+  <div class="container">
+    <!-- Side Menu -->
+    <div class="side-menu">
+        <ul>
+            <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
+            <li><a href="users.html"><i class="material-icons">supervisor_account</i>Users</a></li>
+            <li><a href="companies.html"><i class="material-icons">business</i>Companies</a></li>
+            <li><a href="register-new-user.html"><i class="material-icons">person_add</i>Register New User</a></li>
+            <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
+            <li><a href="create-report.html" class="active"><i class="material-icons">create</i>Make a Report</a></li>
+            <li><a href="block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
+          </ul>
+    </div>
+
+    <main>
+      <!-- New section for the user to make their own report -->
+      <section id="make-report" class="donation-form">
+        <h2>Make Your Own Donation Report</h2>
+        <form>
+          <label for="donor">Donor Company/Organization:</label>
+          <input type="text" id="donor" name="donor" required>
+
+          <label for="pro_donation_company">PRO of Donation Company:</label>
+          <input type="text" id="pro_donation_company" name="pro_donation_company" required>
+
+          <label for="pro_receiving_company">PRO of Receiving Company:</label>
+          <input type="text" id="pro_receiving_company" name="pro_receiving_company" required>
+
+          <label for="receiving_bank_account">Receiving Bank Account:</label>
+          <input type="text" id="receiving_bank_account" name="receiving_bank_account" required>
+
+          <label for="donor_bank_account">Donor Company's Bank Account:</label>
+          <input type="text" id="donor_bank_account" name="donor_bank_account" required>
+
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" required>
+
+          <label for="amount">Amount:</label>
+          <input type="number" id="amount" name="amount" required>
+
+          <label for="transaction_id">Transaction ID:</label>
+          <input type="text" id="transaction_id" name="transaction_id" required>
+
+          <label for="notes">Notes:</label>
+          <textarea id="notes" name="notes" rows="4"></textarea>
+
+          <button type="submit">Submit Report</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Smooth scroll to the "Make Your Own Donation Report" section
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

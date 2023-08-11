@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Admin Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+    /* General Styling */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    
+    /* Header Styling */
+    header {
+      background-color: #512da8;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+    
+    /* Main Container Styling */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 20px;
+    }
+    
+    /* Side Menu Styling */
+    .side-menu {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    
+    /* Side Menu Styling */
+    .side-menu {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    
+    .side-menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .side-menu li {
+      margin-bottom: 10px;
+    }
+    
+    .side-menu a {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      color: #512da8;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .side-menu a:hover {
+      background-color: #e1bee7;
+    }
+    
+    .side-menu a i {
+      margin-right: 10px;
+    }
+    
+    .side-menu a.active {
+      background-color: #e1bee7;
+      color: #fff;
+      font-weight: bold;
+    }
+    
+    /* Transfer Ownership Styling */
+    .transfer-section {
+      background-color: #f5f5f5;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      animation: slide-up 0.4s ease-in-out;
+    }
+    
+    .transfer-section h2 {
+      color: #512da8;
+      font-size: 24px;
+      margin: 0 0 20px;
+    }
+    
+    .select-dropdown {
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 20px;
+    }
+    
+    .select-dropdown select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    
+    .transfer-button {
+      padding: 10px 20px;
+      background-color: #512da8;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .transfer-button:hover {
+      background-color: #e1bee7;
+    }
+    
+    @keyframes slide-up {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Success Popup Styling */
+    .success-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .success-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    
+    .success-content p {
+      margin: 0 0 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Main Admin Dashboard</h1>
+  </header>
+  
+  <div class="container">
+    <div class="side-menu">
+      <ul>
+        <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
+        <li><a href="users.html"><i class="material-icons">supervisor_account</i>Users</a></li>
+        <li><a href="companies.html"><i class="material-icons">business</i>Companies</a></li>
+        <li><a href="register.html"><i class="material-icons">person_add</i>Register</a></li>
+        <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
+        <li><a href="reports.html"><i class="material-icons">description</i>View Reports</a></li>
+        <li><a href="create-report.html"><i class="material-icons">create</i>Create Report</a></li>
+        <li><a href="renewal-expiry.html" class="active"><i class="material-icons">refresh</i>Renewals</a></li>
+        <li><a href="block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
+      </ul>
+    </div>
+    
+    <!-- <li><a href="transfer-ownership.html" class="active"><i class="material-icons">transfer_within_a_station</i>Transfer Ownership</a></li> -->
+    <div class="transfer-section">
+        <h2>Transfer Ownership</h2>
+        
+        <div class="select-dropdown">
+            <label for="proSelect">Select PRO:</label>
+            <select id="proSelect">
+              <option value="">Select a PRO</option>
+            </select>
+          </div>
+          
+          <div class="select-dropdown">
+            <label for="companySelect">Select Company:</label>
+            <select id="companySelect">
+              <option value="">Select a Company</option>
+            </select>
+          </div>
+          
+          <button id="transferButton" class="transfer-button">Transfer Ownership</button>
+</div>
+      </div>
+
+      <!-- Success Popup -->
+  <div class="success-popup" id="successPopup">
+    <div class="success-content">
+      <p>Transfer completed successfully!</p>
+      <button onclick="closeSuccessPopup()">Close</button>
+    </div>
+  </div>
+      
+      <script>
+        const prosData = [
+          { id: "proA", name: "Ahmed Khalid" },
+          { id: "proB", name: "Malik Ahmad" },
+          { id: "proD", name: "Layla Binti" },
+          { id: "proC", name: "Muhammad Ali" },
+          { id: "proC", name: "Nur Azizah" },
+          { id: "proC", name: "Siti Yusof" }
+          // Add more PRO options as needed
+        ];
+    
+        const companiesData = [
+          { id: "companyA", name: "Malik Holdings (Sdn Bhd)" },
+          { id: "companyB", name: "Chong Enterprises (M) Sdn Bhd" },
+          { id: "companyC", name: "Keladi (International)" }
+          // Add more company options as needed
+        ];
+    
+        const proSelect = document.getElementById("proSelect");
+  const companySelect = document.getElementById("companySelect");
+  const transferButton = document.getElementById("transferButton");
+  const successPopup = document.getElementById("successPopup");
+
+  // Populate dropdowns with data
+  function populateDropdown(dropdown, data) {
+    data.forEach(item => {
+      const option = document.createElement("option");
+      option.value = item.id;
+      option.textContent = item.name;
+      dropdown.appendChild(option);
+    });
+  }
+
+  // Initial population of dropdowns
+  populateDropdown(proSelect, prosData);
+  populateDropdown(companySelect, companiesData);
+
+  // Show success popup
+  function showSuccessPopup() {
+    successPopup.style.display = "flex";
+  }
+
+  // Close success popup
+  function closeSuccessPopup() {
+    successPopup.style.display = "none";
+  }
+
+  // Add click event for Transfer Ownership button
+  transferButton.addEventListener("click", function() {
+    showSuccessPopup();
+  });
+
+  // Close success popup when "Close" button is clicked
+  const closeButton = successPopup.querySelector("button");
+  closeButton.addEventListener("click", function() {
+    closeSuccessPopup();
+  });
+      </script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Data</title>
+  <title>Register New Company and User</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
@@ -131,7 +131,7 @@
 
 <body>
   <header>
-    <h1>Edit Data</h1>
+    <h1>Register New Company and User</h1>
   </header>
 
   <div class="container">
@@ -140,8 +140,8 @@
         <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
         <li><a href="users.html"><i class="material-icons">supervisor_account</i>Users</a></li>
         <li><a href="companies.html"><i class="material-icons">business</i>Companies</a></li>
-        <li><a href="register.html"><i class="material-icons">person_add</i>Register</a></li>
-        <li><a href="edit.html" class="active"><i class="material-icons">build</i>Modify Data</a></li>
+        <li><a href="register.html" class="active"><i class="material-icons">person_add</i>Register</a></li>
+        <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
         <li><a href="reports.html"><i class="material-icons">description</i>View Reports</a></li>
         <li><a href="create-report.html"><i class="material-icons">create</i>Create Report</a></li>
         <li><a href="renewal-expiry.html"><i class="material-icons">refresh</i>Renewals</a></li>
@@ -151,14 +151,14 @@
 
     <div>
       <div class="edit-buttons">
-        <div class="edit-option" id="editCompanyDataButton">
-          <i class="material-icons">business</i>
-          <h3>Edit Company Data</h3>
-        </div>
-        <div class="edit-option" id="editUserDataButton">
+        <div class="edit-option" id="registerUserButton">
           <i class="material-icons">person</i>
-          <h3>Edit User Data</h3>
+          <h3>Register New User</h3>
         </div>
+        <div class="edit-option" id="registerCompanyButton">
+            <i class="material-icons">business</i>
+            <h3>Register New Company</h3>
+          </div>
       </div>
 
       <div id="usersList"></div>
@@ -166,16 +166,16 @@
   </div>
 
   <script>
-    // Edit company data button event listener
-    const editCompanyDataButton = document.getElementById('editCompanyDataButton');
-    editCompanyDataButton.addEventListener('click', () => {
-      window.location.href = 'edit-company.html'; // Redirect to edit-company.html
+    // Register new company button event listener
+    const registerCompanyButton = document.getElementById('registerCompanyButton');
+    registerCompanyButton.addEventListener('click', () => {
+      window.location.href = 'register-new-company.html'; // Redirect to register-new-company.html
     });
 
-    // Edit user data button event listener
-    const editUserDataButton = document.getElementById('editUserDataButton');
-    editUserDataButton.addEventListener('click', () => {
-      window.location.href = 'edit-user.html'; // Redirect to edit-user.html
+    // Register new user button event listener
+    const registerUserButton = document.getElementById('registerUserButton');
+    registerUserButton.addEventListener('click', () => {
+      window.location.href = 'register-new-user.html'; // Redirect to register-new-user.html
     });
   </script>
 </body>

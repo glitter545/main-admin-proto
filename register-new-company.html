@@ -161,74 +161,78 @@
   
   <div class="container">
     <div class="side-menu">
-      <ul>
-        <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
-        <li><a href="users.html"><i class="material-icons">supervisor_account</i>Users</a></li>
-        <li><a href="companies.html"><i class="material-icons">business</i>Companies</a></li>
-        <li><a href="register.html" class="active"><i class="material-icons">person_add</i>Register</a></li>
-        <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
-        <li><a href="reports.html"><i class="material-icons">description</i>View Reports</a></li>
-        <li><a href="create-report.html"><i class="material-icons">create</i>Create Report</a></li>
-        <li><a href="renewal-expiry.html"><i class="material-icons">refresh</i>Renewals</a></li>
-        <li><a href="block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
-      </ul>
+        <ul>
+            <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
+            <li><a href="users.html"><i class="material-icons">supervisor_account</i>Users</a></li>
+            <li><a href="companies.html"><i class="material-icons">business</i>Companies</a></li>
+            <li><a href="register.html" class="active"><i class="material-icons">person_add</i>Register</a></li>
+            <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
+            <li><a href="reports.html"><i class="material-icons">description</i>View Reports</a></li>
+            <li><a href="create-report.html"><i class="material-icons">create</i>Create Report</a></li>
+            <li><a href="renewal-expiry.html"><i class="material-icons">refresh</i>Renewals</a></li>
+            <li><a href="block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
+          </ul>
     </div>
-    
     <div class="form-section">
-      <h2>Register New User</h2>
-      <form id="registerForm">
-        <div>
-          <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required>
-        </div>
-        <div>
-          <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required>
-        </div>
-        <div>
-          <label for="companyName">Company Name:</label>
-          <input type="text" id="companyName" name="companyName" required>
-        </div>
-        <div>
-          <label for="companyLabel">Company Label:</label>
-          <select id="companyLabel" name="companyLabel" required>
-            <option value="" disabled selected>Select Company Label</option>
-            <option value="Sdn Bhd">Sdn Bhd</option>
-            <option value="International">International</option>
-            <option value="Private Limited">Private Limited</option>
-            <option value="Berhad">Berhad</option>
-            <option value="Koperasi">Koperasi</option>
-            <option value="Yayasan">Yayasan</option>
-            <option value="Pertubuhan">Pertubuhan</option>
-            <option value="Persutuan">Persutuan</option>
-          </select>
-        </div>
-        <div>
-          <label for="proName">Admin Database:</label>
-          <input type="text" id="proName" name="proName" required>
-        </div>
-        <div>
-          <label for="registrationNumber">Registration Number:</label>
-          <input type="text" id="registrationNumber" name="registrationNumber" required>
-        </div>
-        <div>
-          <label for="phoneNumber">Phone Number:</label>
-          <input type="tel" id="phoneNumber" name="phoneNumber" required>
-        </div>
-        <div>
-          <label for="address">Address:</label>
-          <input type="text" id="address" name="address" required>
-        </div>
-        <div>
-          <label for="secondaryAddress">Person in Charge:</label>
-          <input type="text" id="secondaryAddress" name="secondaryAddress" required>
-        </div>
-        <div>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <button type="submit">Register</button>
-      </form>
+        <h2>Register New Company</h2>
+        <form id="registerForm">
+          <div>
+            <label for="companyName">Company Name:</label>
+            <input type="text" id="companyName" name="companyName" required>
+          </div>
+          <div>
+            <label for="companyLabel">Company Label:</label>
+            <select id="companyLabel" name="companyLabel" required>
+              <option value="" disabled selected>Select Company Label</option>
+              <option value="Sdn Bhd">Sdn Bhd</option>
+              <option value="International">International</option>
+              <option value="Private Limited">Private Limited</option>
+              <option value="Berhad">Berhad</option>
+              <option value="Koperasi">Koperasi</option>
+              <option value="Yayasan">Yayasan</option>
+              <option value="Pertubuhan">Pertubuhan</option>
+              <option value="Persutuan">Persutuan</option>
+            </select>
+          </div>
+          <div>
+            <label for="registrationNumber">Registration Number:</label>
+            <input type="text" id="registrationNumber" name="registrationNumber" required>
+          </div>
+          <div>
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required>
+          </div>
+          <div>
+              <label for="phoneNumber">Office Fax:</label>
+              <input type="tel" id="phoneNumber" name="phoneNumber" required>
+            </div>
+          <div>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+          </div>
+          <div>
+            <label for="secondaryAddress">Person in Charge:</label>
+            <input type="text" id="secondaryAddress" name="secondaryAddress" required>
+          </div>
+          <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="proName">PRO:</label>
+            <input type="text" id="proName" name="proName" required>
+          </div>
+
+          <div>
+            <label for="secondaryAddress">(Optional) Register for User:</label>
+            <input type="text" id="secondaryAddress" name="secondaryAddress" required>
+          </div>
+          
+          <button type="submit" id="registerButton">Register</button>
+        </form>
+      </div>
+
+      
     </div>
   </div>
 </body>

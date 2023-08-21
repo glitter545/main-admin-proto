@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRO Lists</title>
+  <style>
+    /* General Styling */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    /* Header Styling */
+    header {
+      background-color: #512da8;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    /* Container Styling */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 20px;
+    }
+
+    /* Side Menu Styling */
+    .side-menu {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      color: #512da8;
+    }
+
+    /* Main Content Styling */
+    .main-content {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      color: #512da8;
+      animation: slide-up 0.4s ease-in-out;
+    }
+
+    /* PRO Table Styling */
+    .pro-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .pro-table th,
+    .pro-table td {
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .pro-table th {
+      background-color: #f5f5f5;
+      font-weight: bold;
+    }
+
+    /* Side Menu Styling */
+    .side-menu {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      color: #512da8; /* Dark blue color for default text color */
+    }
+
+    .side-menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .side-menu li {
+      margin-bottom: 10px;
+    }
+
+    .side-menu a {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      color: #512da8; /* Dark blue color */
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .side-menu a:hover {
+      background-color: #e1bee7;
+    }
+
+    .side-menu a i {
+      margin-right: 10px;
+    }
+
+    .side-menu a.active {
+      background-color: #e1bee7;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .details-button {
+      background-color: #512da8;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .details-button:hover {
+      background-color: #3b2064;
+    }
+    
+    /* Animation Styling */
+    @keyframes slide-up {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <h1>PRO List</h1>
+  </header>
+
+  <div class="container">
+    <!-- Side Menu -->
+    <div class="side-menu">
+      <ul>
+        <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
+        <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO</a></li>
+        <li><a href="companies.html" class="active"><i class="material-icons">business</i>Publisher</a></li>
+        <li><a href="register.html"><i class="material-icons">person_add</i>Register</a></li>
+        <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
+        <li><a href="reports.html"><i class="material-icons">description</i>View Reports</a></li>
+        <li><a href="create-report.html"><i class="material-icons">create</i>Create Report</a></li>
+        <li><a href="renewal-expiry.html"><i class="material-icons">refresh</i>Renewals</a></li>
+        <li><a href="block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
+      </ul>
+    </div>
+
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <h2>PRO List/MF WORLDWIDE RESOURCES</h2>
+        <table class="pro-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Database</th>
+            </tr>
+          </thead>
+          <tbody id="proTableBody">
+            <!-- JavaScript will populate table rows here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+        const proData = [
+  {
+    name: "Ali Bin Ahmad",
+    address: "123 Jalan ABC, Taman XYZ, 12345 Kuala Lumpur",
+    phone: "012-3456789",
+    email: "ali@example.com",
+    link: "alibinahmad.html"
+  },
+  {
+    name: "Siti Binti Kamal",
+    address: "456 Jalan DEF, Taman UVW, 67890 Petaling Jaya",
+    phone: "011-9876543",
+    email: "siti@example.com"
+  },
+  {
+    name: "Ahmad Bin Ismail",
+    address: "789 Jalan GHI, Taman RST, 54321 Shah Alam",
+    phone: "017-1234567",
+    email: "ahmad@example.com"
+  },
+  {
+    name: "Nurul Huda",
+    address: "101 Lorong MNO, Taman PQR, 88888 Subang Jaya",
+    phone: "019-5554443",
+    email: "nurul@example.com"
+  },
+  {
+    name: "Khairul Azman",
+    address: "246 Jalan STU, Taman VWX, 77777 Shah Alam",
+    phone: "016-9871234",
+    email: "khairul@example.com"
+  }
+];
+
+const proTableBody = document.getElementById('proTableBody');
+  proData.forEach(pro => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${pro.name}</td>
+      <td>${pro.address}</td>
+      <td>${pro.phone}</td>
+      <td>${pro.email}</td>
+      <td><button class="details-button">View</button></td>
+    `;
+    proTableBody.appendChild(row);
+  });
+
+  const detailsButtons = document.querySelectorAll('.details-button');
+  detailsButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      // Access the link property and navigate to the details page
+      window.location.href = proData[index].link;
+    });
+  });
+      </script>
+   
+</body>
+</html>

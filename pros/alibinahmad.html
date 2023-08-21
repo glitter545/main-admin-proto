@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRO Lists</title>
+  <style>
+    /* General Styling */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    /* Header Styling */
+    header {
+      background-color: #512da8;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    /* Container Styling */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 20px;
+    }
+
+    /* Side Menu Styling */
+    .side-menu {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      color: #512da8;
+    }
+
+    /* Main Content Styling */
+    .main-content {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      color: #512da8;
+      animation: slide-up 0.4s ease-in-out;
+    }
+
+    /* PRO Table Styling */
+    .pro-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .pro-table th,
+    .pro-table td {
+      padding: 10px;
+      border: 1px solid #ddd;
+    }
+
+    .pro-table th {
+      background-color: #f5f5f5;
+      font-weight: bold;
+    }
+
+    /* Side Menu Styling */
+    .side-menu {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      color: #512da8; /* Dark blue color for default text color */
+    }
+
+    .side-menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .side-menu li {
+      margin-bottom: 10px;
+    }
+
+    .side-menu a {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      color: #512da8; /* Dark blue color */
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .side-menu a:hover {
+      background-color: #e1bee7;
+    }
+
+    .side-menu a i {
+      margin-right: 10px;
+    }
+
+    .side-menu a.active {
+      background-color: #e1bee7;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .details-button {
+      background-color: #512da8;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .details-button:hover {
+      background-color: #3b2064;
+    }
+    
+    /* Animation Styling */
+    @keyframes slide-up {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <h1>PRO List</h1>
+  </header>
+
+  <div class="container">
+    <!-- Side Menu -->
+    <div class="side-menu">
+      <ul>
+        <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
+        <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO</a></li>
+        <li><a href="companies.html" class="active"><i class="material-icons">business</i>Publisher</a></li>
+        <li><a href="register.html"><i class="material-icons">person_add</i>Register</a></li>
+        <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
+        <li><a href="reports.html"><i class="material-icons">description</i>View Reports</a></li>
+        <li><a href="create-report.html"><i class="material-icons">create</i>Create Report</a></li>
+        <li><a href="renewal-expiry.html"><i class="material-icons">refresh</i>Renewals</a></li>
+        <li><a href="block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
+      </ul>
+    </div>
+
+    <div class="another-container">
+        <div class="main-content">
+          <h2>Database for: Ali Bin Ahmad</h2>
+          <h3>Select a Publisher:</h3>
+          <select id="publisherDropdown">
+            <!-- Populated dynamically using JavaScript -->
+          </select>
+    
+          <table class="pro-table">
+            <thead>
+              <tr>
+                <th>PRO name</th>
+                <th>Publisher</th>
+                <th>Data</th>
+                <th>More Data</th>
+              </tr>
+            </thead>
+            <tbody id="databaseList">
+              <!-- Populated dynamically using JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+  
+      <script>
+       const ali = [
+    {
+        name: "Ali Bin Ahmad",
+        publisher: "MF WORLDWIDE RESOURCES",
+        randomData: "more data",
+        anotherRandom: "another more data"
+    },
+    {
+        name: "Ali Bin Ahmad",
+        publisher: "MF WORLDWIDE RESOURCES",
+        randomData: "more data",
+        anotherRandom: "another more data"
+    },
+    {
+        name: "Ali Bin Ahmad",
+        publisher: "MF WORLDWIDE RESOURCES",
+        randomData: "more data",
+        anotherRandom: "another more data"
+    },
+    {
+        name: "Ali Bin Ahmad",
+        publisher: "MURPHEES MARKETING & TRADING",
+        randomData: "more data",
+        anotherRandom: "another more data"
+    },
+    {
+        name: "Ali Bin Ahmad",
+        publisher: "MURPHEES MARKETING & TRADING",
+        randomData: "more data",
+        anotherRandom: "another more data"
+    },
+    {
+        name: "Ali Bin Ahmad",
+        publisher: "MURPHEES MARKETING & TRADING",
+        randomData: "more data",
+        anotherRandom: "another more data"
+    },
+    {
+        name: "Ali Bin Ahmad",
+        publisher: "MURPHEES MARKETING & TRADING",
+        randomData: "more data",
+        anotherRandom: "another more data"
+    },
+    {
+        name: "Ali Bin Ahmad",
+        publisher: "MURPHEES MARKETING & TRADING",
+        randomData: "more data",
+        anotherRandom: "another more data"
+    },
+    {
+        name: "Ali Bin Ahmad",
+        publisher: "MURPHEES MARKETING & TRADING",
+        randomData: "more data",
+        anotherRandom: "another more data"
+    },
+    {
+        name: "Ali Bin Ahmad",
+        publisher: "MURPHEES MARKETING & TRADING",
+        randomData: "more data",
+        anotherRandom: "another more data"
+    }
+];
+
+const publisherDropdown = document.getElementById("publisherDropdown");
+  const databaseList = document.getElementById("databaseList");
+
+  // Extract unique publishers from the data
+  const uniquePublishers = [...new Set(ali.map(entry => entry.publisher))];
+
+  // Populate the publisher dropdown with unique publishers
+  uniquePublishers.forEach(publisher => {
+    const option = document.createElement("option");
+    option.value = publisher;
+    option.textContent = publisher;
+    publisherDropdown.appendChild(option);
+  });
+
+  // Function to populate the table based on the selected publisher
+  function populateTable(selectedPublisher) {
+    databaseList.innerHTML = "";
+    const databases = ali.filter(entry => entry.publisher === selectedPublisher);
+    databases.forEach(database => {
+      const row = document.createElement("tr");
+      const proNameCell = document.createElement("td");
+      proNameCell.textContent = database.name;
+      const publisherCell = document.createElement("td");
+      publisherCell.textContent = database.publisher;
+      const dataCell = document.createElement("td");
+      dataCell.textContent = database.randomData; // You can customize this
+      const moreDataCell = document.createElement("td");
+      moreDataCell.textContent = database.anotherRandom; // You can customize this
+      row.appendChild(proNameCell);
+      row.appendChild(publisherCell);
+      row.appendChild(dataCell);
+      row.appendChild(moreDataCell);
+      databaseList.appendChild(row);
+    });
+  }
+
+  // Populate the table initially with the first publisher in the dropdown
+  if (uniquePublishers.length > 0) {
+    populateTable(uniquePublishers[0]);
+  }
+
+  // Event listener for changes in the dropdown
+  publisherDropdown.addEventListener("change", () => {
+    const selectedPublisher = publisherDropdown.value;
+    populateTable(selectedPublisher);
+  });
+      </script>
+    
+</body>
+</html>

@@ -143,14 +143,24 @@
 
   <script>
     function handleLoginForm() {
-      // For prototype purposes, navigate to the target page without any validation
-      // Replace "main-admin-dashboard.html" with the correct filename and path
-      window.location.href = "main-admin-dashboard.html";
-      
+      // Get the input values
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+  
+      // Check if the input values match the desired credentials
+      if (username === "admin" && password === "user001") {
+        // Successful login, redirect to the dashboard page
+        window.location.href = "main-admin-dashboard.html";
+      } else {
+        // Invalid credentials, show an error message (you can customize this)
+        alert("Invalid username or password. Please try again.");
+      }
+  
       // Return false to prevent the default form submission behavior
       return false;
     }
   </script>
+  
 </body>
 
 </html>

@@ -29,6 +29,36 @@ const people = [
       address: "246 Jalan STU, Taman VWX, 77777 Shah Alam",
       phone: "016-9871234",
       email: "khairul@example.com"
+    },
+    {
+      name: "Aisyah Binti Abdullah",
+      address: "123 Jalan Harmoni, Taman Murni, 12345 Kuala Lumpur",
+      phone: "012-3456789",
+      email: "aisyah@example.com"
+    },
+    {
+      name: "Zainal Bin Ahmad",
+      address: "456 Jalan Bahagia, Taman Damai, 67890 Petaling Jaya",
+      phone: "011-9876543",
+      email: "zainal@example.com"
+    },
+    {
+      name: "Nor Azman",
+      address: "789 Jalan Mesra, Taman Ceria, 54321 Shah Alam",
+      phone: "017-1234567",
+      email: "nor@example.com"
+    },
+    {
+      name: "Fatimah Binti Ali",
+      address: "101 Lorong Bahagia, Taman Seri, 88888 Subang Jaya",
+      phone: "019-5554443",
+      email: "fatimah@example.com"
+    },
+    {
+      name: "Kamarul Zaman",
+      address: "246 Jalan Gemilang, Taman Sentosa, 77777 Shah Alam",
+      phone: "016-9871234",
+      email: "kamarul@example.com"
     }
   ];
   

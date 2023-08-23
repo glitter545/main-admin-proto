@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edit Data</title>
+  <title>Register Personal Donor</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
@@ -13,19 +12,18 @@
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f2f5fa;
+      background-color: #f5f5f5;
     }
-
+    
     /* Header Styling */
     header {
       background-color: #512da8;
       padding: 20px;
       text-align: center;
       color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-
-    /* Container Styling */
+    
+    /* Main Container Styling */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -34,25 +32,25 @@
       grid-template-columns: 200px 1fr;
       gap: 20px;
     }
-
+    
     /* Side Menu Styling */
     .side-menu {
       background-color: #fff;
       padding: 20px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
     }
-
+    
     .side-menu ul {
       list-style-type: none;
       padding: 0;
       margin: 0;
     }
-
+    
     .side-menu li {
       margin-bottom: 10px;
     }
-
+    
     .side-menu a {
       display: flex;
       align-items: center;
@@ -62,59 +60,88 @@
       border-radius: 5px;
       transition: background-color 0.3s ease;
     }
-
+    
     .side-menu a:hover {
       background-color: #e1bee7;
     }
-
+    
     .side-menu a i {
       margin-right: 10px;
     }
-
+    
     .side-menu a.active {
       background-color: #e1bee7;
       color: #fff;
       font-weight: bold;
     }
-
-    /* Edit Buttons Styling */
-    .edit-buttons {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .edit-option {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 200px;
-      height: 200px;
-      background-color: #e1eaf1;
-      color: #512da8;
+    
+    /* Form Styling */
+    .form-section {
+      background-color: #f5f5f5;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      margin-right: 20px;
       animation: slide-up 0.4s ease-in-out;
     }
-
-    .edit-option:hover {
-      transform: translateY(-5px);
+    
+    .form-section h2 {
+      color: #512da8;
+      font-size: 24px;
+      margin: 0 0 20px;
     }
-
-    .edit-option i {
-      font-size: 60px;
-      margin-bottom: 10px;
+    
+    .form-section form {
+      display: grid;
+      gap: 20px;
     }
-
-    .edit-option h3 {
-      margin: 0;
-      font-size: 16px;
+    
+    .form-section label {
+      font-weight: bold;
     }
-
+    
+    .form-section input,
+    .form-section select {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 100%;
+    }
+    
+    .form-section select {
+      appearance: none;
+      background-color: #fff;
+    }
+    
+    .form-section select option {
+      background-color: #fff;
+    }
+    
+    .form-section button {
+      padding: 10px 20px;
+      background-color: #512da8;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .form-section button:hover {
+      background-color: #e1bee7;
+    }
+    
+    
+    /* Custom styles for PRO form */
+    .form-section.pro-form {
+      margin-top: 30px;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
     @keyframes slide-up {
       0% {
         opacity: 0;
@@ -128,60 +155,52 @@
     }
   </style>
 </head>
-
 <body>
   <header>
-    <h1>Edit Data</h1>
+    <h1>Main Admin Dashboard</h1>
   </header>
-
+  
   <div class="container">
     <div class="side-menu">
       <ul>
         <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
         <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO</a></li>
         <li><a href="companies.html"><i class="material-icons">business</i>Publisher</a></li>
-        <li><a href="register.html"><i class="material-icons">person_add</i>Register</a></li>
-        <li><a href="edit.html" class="active"><i class="material-icons">build</i>Modify Data</a></li>
+        <li><a href="register.html" class="active"><i class="material-icons">person_add</i>Register</a></li>
+        <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
         <li><a href="reports.html"><i class="material-icons">description</i>View Reports</a></li>
         <li><a href="create-report.html"><i class="material-icons">create</i>Create Report</a></li>
         <li><a href="renewal-expiry.html"><i class="material-icons">refresh</i>Renewals</a></li>
         <li><a href="block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
       </ul>
     </div>
-
-    <div>
-      <div class="edit-buttons">
-        <div class="edit-option" id="editCompanyDataButton">
-          <i class="material-icons">business</i>
-          <h3>Edit Publisher Info</h3>
+    
+    <div class="form-section">
+      <h2>Register Personal Donor</h2>
+      <form id="registerForm">
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
         </div>
-        <div class="edit-option" id="editUserDataButton">
-          <i class="material-icons">person</i>
-          <h3>Edit User Info</h3>
+        <div>
+          <label for="icNumber">IC Number:</label>
+          <input type="text" id="icNumber" name="icNumber" required>
         </div>
-        <div class="edit-option" id="editCompanyDataButton">
-          <i class="material-icons">assignment</i>
-          <h3>Edit Donor Info</h3>
+        <div>
+          <label for="address">Address:</label>
+          <input type="text" id="address" name="address" required>
         </div>
-      </div>
-
-      <div id="usersList"></div>
+        <div>
+          <label for="phone">Phone:</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <button type="submit">Register</button>
+      </form>
     </div>
   </div>
-
-  <script>
-    // Edit company data button event listener
-    const editCompanyDataButton = document.getElementById('editCompanyDataButton');
-    editCompanyDataButton.addEventListener('click', () => {
-      window.location.href = 'edit-company.html'; // Redirect to edit-company.html
-    });
-
-    // Edit user data button event listener
-    const editUserDataButton = document.getElementById('editUserDataButton');
-    editUserDataButton.addEventListener('click', () => {
-      window.location.href = 'edit-user.html'; // Redirect to edit-user.html
-    });
-  </script>
 </body>
-
 </html>

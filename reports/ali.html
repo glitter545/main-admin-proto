@@ -142,40 +142,41 @@
   <div class="container">
     <div class="side-menu">
       <ul>
-        <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
-        <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO</a></li>
-        <li><a href="companies.html"><i class="material-icons">business</i>Publisher</a></li>
-        <li><a href="register.html"><i class="material-icons">person_add</i>Register</a></li>
-        <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
-        <li><a href="reports.html" class="active"><i class="material-icons">description</i>View Reports</a></li>
-        <li><a href="create-report.html"><i class="material-icons">create</i>Create Report</a></li>
-        <li><a href="renewal-expiry.html"><i class="material-icons">refresh</i>Renewals</a></li>
-        <li><a href="block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
+        <li><a href="../main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
+        <li><a href="../pro-lists.html"><i class="material-icons">supervisor_account</i>PRO</a></li>
+        <li><a href="../companies.html"><i class="material-icons">business</i>Publisher</a></li>
+        <li><a href="../register.html"><i class="material-icons">person_add</i>Register</a></li>
+        <li><a href="../edit.html"><i class="material-icons">build</i>Modify Data</a></li>
+        <li><a href="../reports.html" class="active"><i class="material-icons">description</i>View Reports</a></li>
+        <li><a href="../create-report.html"><i class="material-icons">create</i>Create Report</a></li>
+        <li><a href="../renewal-expiry.html"><i class="material-icons">refresh</i>Renewals</a></li>
+        <li><a href="../block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
       </ul>
     </div>
 
     <div class="reports-section">
-        <h2>Reports</h2>
-        <div class="report-options">
-          <input type="text" id="searchInput" placeholder="Search User">
-          <button id="searchButton">Search</button>
-          <!-- <select id="sortType">
-            <option value="All">All</option>
-            <option value="Daily">Daily</option>
-            <option value="Weekly">Weekly</option>
-            <option value="Monthly">Monthly</option>
-            <option value="Quarterly">Quarterly</option>
-            <option value="Yearly">Yearly</option>
-          </select> -->
-        </div>
+      <h2>Donor Report</h2>
+      <div class="report-options">
+        <select id="sortType">
+          <option value="All">All</option>
+          <option value="Daily">Daily</option>
+          <option value="Weekly">Weekly</option>
+          <option value="Monthly">Monthly</option>
+          <option value="Quarterly">Quarterly</option>
+          <option value="Yearly">Yearly</option>
+        </select>
+      </div>
 
         <table>
             <thead>
-              <tr>
-                <th>Donor</th>
-                <th>Company</th>
-                <th>View</th>
-              </tr>
+                <tr>
+                    <th>Donor</th>
+                    <th>Date</th>
+                    <th>Publisher</th>
+                    <th>Receiving Bank</th>
+                    <th>Amount</th>
+                    <th>Receipt Number</th>
+                  </tr>
             </thead>
             <tbody id="reportTableBody">
               <!-- Table body content will be dynamically generated here -->
@@ -188,56 +189,107 @@
     const reports = [
     {
     donor: "Ali Bin Ahmad",
-    publisher: "MF WORLDWIDE RESOURCES",
-    link:"reports/ali.html"
+    date: "2023-08-22",
+    publisher: "MURPHEES MARKETING & TRADING",
+    receivingBank: "RHB Bank",
+    amount: "500.00 MYR",
+    receiptNumber: "123456789"
   },
   {
-    donor: "Aisyah Binti Abdullah",
-    publisher: "MURPHEES MARKETING & TRADING"
+    donor: "Ali Bin Ahmad",
+    date: "2023-08-23",
+    publisher: "VJVJ MEDIA AD CONSULTANTS",
+    receivingBank: "Maybank",
+    amount: "800.00 MYR",
+    receiptNumber: "987654321"
   },
   {
-    donor: "Nor Azman",
-    publisher: "KC REWARDS (M) SDN BHD"
-  },
-  {
-    donor: "Norliza Binti Mohamad",
-    publisher: "VJVJ MEDIA AD CONSULTANTS"
-  },
-  {
-    donor: "Amirul Azhar Bin Ibrahim",
-    publisher: "YAWEH RESOURCES"
-  },
-  {
-    donor: "Faridah Binti Hussain",
-    publisher: "ML ADVANCED RESOURCES"
+    donor: "Ali Bin Ahmad",
+    date: "2023-08-24",
+    publisher: "ML ADVANCED RESOURCES",
+    receivingBank: "CIMB Bank",
+    amount: "300.00 MYR",
+    receiptNumber: "456789012"
   }
 ];
 
 function populateTable() {
   const tableBody = document.getElementById('reportTableBody');
-  const searchInput = document.getElementById('searchInput');
-  const searchButton = document.getElementById('searchButton');
+  const sortTypeSelect = document.getElementById('sortType');
 
   function updateTable() {
-    const searchValue = searchInput.value.trim().toLowerCase();
-    const filteredReports = searchReports(searchValue);
+    const sortType = sortTypeSelect.value;
+    const filteredReports = filterReports(sortType);
 
     renderReports(filteredReports);
   }
 
-  searchButton.addEventListener('click', updateTable);
-  searchInput.addEventListener('input', updateTable);
+  sortTypeSelect.addEventListener('change', updateTable);
 
   renderReports(reports);
 }
 
-function searchReports(searchValue) {
-  if (searchValue === '') {
+function filterReports(sortType) {
+  if (sortType === 'All') {
     return reports;
   }
 
-  const searchRegex = new RegExp(searchValue, 'i');
-  return reports.filter(report => searchRegex.test(report.donor) || searchRegex.test(report.publisher));
+  const currentDate = new Date();
+  const filteredReports = reports.filter(report => {
+    const reportDate = new Date(report.date);
+    switch (sortType) {
+      case 'Daily':
+        return isSameDay(currentDate, reportDate);
+      case 'Weekly':
+        return isSameWeek(currentDate, reportDate);
+      case 'Monthly':
+        return isSameMonth(currentDate, reportDate);
+      case 'Quarterly':
+        return isSameQuarter(currentDate, reportDate);
+      case 'Yearly':
+        return isSameYear(currentDate, reportDate);
+      default:
+        return true;
+    }
+  });
+
+  return filteredReports;
+}
+
+function isSameDay(date1, date2) {
+  return (
+    date1.getFullYear() === date2.getFullYear() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getDate() === date2.getDate()
+  );
+}
+
+function isSameWeek(date1, date2) {
+  const oneDay = 24 * 60 * 60 * 1000;
+  const daysDifference = Math.round(Math.abs((date1 - date2) / oneDay));
+
+  return daysDifference <= 7 && date1.getDay() >= date2.getDay();
+}
+
+function isSameMonth(date1, date2) {
+  return (
+    date1.getFullYear() === date2.getFullYear() &&
+    date1.getMonth() === date2.getMonth()
+  );
+}
+
+function isSameQuarter(date1, date2) {
+  const quarter1 = Math.floor(date1.getMonth() / 3);
+  const quarter2 = Math.floor(date2.getMonth() / 3);
+
+  return (
+    date1.getFullYear() === date2.getFullYear() &&
+    quarter1 === quarter2
+  );
+}
+
+function isSameYear(date1, date2) {
+  return date1.getFullYear() === date2.getFullYear();
 }
 
 function renderReports(reportsToRender) {
@@ -250,8 +302,11 @@ function renderReports(reportsToRender) {
 
     row.innerHTML = `
       <td>${report.donor}</td>
+      <td>${report.date}</td>
       <td>${report.publisher}</td>
-      <td><a href="${report.link}">View</a></td>
+      <td>${report.receivingBank}</td>
+      <td>${report.amount}</td>
+      <td>${report.receiptNumber}</td>
     `;
 
     tableBody.appendChild(row);

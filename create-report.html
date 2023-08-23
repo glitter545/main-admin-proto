@@ -118,7 +118,20 @@
     .donation-form button:hover {
       background-color: #3b2064; /* Darker shade on hover */
     }
-    
+    select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+  }
+
+  /* Style the options */
+  select option {
+    font-size: 14px;
+    padding: 8px;
+  }
     /* Responsive Styling ... (same as before) */
 
     /* Animation Styling (copied from users.html) */
@@ -161,37 +174,113 @@
     <main>
       <!-- New section for the user to make their own report -->
       <section id="make-report" class="donation-form">
-        <h2>Make a New Report</h2>
+        <h2>Donor Report</h2>
         <form>
-          <label for="donor">Donor Company/Organization:</label>
-          <input type="text" id="donor" name="donor" required>
-
-          <label for="pro_donation_company">PRO of Donation Company:</label>
-          <input type="text" id="pro_donation_company" name="pro_donation_company" required>
-
-          <label for="pro_receiving_company">PRO of Receiving Company:</label>
-          <input type="text" id="pro_receiving_company" name="pro_receiving_company" required>
-
-          <label for="receiving_bank_account">Receiving Bank Account:</label>
-          <input type="text" id="receiving_bank_account" name="receiving_bank_account" required>
-
-          <label for="donor_bank_account">Donor Company's Bank Account:</label>
-          <input type="text" id="donor_bank_account" name="donor_bank_account" required>
+          
+          <label for="donorSelect">Select Donor:</label>
+          <select id="receiving_bank" name="receiving_bank" required>
+            <option value="">Select Donor</option>
+ <option value="Siti Binti Kamal">Siti Binti Kamal</option>
+  <option value="Nurul Huda">Nurul Huda</option>
+  <option value="Khairul Azman">Khairul Azman</option>
+  <option value="Aisyah Binti Abdullah">Aisyah Binti Abdullah</option>
+  <option value="Nor Azman">Nor Azman</option>
+  <option value="Fatimah Binti Ali">Fatimah Binti Ali</option>
+  <option value="Kamarul Zaman">Kamarul Zaman</option>
+            
+          </select>
 
           <label for="date">Date:</label>
           <input type="date" id="date" name="date" required>
+        
+          <label for="donor">Publisher/Organization:</label>
+          <select id="donor" name="donor" required>
+            <option value="">Select Publisher</option>
+            <option value="MF WORLDWIDE RESOURCES">MF WORLDWIDE RESOURCES</option>
+  <option value="MURPHEES MARKETING & TRADING">MURPHEES MARKETING & TRADING</option>
+  <option value="VJVJ MEDIA AD CONSULTANTS">VJVJ MEDIA AD CONSULTANTS</option>
+  <option value="KC REWARDS (M) SDN BHD">KC REWARDS (M) SDN BHD</option>
+  <option value="ML ADVANCED RESOURCES">ML ADVANCED RESOURCES</option>
+  <option value="YAWEH RESOURCES">YAWEH RESOURCES</option>
+            
+          </select>
+        
+          <label for="receiving_bank">Receiving Bank:</label>
+<select id="receiving_bank" name="receiving_bank" required>
+  <option value="">Select bank</option>
+  <option value="The Royal Bank of Scotland Berhad">The Royal Bank of Scotland Berhad</option>
+  <option value="Affin Bank Berhad">Affin Bank Berhad</option>
+  <option value="Alliance Bank Malaysia Berhad">Alliance Bank Malaysia Berhad</option>
+  <option value="AmBank (M) Berhad">AmBank (M) Berhad</option>
+  <option value="Bangkok Bank Berhad">Bangkok Bank Berhad</option>
+  <option value="CIMB Bank Berhad">CIMB Bank Berhad</option>
+  <option value="Bank of America Malaysia Berhad">Bank of America Malaysia Berhad</option>
+  <option value="Bank of China (Malaysia) Berhad">Bank of China (Malaysia) Berhad</option>
+  <option value="Bank of Tokyo-Mitsubishi UFJ (Malaysia) Berhad">Bank of Tokyo-Mitsubishi UFJ (Malaysia) Berhad</option>
+  <option value="Citibank Berhad">Citibank Berhad</option>
+  <option value="Deutsche Bank (Malaysia) Berhad">Deutsche Bank (Malaysia) Berhad</option>
+  <option value="EON Bank Berhad">EON Bank Berhad</option>
+  <option value="Hong Leong Bank Berhad">Hong Leong Bank Berhad</option>
+  <option value="HSBC Bank Malaysia Berhad">HSBC Bank Malaysia Berhad</option>
+  <option value="J.P. Morgan Chase Bank Berhad">J.P. Morgan Chase Bank Berhad</option>
+  <option value="Malayan Banking Berhad">Malayan Banking Berhad</option>
+  <option value="OCBC Bank (Malaysia) Berhad">OCBC Bank (Malaysia) Berhad</option>
+  <option value="Public Bank Berhad">Public Bank Berhad</option>
+  <option value="RHB Bank Berhad">RHB Bank Berhad</option>
+  <option value="Standard Chartered Bank Malaysia Berhad">Standard Chartered Bank Malaysia Berhad</option>
+  <option value="The Bank of Nova Scotia Berhad">The Bank of Nova Scotia Berhad</option>
+  <option value="United Overseas Bank (Malaysia) Berhad">United Overseas Bank (Malaysia) Berhad</option>
+  <option value="Affin Islamic Bank Berhad">Affin Islamic Bank Berhad</option>
+  <option value="Al Rajhi Banking & Investment Corporation (Malaysia) Berhad">Al Rajhi Banking & Investment Corporation (Malaysia) Berhad</option>
+  <option value="AmIslamic Bank Berhad">AmIslamic Bank Berhad</option>
+  <option value="Asian Finance Bank Berhad">Asian Finance Bank Berhad</option>
+  <option value="Bank Islam Malaysia Berhad">Bank Islam Malaysia Berhad</option>
+  <option value="Bank Muamalat Malaysia Berhad">Bank Muamalat Malaysia Berhad</option>
+  <option value="CIMB Islamic Bank Berhad">CIMB Islamic Bank Berhad</option>
+  <option value="EONCAP Islamic Bank Berhad">EONCAP Islamic Bank Berhad</option>
+  <option value="Hong Leong Islamic Bank Berhad">Hong Leong Islamic Bank Berhad</option>
+  <option value="Kuwait Finance House (Malaysia) Berhad">Kuwait Finance House (Malaysia) Berhad</option>
+  <option value="RHB ISLAMIC Bank Berhad">RHB ISLAMIC Bank Berhad</option>
+  <option value="Maybank Islamic Berhad">Maybank Islamic Berhad</option>
+  <option value="Alliance Islamic Bank Berhad">Alliance Islamic Bank Berhad</option>
+  <option value="HSBC Amanah Malaysia Berhad">HSBC Amanah Malaysia Berhad</option>
+  <option value="Standard Chartered Saadiq Berhad">Standard Chartered Saadiq Berhad</option>
+  <option value="Public Islamic Bank Berhad">Public Islamic Bank Berhad</option>
+  <option value="OCBC Al-Amin Bank Berhad">OCBC Al-Amin Bank Berhad</option>
+  <option value="Affin Investment Bank Berhad">Affin Investment Bank Berhad</option>
+  <option value="Alliance Investment Bank Berhad">Alliance Investment Bank Berhad</option>
+  <option value="AmInvestment Bank Berhad">AmInvestment Bank Berhad</option>
+  <option value="Maybank Investment Bank Berhad">Maybank Investment Bank Berhad</option>
+  <option value="CIMB Investment Bank Berhad">CIMB Investment Bank Berhad</option>
+  <option value="Hwang-DBS Investment Bank Berhad">Hwang-DBS Investment Bank Berhad</option>
+  <option value="KAF Investment Bank Berhad">KAF Investment Bank Berhad</option>
+  <option value="Kenanga Investment Bank Berhad">Kenanga Investment Bank Berhad</option>
+  <option value="MIDF Amanah Investment Bank Berhad">MIDF Amanah Investment Bank Berhad</option>
+  <option value="MIMB Investment Bank Berhad">MIMB Investment Bank Berhad</option>
+  <option value="OSK Investment Bank Berhad">OSK Investment Bank Berhad</option>
+  <option value="Public Investment Bank Berhad">Public Investment Bank Berhad</option>
+  <option value="RHB Investment Bank Berhad">RHB Investment Bank Berhad</option>
+  <option value="Hong Leong Investment Bank Berhad">Hong Leong Investment Bank Berhad</option>
+  <option value="ECM Libra Investment Bank Berhad">ECM Libra Investment Bank Berhad</option>
+</select>
 
+
+        
           <label for="amount">Amount:</label>
           <input type="number" id="amount" name="amount" required>
-
-          <label for="transaction_id">Transaction ID:</label>
-          <input type="text" id="transaction_id" name="transaction_id" required>
-
-          <label for="notes">Notes:</label>
-          <textarea id="notes" name="notes" rows="4"></textarea>
-
+        
+          <label for="receipt_no">Receipt Number:</label>
+          <input type="text" id="receipt_no" name="receipt_no" required>
+<!--         
+          <label for="publisher">Publisher:</label>
+          <input type="text" id="publisher" name="publisher" required> -->
+<!--         
+          <label for="pro">PRO:</label>
+          <input type="text" id="pro" name="pro" required> -->
+        
           <button type="submit">Submit Report</button>
         </form>
+        
       </section>
     </main>
   </div>
@@ -207,6 +296,7 @@
         });
       });
     });
+
   </script>
 </body>
 </html>

@@ -147,20 +147,20 @@
       }
     }
     /* Button Styling */
-.transfer-button {
-  background-color: #512da8;
-  color: #fff;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 14px;
-}
+    .transfer-button {
+      background-color: #512da8;
+      color: #fff;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 14px;
+    }
 
-.transfer-button:hover {
-  background-color: #e1bee7;
-}
+    .transfer-button:hover {
+      background-color: #e1bee7;
+    }
   </style>
 </head>
 
@@ -185,15 +185,15 @@
     </div>
 
     <div class="main-section">
-      <h2>Company List</h2>
+      <h2>Publisher Renewals</h2>
       <table>
         <thead>
           <tr>
-            <th>Company Name</th>
+            <th>Publisher</th>
             <th>Renewal Date</th>
             <th>Time Remaining</th>
             <th>Status</th>
-            <th>PRO</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody id="companyTableBody">
@@ -204,91 +204,109 @@
   </div>
 
   <script>
-    const companies = [
+   const companies = [
   {
-    name: 'Khalid Engineering (Private Limited)',
+    name: 'MF WORLDWIDE RESOURCES',
     renewalDate: '2023-09-01',
-    availability: 'Not Available',
-    pro: 'Abdul Rahman'
+    active: false,
   },
   {
-    name: 'Khaldun (Private Limited)',
+    name: 'MURPHEES MARKETING & TRADING',
     renewalDate: '2023-09-05',
-    availability: 'Not Available',
-    pro: 'Fatimah Abdullah'
+    active: true,
   },
   {
-    name: 'Keladi (International)',
+    name: 'VJVJ MEDIA AD CONSULTANTS',
+    renewalDate: '2023-08-15',
+    active: true,
+  },
+  {
+    name: 'KC REWARDS (M) SDN BHD',
+    renewalDate: '2023-08-28',
+    active: true,
+  },
+  {
+    name: 'ML ADVANCED RESOURCES',
     renewalDate: '2023-09-10',
-    availability: 'Available',
-    pro: ''
+    active: false,
   },
   {
-    name: 'Malik Holdings (Sdn Bhd)',
-    renewalDate: '2023-09-15',
-    availability: 'Available',
-    pro: 'Aminah Hussain'
+    name: 'YAWEH RESOURCES',
+    renewalDate: '2023-08-20',
+    active: true,
   },
-  {
-    name: 'Siti Industries (M) Sdn Bhd',
-    renewalDate: '2023-09-20',
-    availability: 'Not Available',
-    pro: 'Ahmad Malik'
-  },
-
-  {
-    name: 'Lim Holdings (M) Sdn Bhd',
-    renewalDate: '2023-10-05',
-    availability: 'Not Available',
-    pro: 'Lee Wei Ling'
-  },
-  {
-    name: 'Chong Enterprises (M) Sdn Bhd',
-    renewalDate: '2023-10-10',
-    availability: 'Available',
-    pro: 'Chong Kah Wai'
-  },
-  {
-    name: 'Tan Holdings (M) Sdn Bhd',
-    renewalDate: '2023-10-15',
-    availability: 'Not Available',
-    pro: 'Tan Cheng'
-  }
 ];
 
-function populateTable() {
-      const tableBody = document.getElementById('companyTableBody');
 
-      companies.forEach(company => {
-        const row = document.createElement('tr');
-        const currentDate = new Date();
-        const renewalDate = new Date(company.renewalDate);
-        const daysLeft = Math.floor((renewalDate - currentDate) / (1000 * 60 * 60 * 24));
+   
+    function populateTable() {
+  const tableBody = document.getElementById('companyTableBody');
 
-        row.innerHTML = `
-          <td>${company.name}</td>
-          <td>${company.renewalDate}</td>
-          <td>${company.availability === 'Available' ? '-' : (daysLeft < 0 ? '0' : daysLeft) + ' days'}</td>
-          <td class="status ${company.availability === 'Available' ? 'available' : 'not-available'}">${company.availability}</td>
-          <td>
-            ${company.availability === 'Available'
-              ? `<button class="transfer-button" onclick="window.location.href='transfer.html'">Transfer</button>`
-              : company.availability === 'Not Available' ? company.pro : ''}
-          </td>
-        `;
-        tableBody.appendChild(row);
+  companies.forEach((company, index) => {
+    const row = document.createElement('tr');
 
-        // Highlight the row background if company is available
-        if (company.availability === 'Available') {
-          row.style.backgroundColor = '#c2e1c2';
-          row.style.color = '#278827';
-        }
-      });
+    row.innerHTML = `
+      <td>${company.name}</td>
+      <td>${company.renewalDate}</td>
+      <td class="time-remaining">${calculateTimeRemaining(company.renewalDate, company.active)}</td>
+      <td class="status ${company.active ? 'available' : 'not-available'}">${company.active ? 'Active' : 'Inactive'}</td>
+      <td class="actions">${company.active ? 'No Action Required' : `<button class="renew-button" onclick="renewCompany(${index})">Renew</button>`}</td>
+    `;
+
+    if (company.active) {
+      const statusCell = row.querySelector('.status');
+      statusCell.textContent = 'Active';
+      statusCell.style.color = '#278827';
+      statusCell.style.backgroundColor = 'transparent'; // Set background color to transparent
+    } else {
+      row.style.backgroundColor = '#ffe0e0';
     }
 
-    window.addEventListener('load', populateTable);
+    tableBody.appendChild(row);
+  });
+}
 
-    
+function renewCompany(index) {
+  companies[index].active = true;
+
+  const tableBody = document.getElementById('companyTableBody');
+  const row = tableBody.rows[index];
+
+  const statusCell = row.querySelector('.status');
+  statusCell.textContent = 'Active';
+  statusCell.style.color = '#278827';
+  row.style.backgroundColor = '';
+
+
+  const timeRemainingCell = row.querySelector('.time-remaining');
+  timeRemainingCell.textContent = '6 months, 6 days';
+
+  const actionsCell = row.querySelector('.actions');
+  actionsCell.innerHTML = 'No Action Required';
+  // Show a notification
+  alert('Publisher renewed!');
+}
+
+  function calculateTimeRemaining(renewalDate, isActive) {
+  if (!isActive) {
+    return '-';
+  }
+
+  const currentDate = new Date();
+  const renewalDateObj = new Date(renewalDate);
+  const timeDifference = renewalDateObj - currentDate;
+
+  if (timeDifference <= 0) {
+    return 'Active';
+  } else {
+    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const months = Math.floor(days / 30);
+    const remainingDays = days - (months * 30); // Calculate remaining days
+    return months === 0 ? `${remainingDays} days` : `${months} months and ${remainingDays} days`;
+  }
+}
+
+  window.addEventListener('load', populateTable);
   </script>
 </body>
 

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corporate Donor Report</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+    /* General Styling */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f5fa;
+    }
+
+    /* Header Styling */
+    header {
+      background-color: #512da8;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Table Styling */
+    .donor-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .donor-table th,
+    .donor-table td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    .donor-table th {
+      background-color: #f5f5f5;
+      font-weight: bold;
+    }
+
+    /* Dropdown Styling */
+    .dropdown-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .dropdown {
+      width: 45%;
+    }
+
+    /* Side Menu Styling */
+    .side-menu {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .side-menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .side-menu li {
+      margin-bottom: 10px;
+    }
+
+    .side-menu a {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      color: #512da8;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .side-menu a:hover {
+      background-color: #e1bee7;
+    }
+
+    .side-menu a i {
+      margin-right: 10px;
+    }
+
+    .side-menu a.active {
+      background-color: #e1bee7;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    /* Container Styling */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Corporate Donor Report</h1>
+  </header>
+
+  <div class="container">
+    <div class="side-menu">
+        <ul>
+            <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
+            <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO</a></li>
+            <li><a href="companies.html"><i class="material-icons">business</i>Publisher</a></li>
+            <li><a href="register.html" ><i class="material-icons">person_add</i>Register</a></li>
+            <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
+            <li><a href="reports.html" class="active"><i class="material-icons">description</i>View Reports</a></li>
+            <li><a href="create-report.html"><i class="material-icons">create</i>Create Report</a></li>
+            <li><a href="renewal-expiry.html"><i class="material-icons">refresh</i>Renewals</a></li>
+            <li><a href="block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
+            <li><a href="https://www.ssm-einfo.my/index.php?id=login" target="_blank"><i class="material-icons">description</i>SSM e-info</a></li>
+    
+          </ul>
+    </div>
+
+    <div class="main-content">
+      <h2>Corporate Donor Report</h2>
+      
+      <!-- Dropdowns for selecting Publisher and PRO -->
+<div class="dropdown-container">
+    <div class="dropdown">
+      <label for="publisher">Select Publisher:</label>
+      <select id="publisher">
+        <option value="all">All Publishers</option>
+        <!-- Options will be populated dynamically -->
+      </select>
+    </div>
+    <div class="dropdown">
+      <label for="pro">Select PRO:</label>
+      <select id="pro">
+        <option value="all">All PROs</option>
+        <!-- Options will be populated dynamically -->
+      </select>
+    </div>
+  </div>
+
+      <!-- Donor Report Table -->
+      <table class="donor-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Company</th>
+            <th>Contribution Amount</th>
+            <th>Method</th>
+            <th>Bank</th>
+            <th>PRO</th>
+            <th>Publisher</th>
+            <th>Receipt Num</th> <!-- New column -->
+          </tr>
+        </thead>
+        <tbody id="donorList">
+          <!-- JavaScript will populate the donor list here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+  const dummyData = [
+  {
+    date: '2023-08-01',
+    company: 'ABC Corp',
+    contributionAmount: '$1000',
+    method: 'Online',
+    bank: 'Maybank',
+    pro: 'Ali Bin Ahmad',
+    publisher: 'MF WORLDWIDE RESOURCES',
+    receiptNo: '12345'
+  },
+  {
+    date: '2023-08-02',
+    company: 'XYZ Inc',
+    contributionAmount: '$750',
+    method: 'Cash',
+    bank: 'CIMB Bank',
+    pro: 'Siti Binti Kamal',
+    publisher: 'MURPHEES MARKETING & TRADING',
+    receiptNo: '67890'
+  },
+  {
+    date: '2023-08-03',
+    company: 'LMN Ltd',
+    contributionAmount: '$1200',
+    method: 'Check',
+    bank: 'Public Bank',
+    pro: 'Ahmad Bin Ismail',
+    publisher: 'VJVJ MEDIA AD CONSULTANTS',
+    receiptNo: '54321'
+  },
+  {
+    date: '2023-08-04',
+    company: 'PQR Co',
+    contributionAmount: '$500',
+    method: 'Online',
+    bank: 'RHB Bank',
+    pro: 'Nurul Huda',
+    publisher: 'KC REWARDS (M) SDN BHD',
+    receiptNo: '98765'
+  },
+  {
+    date: '2023-08-05',
+    company: 'RST Enterprises',
+    contributionAmount: '$800',
+    method: 'Cash',
+    bank: 'Hong Leong Bank',
+    pro: 'Khairul Azman',
+    publisher: 'ML ADVANCED RESOURCES',
+    receiptNo: '45678'
+  },
+  // Add more dummy data entries here
+  {
+    date: '2023-08-06',
+    company: 'UVW Ltd',
+    contributionAmount: '$900',
+    method: 'Check',
+    bank: 'AmBank',
+    pro: 'Aisyah Binti Abdullah',
+    publisher: 'YAWEH RESOURCES',
+    receiptNo: '24680'
+  },
+  {
+    date: '2023-08-07',
+    company: 'EFG Corp',
+    contributionAmount: '$600',
+    method: 'Online',
+    bank: 'Maybank',
+    pro: 'Zainal Bin Ahmad',
+    publisher: 'VJVJ MEDIA AD CONSULTANTS',
+    receiptNo: '13579'
+  },
+  {
+    date: '2023-08-08',
+    company: 'HIJ Inc',
+    contributionAmount: '$1100',
+    method: 'Cash',
+    bank: 'CIMB Bank',
+    pro: 'Ali Bin Ahmad',
+    publisher: 'MF WORLDWIDE RESOURCES',
+    receiptNo: '24680'
+  },
+  {
+    date: '2023-08-09',
+    company: 'KLM Ltd',
+    contributionAmount: '$400',
+    method: 'Check',
+    bank: 'Public Bank',
+    pro: 'Siti Binti Kamal',
+    publisher: 'MURPHEES MARKETING & TRADING',
+    receiptNo: '35791'
+  },
+  {
+    date: '2023-08-10',
+    company: 'NOP Co',
+    contributionAmount: '$950',
+    method: 'Online',
+    bank: 'RHB Bank',
+    pro: 'Ahmad Bin Ismail',
+    publisher: 'VJVJ MEDIA AD CONSULTANTS',
+    receiptNo: '46802'
+  },
+];
+
+
+
+const donorList = document.getElementById('donorList');
+  const publisherDropdown = document.getElementById('publisher');
+  const proDropdown = document.getElementById('pro');
+
+  const publishers = [
+    'MF WORLDWIDE RESOURCES',
+    'MURPHEES MARKETING & TRADING',
+    'VJVJ MEDIA AD CONSULTANTS',
+    'KC REWARDS (M) SDN BHD',
+    'ML ADVANCED RESOURCES',
+    'YAWEH RESOURCES'
+  ];
+
+  const pros = [
+    'Ali Bin Ahmad',
+    'Siti Binti Kamal',
+    'Ahmad Bin Ismail',
+    'Nurul Huda',
+    'Khairul Azman',
+    'Aisyah Binti Abdullah',
+    'Zainal Bin Ahmad',
+    // Add more PROs as needed
+  ];
+
+  // Populate dropdowns with real data
+  publishers.forEach(publisher => {
+    const option = document.createElement('option');
+    option.value = publisher;
+    option.textContent = publisher;
+    publisherDropdown.appendChild(option);
+  });
+
+  pros.forEach(pro => {
+    const option = document.createElement('option');
+    option.value = pro;
+    option.textContent = pro;
+    proDropdown.appendChild(option);
+  });
+
+  // JavaScript to handle dropdown selection
+  publisherDropdown.addEventListener('change', filterDonorTable);
+  proDropdown.addEventListener('change', filterDonorTable);
+
+  function filterDonorTable() {
+    const selectedPublisher = publisherDropdown.value;
+    const selectedPro = proDropdown.value;
+
+    // Clear current table data
+    donorList.innerHTML = '';
+
+    // Filter and populate the table based on selected Publisher and PRO
+    dummyData.forEach(data => {
+      if (
+        (selectedPublisher === 'all' || data.publisher === selectedPublisher) &&
+        (selectedPro === 'all' || data.pro === selectedPro)
+      ) {
+        const row = donorList.insertRow();
+        row.innerHTML = `
+          <td>${data.date}</td>
+          <td>${data.company}</td>
+          <td>${data.contributionAmount}</td>
+          <td>${data.method}</td>
+          <td>${data.bank}</td>
+          <td>${data.pro}</td>
+          <td>${data.publisher}</td>
+          <td>${data.receiptNo}</td> <!-- Display Receipt column data -->
+        `;
+      }
+    });
+  }
+
+
+  // Initial population of the table
+  filterDonorTable();
+  </script>
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Main Admin Dashboard</title>
+  <title>Register New Company and User</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
@@ -13,7 +13,7 @@
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
+      background-color: #f2f5fa;
     }
 
     /* Header Styling */
@@ -31,7 +31,7 @@
       margin: 0 auto;
       padding: 20px;
       display: grid;
-      grid-template-columns: 1fr 3fr;
+      grid-template-columns: 200px 1fr;
       gap: 20px;
     }
 
@@ -39,7 +39,7 @@
     .side-menu {
       background-color: #fff;
       padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
     }
 
@@ -77,42 +77,42 @@
       font-weight: bold;
     }
 
-    /* Reports Table Styling */
-    .reports-section {
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Edit Buttons Styling */
+    .edit-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .edit-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 200px;
+      background-color: #e1eaf1;
+      color: #512da8;
       border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-right: 20px;
       animation: slide-up 0.4s ease-in-out;
     }
 
-    .report-options {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
+    .edit-option:hover {
+      transform: translateY(-5px);
     }
 
-    #searchInput {
-      padding: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+    .edit-option i {
+      font-size: 60px;
+      margin-bottom: 10px;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th,
-    td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: center;
-    }
-
-    th {
-      background-color: #f2f2f2;
+    .edit-option h3 {
+      margin: 0;
+      font-size: 16px;
     }
 
     @keyframes slide-up {
@@ -126,156 +126,67 @@
         transform: translateY(0);
       }
     }
-
-    /* Responsive Styling */
-    @media (max-width: 768px) {
-      /* ... (Responsive styling remains unchanged) ... */
-    }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>Main Admin Dashboard</h1>
+    <h1>Reports</h1>
   </header>
 
   <div class="container">
     <div class="side-menu">
-      <ul>
-        <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
-        <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO</a></li>
-        <li><a href="companies.html"><i class="material-icons">business</i>Publisher</a></li>
-        <li><a href="register.html"><i class="material-icons">person_add</i>Register</a></li>
-        <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
-        <li><a href="reports.html" class="active"><i class="material-icons">description</i>View Reports</a></li>
-        <li><a href="create-report.html"><i class="material-icons">create</i>Create Report</a></li>
-        <li><a href="renewal-expiry.html"><i class="material-icons">refresh</i>Renewals</a></li>
-        <li><a href="block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
-      </ul>
+        <ul>
+            <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
+            <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO</a></li>
+            <li><a href="companies.html"><i class="material-icons">business</i>Publisher</a></li>
+            <li><a href="register.html"><i class="material-icons">person_add</i>Register</a></li>
+            <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
+            <li><a href="reports.html" class="active"><i class="material-icons">description</i>View Reports</a></li>
+            <li><a href="create-report.html"><i class="material-icons">create</i>Create Report</a></li>
+            <li><a href="renewal-expiry.html"><i class="material-icons">refresh</i>Renewals</a></li>
+            <li><a href="block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
+            <li><a href="https://www.ssm-einfo.my/index.php?id=login" target="_blank"><i class="material-icons">description</i>SSM e-info</a></li>
+    
+          </ul>
     </div>
-
-    <div class="reports-section">
-        <h2>Reports</h2>
-        <div class="report-options">
-          <input type="text" id="searchInput" placeholder="Search User">
-          <button id="searchButton">Search</button>
-          <!-- <select id="sortType">
-            <option value="All">All</option>
-            <option value="Daily">Daily</option>
-            <option value="Weekly">Weekly</option>
-            <option value="Monthly">Monthly</option>
-            <option value="Quarterly">Quarterly</option>
-            <option value="Yearly">Yearly</option>
-          </select> -->
+    
+    <div>
+      <div class="edit-buttons">
+        <div class="edit-option" id="registerCompanyButton">
+          <i class="material-icons">business</i>
+          <h3>Corporate Donor Report</h3>
         </div>
+        <div class="edit-option" id="registerDonorButton">
+          <i class="material-icons">person</i> <!-- Change to "person" icon -->
+          <h3>Personal Donor Report</h3>
+        </div>
+      </div>
+      
 
-        <table>
-            <thead>
-              <tr>
-                <th>Donor</th>
-                <th>Company</th>
-                <th>View</th>
-              </tr>
-            </thead>
-            <tbody id="reportTableBody">
-              <!-- Table body content will be dynamically generated here -->
-            </tbody>
-      </table>
+      <div id="usersList"></div>
     </div>
   </div>
 
   <script>
-    const reports = [
-    {
-    donor: "Ali Bin Ahmad",
-    publisher: "MF WORLDWIDE RESOURCES",
-    link:"reports/ali.html"
-  },
-  {
-    donor: "Aisyah Binti Abdullah",
-    publisher: "MURPHEES MARKETING & TRADING"
-  },
-  {
-    donor: "Nor Azman",
-    publisher: "KC REWARDS (M) SDN BHD"
-  },
-  {
-    donor: "Norliza Binti Mohamad",
-    publisher: "VJVJ MEDIA AD CONSULTANTS"
-  },
-  {
-    donor: "Amirul Azhar Bin Ibrahim",
-    publisher: "YAWEH RESOURCES"
-  },
-  {
-    donor: "Faridah Binti Hussain",
-    publisher: "ML ADVANCED RESOURCES"
-  }
-];
+    // Register new company button event listener
+    const registerCompanyButton = document.getElementById('registerCompanyButton');
+    registerCompanyButton.addEventListener('click', () => {
+      window.location.href = 'corporate-donor-report.html'; // Redirect to register-new-company.html
+    });
 
-function populateTable() {
-  const tableBody = document.getElementById('reportTableBody');
-  const searchInput = document.getElementById('searchInput');
-  const searchButton = document.getElementById('searchButton');
+    // // Register new user button event listener
+    // const registerUserButton = document.getElementById('registerUserButton');
+    // registerUserButton.addEventListener('click', () => {
+    //   window.location.href = 'register-donor.html'; // Redirect to register-new-user.html
+    // });
 
-  function updateTable() {
-    const searchValue = searchInput.value.trim().toLowerCase();
-    const filteredReports = searchReports(searchValue);
+    // Register new donor button event listener
+const registerDonorButton = document.getElementById('registerDonorButton');
+registerDonorButton.addEventListener('click', () => {
+  window.location.href = 'personal-donor-report.html'; // Redirect to register-new-donor.html
+});
 
-    renderReports(filteredReports);
-  }
-
-  searchButton.addEventListener('click', updateTable);
-  searchInput.addEventListener('input', updateTable);
-
-  renderReports(reports);
-}
-
-function searchReports(searchValue) {
-  if (searchValue === '') {
-    return reports;
-  }
-
-  const searchRegex = new RegExp(searchValue, 'i');
-  return reports.filter(report => searchRegex.test(report.donor) || searchRegex.test(report.publisher));
-}
-
-function renderReports(reportsToRender) {
-  const tableBody = document.getElementById('reportTableBody');
-  tableBody.innerHTML = '';
-
-  reportsToRender.forEach(report => {
-    const row = document.createElement('tr');
-    row.classList.add('report-row');
-
-    row.innerHTML = `
-      <td>${report.donor}</td>
-      <td>${report.publisher}</td>
-      <td><a href="${report.link}">View</a></td>
-    `;
-
-    tableBody.appendChild(row);
-  });
-
-  animateRows();
-}
-
-function animateRows() {
-  const reportRows = document.querySelectorAll('.report-row');
-  reportRows.forEach(row => {
-    row.style.opacity = 0;
-    row.style.transform = 'translateY(20px)';
-  });
-
-  reportRows.forEach((row, index) => {
-    setTimeout(() => {
-      row.style.opacity = 1;
-      row.style.transform = 'translateY(0)';
-    }, index * 100);
-  });
-}
-
-window.addEventListener('load', populateTable);
   </script>
 </body>
 

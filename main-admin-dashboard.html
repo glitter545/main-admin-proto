@@ -76,37 +76,43 @@
     }
     
     /* Statistics Section Styling */
+    /* Statistics Section Styling */
     .statistics-section {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
     }
-    
+
+    /* Styling for the statistics boxes */
     .statistics-box {
-      background-color: #f1f8ff;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
       border-radius: 10px;
       text-align: center;
-      animation: slide-up 0.4s ease-in-out;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
     }
-    
+
+    .statistics-box:hover {
+      transform: translateY(-5px);
+    }
+
     .statistics-box h2 {
       color: #512da8;
       font-size: 24px;
       margin: 0 0 10px;
     }
-    
+
     .statistics-box .stat {
       font-size: 36px;
       font-weight: bold;
       color: #512da8;
     }
-    
+
     .statistics-box .view-button {
       margin-top: 20px;
     }
-    
+
     .statistics-box .view-button a {
       display: inline-block;
       padding: 10px 20px;
@@ -116,24 +122,21 @@
       border-radius: 5px;
       transition: background-color 0.3s ease;
     }
-    
+
     .statistics-box .view-button a:hover {
       background-color: #e1bee7;
     }
     
-    @media (max-width: 768px) {
-      .container {
-        grid-template-columns: 1fr;
-      }
-      
-      .statistics-section {
-        grid-template-columns: 1fr;
-      }
+    .statistics-box .icon {
+      font-size: 48px;
+      color: #512da8;
+      margin-bottom: 10px;
+    }
       
       .side-menu {
         margin-bottom: 20px;
       }
-    }
+  
     
     @keyframes slide-up {
       0% {
@@ -157,7 +160,8 @@
     <div class="side-menu">
       <ul>
         <li><a href="main-admin-dashboard.html" class="active"><i class="material-icons">dashboard</i>Dashboard</a></li>
-        <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO</a></li>
+        <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO Information</a></li>
+        <li><a href="pro-database.html"><i class="material-icons">storage</i>PRO Database</a></li>
         <li><a href="companies.html"><i class="material-icons">business</i>Publisher</a></li>
         <li><a href="register.html"><i class="material-icons">person_add</i>Register</a></li>
         <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
@@ -170,24 +174,60 @@
     
     <div class="statistics-section">
       <div class="statistics-box">
-        <h2>Total Users</h2>
-        <div class="stat">100</div>
+        <h2>Total Database</h2>
+        <div class="stat">6</div>
         <div class="view-button">
-          <a href="users.html">View All Users</a>
+          <a href="companies.html">View All Database</a>
         </div>
       </div>
       <div class="statistics-box">
-        <h2>Blocked Users</h2>
-        <div class="stat">10</div>
+        <h2>Blocked Publishers</h2>
+        <div class="stat">0</div>
         <div class="view-button">
           <a href="block.html">View More</a>
         </div>
       </div>
       <div class="statistics-box">
-        <h2>Total Companies</h2>
-        <div class="stat">20</div>
+        <h2>PRO Database</h2>
+        <div class="stat">500</div>
         <div class="view-button">
-          <a href="companies.html">View Company Lists</a>
+          <a href="pro-database.html">View More</a>
+        </div>
+      </div>
+      <div class="statistics-box">
+        <h2>Upload</h2>
+        <div class="icon">
+          <i class="material-icons">cloud_upload</i>
+        </div>
+        <div class="view-button">
+          <a href="#">Upload Data</a>
+        </div>
+      </div>
+      <div class="statistics-box">
+        <h2>Transfer</h2>
+        <div class="icon">
+          <i class="material-icons">swap_horiz</i>
+        </div>
+        <div class="view-button">
+          <a href="#">Transfer Data</a>
+        </div>
+      </div>
+      <div class="statistics-box">
+        <h2>Issue Receipt</h2>
+        <div class="icon">
+          <i class="material-icons">receipt</i>
+        </div>
+        <div class="view-button">
+          <a href="#">Issue Receipt</a>
+        </div>
+      </div>
+      <div class="statistics-box">
+        <h2>SSM E-Info</h2>
+        <div class="icon">
+          <i class="material-icons">receipt</i>
+        </div>
+        <div class="view-button">
+          <a href="https://www.ssm-einfo.my/index.php?id=login" target="_blank">Go to</a>
         </div>
       </div>
     </div>

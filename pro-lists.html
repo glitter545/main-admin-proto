@@ -25,7 +25,7 @@
 
     /* Container Styling */
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 20px;
       display: grid;
@@ -127,6 +127,9 @@
       background-color: #3b2064;
     }
 
+    .pro-table td {
+      text-align: center;
+  }
     .view-button {
     background-color: #512da8;
     color: #fff;
@@ -136,6 +139,21 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 14px;
+  }
+  /* ... (your existing styles) */
+  .search-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  #searchInput,
+  #searchPublisherInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+    font-size: 16px;
   }
 
   .view-button:hover {
@@ -168,7 +186,8 @@
     <div class="side-menu">
         <ul>
             <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
-            <li><a href="pro-lists.html" class="active"><i class="material-icons">supervisor_account</i>PRO</a></li>
+            <li><a href="pro-lists.html" class="active"><i class="material-icons">supervisor_account</i>PRO Information</a></li>
+            <li><a href="pro-database.html"><i class="material-icons">storage</i>PRO Database</a></li>
             <li><a href="companies.html"><i class="material-icons">business</i>Publisher</a></li>
             <li><a href="register.html"><i class="material-icons">person_add</i>Register</a></li>
             <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
@@ -180,24 +199,33 @@
     </div>
 
     <div class="main-content">
-        <h2>Database for: <input type="text" id="searchInput" placeholder="Search PROs"></h2>
-        <table class="pro-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Address</th>
-              <th>Phone</th>
-              <th>Email</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody id="proList">
-            <!-- JavaScript will populate the pro list here -->
-          </tbody>
-        </table>
+      <h2>Search PRO:</h2>
+      <div class="search-bar-container">
+        <input type="text" id="searchInput" placeholder="Search PROs">
+        <input type="text" id="searchPublisherInput" placeholder="Search Publisher">
+      </div>
+      <table class="pro-table">
+        <thead>
+          <tr>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Publisher</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Total Database</th>
+          </tr>
+        </thead>
+        <tbody id="proList">
+          <!-- JavaScript will populate the pro list here -->
+        </tbody>
+      </table>
+      <div class="pagination-buttons">
+        <button id="prevPage">Previous</button>
+        <button id="nextPage">Next</button>
       </div>
     </div>
-</div>
+  </div>
 <script src="test.js"></script>
   
 </body>

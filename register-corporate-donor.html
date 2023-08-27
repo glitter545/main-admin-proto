@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Personal Donor</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+     /* General Styling */
+     body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    
+    /* Header Styling */
+    header {
+      background-color: #512da8;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+    }
+    
+    /* Main Container Styling */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Side Menu Styling */
+    .side-menu {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    
+    .side-menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .side-menu li {
+      margin-bottom: 10px;
+    }
+    
+    .side-menu a {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      color: #512da8;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .side-menu a:hover {
+      background-color: #e1bee7;
+    }
+    
+    .side-menu a i {
+      margin-right: 10px;
+    }
+    
+    .side-menu a.active {
+      background-color: #e1bee7;
+      color: #fff;
+      font-weight: bold;
+    }
+    
+    /* Form Styling */
+    .form-section {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      animation: slide-up 0.4s ease-in-out;
+    }
+    
+    .form-section h2 {
+      color: #512da8;
+      font-size: 28px;
+      margin: 0 0 20px;
+    }
+    
+    .form-section form {
+      display: grid;
+      gap: 20px;
+    }
+    
+    .form-section label {
+      font-weight: bold;
+      color: #512da8;
+    }
+    
+    .form-section input,
+    .form-section select {
+      padding: 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 100%;
+      font-size: 16px;
+    }
+    
+    .form-section select {
+      appearance: none;
+      background-color: #fff;
+    }
+    
+    .form-section button {
+      padding: 12px 24px;
+      background-color: #512da8;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 16px;
+    }
+    
+    .form-section button:hover {
+      background-color: #e1bee7;
+    }
+    
+    /* Custom styles for PRO form */
+    .form-section.pro-form {
+      margin-top: 30px;
+    }
+    
+    @media (min-width: 769px) {
+      .container {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+      }
+    }
+    
+    @keyframes slide-up {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Register New Corporate Donor</h1>
+  </header>
+  <div class="container">
+    <div class="side-menu">
+      <ul>
+        <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
+        <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO Information</a></li>
+        <li><a href="pro-database.html"><i class="material-icons">storage</i>PRO Database</a></li>        <li><a href="companies.html"><i class="material-icons">business</i>Publisher</a></li>
+        <li><a href="register.html" class="active"><i class="material-icons">person_add</i>Register</a></li>
+        <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
+        <li><a href="reports.html"><i class="material-icons">description</i>View Reports</a></li>
+        <li><a href="create-report.html"><i class="material-icons">create</i>Create Report</a></li>
+        <li><a href="renewal-expiry.html"><i class="material-icons">refresh</i>Renewals</a></li>
+        <li><a href="block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
+      </ul>
+    </div>
+    
+    <div class="form-section">
+      <h2>Register Corporate Donor</h2>
+      <form id="registerForm">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+  
+        <label for="company">Company:</label>
+        <input type="text" id="company" name="company" required>
+
+        <div>
+            <label for="companyLabel">Company Label:</label>
+            <select id="companyLabel" name="companyLabel" required>
+                <option value="" disabled selected>Select Company Label</option>
+                <option value="Sdn Bhd">Sdn Bhd</option>
+                <option value="International">International</option>
+                <option value="Private Limited">Private Limited</option>
+                <option value="Berhad">Berhad</option>
+                <option value="Koperasi">Koperasi</option>
+                <option value="Yayasan">Yayasan</option>
+                <option value="Pertubuhan">Pertubuhan</option>
+                <option value="Persutuan">Persutuan</option>
+            </select>
+        </div>
+  
+        <label for="contributionAmount">Contribution Amount:</label>
+        <input type="text" id="contributionAmount" name="contributionAmount" required>
+  
+        <label for="method">Method:</label>
+        <select id="method" name="method" required>
+          <option value="online">Online</option>
+          <option value="cash">Cash</option>
+          <option value="check">Check</option>
+        </select>
+  
+        <label for="bank">Bank:</label>
+        <select id="bank" name="bank" required>
+            <option value="">Select bank</option>
+            <option value="The Royal Bank of Scotland Berhad">The Royal Bank of Scotland Berhad</option>
+            <option value="Affin Bank Berhad">Affin Bank Berhad</option>
+            <option value="Alliance Bank Malaysia Berhad">Alliance Bank Malaysia Berhad</option>
+            <option value="AmBank (M) Berhad">AmBank (M) Berhad</option>
+            <option value="Bangkok Bank Berhad">Bangkok Bank Berhad</option>
+            <option value="CIMB Bank Berhad">CIMB Bank Berhad</option>
+            <option value="Bank of America Malaysia Berhad">Bank of America Malaysia Berhad</option>
+            <option value="Bank of China (Malaysia) Berhad">Bank of China (Malaysia) Berhad</option>
+            <option value="Bank of Tokyo-Mitsubishi UFJ (Malaysia) Berhad">Bank of Tokyo-Mitsubishi UFJ (Malaysia) Berhad</option>
+            <option value="Citibank Berhad">Citibank Berhad</option>
+            <option value="Deutsche Bank (Malaysia) Berhad">Deutsche Bank (Malaysia) Berhad</option>
+            <option value="EON Bank Berhad">EON Bank Berhad</option>
+            <option value="Hong Leong Bank Berhad">Hong Leong Bank Berhad</option>
+            <option value="HSBC Bank Malaysia Berhad">HSBC Bank Malaysia Berhad</option>
+            <option value="J.P. Morgan Chase Bank Berhad">J.P. Morgan Chase Bank Berhad</option>
+            <option value="Malayan Banking Berhad">Malayan Banking Berhad</option>
+            <option value="OCBC Bank (Malaysia) Berhad">OCBC Bank (Malaysia) Berhad</option>
+            <option value="Public Bank Berhad">Public Bank Berhad</option>
+            <option value="RHB Bank Berhad">RHB Bank Berhad</option>
+            <option value="Standard Chartered Bank Malaysia Berhad">Standard Chartered Bank Malaysia Berhad</option>
+            <option value="The Bank of Nova Scotia Berhad">The Bank of Nova Scotia Berhad</option>
+            <option value="United Overseas Bank (Malaysia) Berhad">United Overseas Bank (Malaysia) Berhad</option>
+            <option value="Affin Islamic Bank Berhad">Affin Islamic Bank Berhad</option>
+            <option value="Al Rajhi Banking & Investment Corporation (Malaysia) Berhad">Al Rajhi Banking & Investment Corporation (Malaysia) Berhad</option>
+            <option value="AmIslamic Bank Berhad">AmIslamic Bank Berhad</option>
+            <option value="Asian Finance Bank Berhad">Asian Finance Bank Berhad</option>
+            <option value="Bank Islam Malaysia Berhad">Bank Islam Malaysia Berhad</option>
+            <option value="Bank Muamalat Malaysia Berhad">Bank Muamalat Malaysia Berhad</option>
+            <option value="CIMB Islamic Bank Berhad">CIMB Islamic Bank Berhad</option>
+            <option value="EONCAP Islamic Bank Berhad">EONCAP Islamic Bank Berhad</option>
+            <option value="Hong Leong Islamic Bank Berhad">Hong Leong Islamic Bank Berhad</option>
+            <option value="Kuwait Finance House (Malaysia) Berhad">Kuwait Finance House (Malaysia) Berhad</option>
+            <option value="RHB ISLAMIC Bank Berhad">RHB ISLAMIC Bank Berhad</option>
+            <option value="Maybank Islamic Berhad">Maybank Islamic Berhad</option>
+            <option value="Alliance Islamic Bank Berhad">Alliance Islamic Bank Berhad</option>
+            <option value="HSBC Amanah Malaysia Berhad">HSBC Amanah Malaysia Berhad</option>
+            <option value="Standard Chartered Saadiq Berhad">Standard Chartered Saadiq Berhad</option>
+            <option value="Public Islamic Bank Berhad">Public Islamic Bank Berhad</option>
+            <option value="OCBC Al-Amin Bank Berhad">OCBC Al-Amin Bank Berhad</option>
+            <option value="Affin Investment Bank Berhad">Affin Investment Bank Berhad</option>
+            <option value="Alliance Investment Bank Berhad">Alliance Investment Bank Berhad</option>
+            <option value="AmInvestment Bank Berhad">AmInvestment Bank Berhad</option>
+            <option value="Maybank Investment Bank Berhad">Maybank Investment Bank Berhad</option>
+            <option value="CIMB Investment Bank Berhad">CIMB Investment Bank Berhad</option>
+            <option value="Hwang-DBS Investment Bank Berhad">Hwang-DBS Investment Bank Berhad</option>
+            <option value="KAF Investment Bank Berhad">KAF Investment Bank Berhad</option>
+            <option value="Kenanga Investment Bank Berhad">Kenanga Investment Bank Berhad</option>
+            <option value="MIDF Amanah Investment Bank Berhad">MIDF Amanah Investment Bank Berhad</option>
+            <option value="MIMB Investment Bank Berhad">MIMB Investment Bank Berhad</option>
+            <option value="OSK Investment Bank Berhad">OSK Investment Bank Berhad</option>
+            <option value="Public Investment Bank Berhad">Public Investment Bank Berhad</option>
+            <option value="RHB Investment Bank Berhad">RHB Investment Bank Berhad</option>
+            <option value="Hong Leong Investment Bank Berhad">Hong Leong Investment Bank Berhad</option>
+            <option value="ECM Libra Investment Bank Berhad">ECM Libra Investment Bank Berhad</option>
+        </select>
+  
+        <label for="pro">PRO:</label>
+<select id="pro" name="pro" required>
+  <option value="" disabled selected>Select PRO</option>
+  <option value="Ali Bin Ahmad">Ali Bin Ahmad</option>
+  <option value="Siti Binti Kamal">Siti Binti Kamal</option>
+  <option value="Ahmad Bin Ismail">Ahmad Bin Ismail</option>
+  <option value="Nurul Huda">Nurul Huda</option>
+  <option value="Khairul Azman">Khairul Azman</option>
+</select>
+
+<label for="publisher">Publisher:</label>
+<select id="publisher" name="publisher" required>
+  <option value="none">Select Publisher</option>
+    <option value="MF WORLDWIDE RESOURCES">MF WORLDWIDE RESOURCES</option>
+    <option value="MURPHEES MARKETING & TRADING">MURPHEES MARKETING & TRADING</option>
+    <option value="VJVJ MEDIA AD CONSULTANTS">VJVJ MEDIA AD CONSULTANTS</option>
+    <option value="KC REWARDS (M) SDN BHD">KC REWARDS (M) SDN BHD</option>
+    <option value="ML ADVANCED RESOURCES">ML ADVANCED RESOURCES</option>
+    <option value="YAWEH RESOURCES">YAWEH RESOURCES</option>
+</select>
+  
+        <label for="receiptNumber">Receipt Number:</label>
+        <input type="text" id="receiptNumber" name="receiptNumber" required>
+  
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

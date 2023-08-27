@@ -1,0 +1,500 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRO Database</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+    /* General Styling */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f5fa;
+    }
+
+    /* Header Styling */
+    header {
+      background-color: #512da8;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Container Styling */
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 20px;
+    }
+
+    .side-menu {
+  background-color: #fff;
+  padding: 20px;
+  margin-left: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.side-menu ul {
+  margin: 0; /* Reset margin for the ul element */
+  padding: 0;
+  list-style-type: none;
+}
+
+
+    /* Main Content Styling */
+    .main-content {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    /* Table Styling */
+    .pro-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .pro-table th,
+    .pro-table td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    .pro-table th {
+      background-color: #f5f5f5;
+      font-weight: bold;
+    }
+
+    /* Pagination Styling */
+    .pagination {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+    /* Side Menu Styling */
+    .side-menu {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .side-menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .side-menu li {
+      margin-bottom: 10px;
+    }
+
+    .side-menu a {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+      color: #512da8;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .side-menu a:hover {
+      background-color: #e1bee7;
+    }
+
+    .side-menu a i {
+      margin-right: 10px;
+    }
+
+    .side-menu a.active {
+      background-color: #e1bee7;
+      color: #fff;
+      font-weight: bold;
+    }
+    /* Search Bar Styling */
+    .search-bar {
+      margin-bottom: 10px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .side-menu,
+      .main-content {
+        padding: 10px;
+      }
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .side-menu,
+      .main-content {
+        padding: 10px;
+      }
+
+      .pro-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+      }
+
+      .pro-table th,
+      .pro-table td {
+        white-space: nowrap;
+      }
+    }
+    </style>
+    </head>
+
+    <body>
+    <header>
+        <h1>PRO Database</h1>
+    </header>
+
+    
+  <div class="container">
+    <div class="side-menu">
+        <ul>
+            <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
+            <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO Information</a></li>
+            <li><a href="pro-database.html" class="active"><i class="material-icons">storage</i>PRO Database</a></li> <!-- New line -->
+
+            <li><a href="companies.html"><i class="material-icons">business</i>Publisher</a></li>
+            <li><a href="register.html"><i class="material-icons">person_add</i>Register</a></li>
+            <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
+            <li><a href="reports.html"><i class="material-icons">description</i>View Reports</a></li>
+            <li><a href="create-report.html"><i class="material-icons">create</i>Create Report</a></li>
+            <li><a href="renewal-expiry.html"><i class="material-icons">refresh</i>Renewals</a></li>
+            <li><a href="block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
+          </ul>
+    </div>
+
+    <div class="main-content">
+      <h2>PRO Database</h2>
+
+      <div class="search-bar">
+        <label for="search">Search:</label>
+        <input type="text" id="search" placeholder="Search...">
+        <button id="searchButton">Search</button>
+
+        <label for="searchPro">Search by PRO Name:</label>
+<input type="text" id="searchPro" placeholder="Search by PRO Name...">
+<button id="searchProButton">Search</button>
+      </div>
+      <p id="databaseCount">Total databases: 0</p>
+
+      <table class="pro-table">
+        <thead>
+          <tr>
+            <th>Old Company Reg. Number</th>
+            <th>New Company Reg. Number</th>
+            <th>Company Name</th>
+            <th>Person in Charge</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>H/P Number</th>
+            <th>Fax</th>
+            <th>Email</th>
+            <th>PRO Name</th>
+          </tr>
+        </thead>
+        <tbody id="proList">
+          <!-- JavaScript will populate the PRO list here -->
+        </tbody>
+      </table>
+
+      <div class="pagination">
+        <button id="prevPage">Previous</button>
+        <span id="currentPage">Page 1</span>
+        <button id="nextPage">Next</button>
+      </div>
+    </div>
+  </div>
+
+
+    <script>
+        // JavaScript code for search, pagination, and data population...
+
+        const proData = [
+  {
+    oldRegNumber: '12345',
+    newRegNumber: '54321',
+    companyName: 'ABC Corporation',
+    personInCharge: 'Ahmad Bin Ismail',
+    address: '123 Jalan Raja',
+    phone: '03-12345678',
+    hpNumber: '012-3456789',
+    fax: '03-55551234',
+    email: 'john@example.com',
+    proName: 'Ali Bin Ahmad'
+  },
+  {
+    oldRegNumber: '67890',
+    newRegNumber: '09876',
+    companyName: 'XYZ Enterprises',
+    personInCharge: 'Siti Aishah',
+    address: '456 Jalan Sultan',
+    phone: '03-87654321',
+    hpNumber: '017-6543210',
+    fax: '03-55559876',
+    email: 'jane@example.com',
+    proName: 'Ali Bin Ahmad'
+  },
+  {
+    oldRegNumber: '24680',
+    newRegNumber: '86420',
+    companyName: 'LMN Industries',
+    personInCharge: 'Muhammad Hafiz',
+    address: '789 Jalan Ampang',
+    phone: '03-88881234',
+    hpNumber: '016-7778889',
+    fax: '03-88854321',
+    email: 'robert@example.com',
+    proName: 'Ali Bin Ahmad'
+  },
+  {
+    oldRegNumber: '13579',
+    newRegNumber: '97531',
+    companyName: 'PQR Ventures',
+    personInCharge: 'Nurul Azizah',
+    address: '567 Jalan Pudu',
+    phone: '03-33321111',
+    hpNumber: '019-5556667',
+    fax: '03-22244433',
+    email: 'emily@example.com',
+    proName: 'Ali Bin Ahmad'
+  },
+  // Add more data entries...
+  // 20 Malaysian data entries with Ali Bin Ahmad as PRO name
+  {
+    oldRegNumber: '11111',
+    newRegNumber: '55555',
+    companyName: 'Maju Sdn. Bhd.',
+    personInCharge: 'Fatimah Mohd Ali',
+    address: '123 Jalan Utama',
+    phone: '03-11123333',
+    hpNumber: '014-4445556',
+    fax: '03-77789999',
+    email: 'ahmad@maju.com.my',
+    proName: 'Ali Bin Ahmad'
+  },
+  {
+    oldRegNumber: '22222',
+    newRegNumber: '66666',
+    companyName: 'Gemilang Holdings',
+    personInCharge: 'Rahman Abdullah',
+    address: '456 Persiaran Indah',
+    phone: '03-88887777',
+    hpNumber: '011-2223334',
+    fax: '03-44456666',
+    email: 'siti@gemilang.com.my',
+    proName: 'Ali Bin Ahmad'
+  },
+  {
+    oldRegNumber: '33333',
+    newRegNumber: '77777',
+    companyName: 'Harmoni Sdn. Bhd.',
+    personInCharge: 'Ahmad Kamal',
+    address: '987 Jalan Damai',
+    phone: '03-33334444',
+    hpNumber: '014-7778889',
+    fax: '03-55558888',
+    email: 'ahmad@harmoni.com.my',
+    proName: 'Siti Binti Kamal'
+  },
+  {
+    oldRegNumber: '44444',
+    newRegNumber: '88888',
+    companyName: 'Berjaya Holdings',
+    personInCharge: 'Fatimah Kamal',
+    address: '567 Jalan Indah',
+    phone: '03-44445555',
+    hpNumber: '017-8889999',
+    fax: '03-55559999',
+    email: 'fatimah@berjaya.com.my',
+    proName: 'Siti Binti Kamal'
+  },
+  {
+    oldRegNumber: '55555',
+    newRegNumber: '99999',
+    companyName: 'Gemilang Ventures',
+    personInCharge: 'Rahman Kamal',
+    address: '789 Jalan Bahagia',
+    phone: '03-55556666',
+    hpNumber: '016-9998888',
+    fax: '03-55558888',
+    email: 'rahman@gemilangventures.com.my',
+    proName: 'Siti Binti Kamal'
+  },
+  {
+    oldRegNumber: '66666',
+    newRegNumber: '00000',
+    companyName: 'Megah Sdn. Bhd.',
+    personInCharge: 'Nur Kamal',
+    address: '123 Jalan Megah',
+    phone: '03-66667777',
+    hpNumber: '019-0001111',
+    fax: '03-55550000',
+    email: 'nur@megah.com.my',
+    proName: 'Siti Binti Kamal'
+  },
+  {
+    oldRegNumber: '77777',
+    newRegNumber: '11111',
+    companyName: 'Murni Holdings',
+    personInCharge: 'Ali Kamal',
+    address: '456 Jalan Murni',
+    phone: '03-77778888',
+    hpNumber: '011-1112222',
+    fax: '03-55551111',
+    email: 'ali@murni.com.my',
+    proName: 'Siti Binti Kamal'
+  }
+  // Add more Malaysian data entries with Ali Bin Ahmad...
+];
+
+const proList = document.getElementById('proList');
+const prevPageButton = document.getElementById('prevPage');
+const nextPageButton = document.getElementById('nextPage');
+const currentPageSpan = document.getElementById('currentPage');
+const databaseCount = document.getElementById('databaseCount');
+const searchInput = document.getElementById('search'); // Add this line
+const searchButton = document.getElementById('searchButton'); // Add this line
+const searchProInput = document.getElementById('searchPro'); // Add this line
+const searchProButton = document.getElementById('searchProButton'); // Add this line
+const itemsPerPage = 6; // Number of items per page
+let currentPage = 1; // Current page number
+const originalProData = [...proData]; // Store a copy of the original data
+
+function populateTable(page) {
+  proList.innerHTML = '';
+
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  for (let i = startIndex; i < endIndex && i < proData.length; i++) {
+    const pro = proData[i];
+    const row = proList.insertRow();
+    row.innerHTML = `
+      <td>${pro.oldRegNumber}</td>
+      <td>${pro.newRegNumber}</td>
+      <td>${pro.companyName}</td>
+      <td>${pro.personInCharge}</td>
+      <td>${pro.address}</td>
+      <td>${pro.phone}</td>
+      <td>${pro.hpNumber}</td>
+      <td>${pro.fax}</td>
+      <td>${pro.email}</td>
+      <td>${pro.proName}</td>
+    `;
+  }
+
+  databaseCount.textContent = `Total databases: ${proData.length}`;
+}
+
+function updatePagination() {
+  currentPageSpan.textContent = `Page ${currentPage}`;
+  prevPageButton.disabled = currentPage === 1;
+  nextPageButton.disabled = currentPage * itemsPerPage >= proData.length;
+}
+
+function searchAndPopulate() {
+  const searchTerm = searchInput.value.toLowerCase();
+  currentPage = 1;
+
+  if (searchTerm === '') {
+    proData.length = 0;
+    proData.push(...originalProData);
+  } else {
+    const filteredData = originalProData.filter(pro => {
+      for (const key in pro) {
+        if (pro[key].toLowerCase().includes(searchTerm)) {
+          return true;
+        }
+      }
+      return false;
+    });
+
+    proData.length = 0;
+    proData.push(...filteredData);
+  }
+
+  populateTable(currentPage);
+  updatePagination();
+}
+
+function searchProAndPopulate() {
+  const searchTerm = searchProInput.value.toLowerCase();
+  currentPage = 1;
+
+  const filteredData = originalProData.filter(pro => {
+    return pro.proName.toLowerCase().includes(searchTerm);
+  });
+
+  proData.length = 0;
+  proData.push(...filteredData);
+
+  populateTable(currentPage);
+  updatePagination();
+}
+
+// Event listeners
+searchButton.addEventListener('click', searchAndPopulate);
+searchProButton.addEventListener('click', searchProAndPopulate);
+
+searchInput.addEventListener('input', () => {
+  if (searchInput.value === '') {
+    searchAndPopulate();
+  }
+});
+
+searchProInput.addEventListener('input', () => {
+  if (searchProInput.value === '') {
+    searchProAndPopulate();
+  }
+});
+
+prevPageButton.addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--;
+    populateTable(currentPage);
+    updatePagination();
+  }
+});
+
+nextPageButton.addEventListener('click', () => {
+  if (currentPage * itemsPerPage < proData.length) {
+    currentPage++;
+    populateTable(currentPage);
+    updatePagination();
+  }
+});
+
+// Initial population
+populateTable(currentPage);
+updatePagination();
+
+    </script>
+    </body>
+
+    </html>

@@ -131,15 +131,15 @@
 
 <body>
   <header>
-    <h1>Register New Publisher and User</h1>
+    <h1>Register</h1>
   </header>
 
   <div class="container">
     <div class="side-menu">
       <ul>
         <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
-        <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO</a></li>
-        <li><a href="companies.html"><i class="material-icons">business</i>Publisher</a></li>
+        <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO Information</a></li>
+        <li><a href="pro-database.html"><i class="material-icons">storage</i>PRO Database</a></li>        <li><a href="companies.html"><i class="material-icons">business</i>Publisher</a></li>
         <li><a href="register.html" class="active"><i class="material-icons">person_add</i>Register</a></li>
         <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
         <li><a href="reports.html"><i class="material-icons">description</i>View Reports</a></li>
@@ -151,43 +151,52 @@
 
     <div>
       <div class="edit-buttons">
-        <div class="edit-option" id="registerUserButton">
-          <i class="material-icons">person</i>
-          <h3>Register New User</h3>
+        <!-- New Section: Register New Publisher -->
+        <div class="edit-option" id="registerPublisherButton">
+          <i class="material-icons">group_add</i> <!-- Change to appropriate icon -->
+          <h3>Register New Publisher</h3>
+        </div>
+        <div class="edit-option" id="registerNewCompanyButton">
+          <i class="material-icons">business_center</i>
+          <h3>Register New Company</h3>
         </div>
         <div class="edit-option" id="registerCompanyButton">
-            <i class="material-icons">business</i>
-            <h3>Register New Publisher</h3>
-          </div>
-          <div class="edit-option" id="registerDonorButton">
-            <i class="material-icons">assignment</i> <!-- Change to "assignment" icon -->
-            <h3>Register New Donor</h3>
-          </div>
+          <i class="material-icons">business</i>
+          <h3>Register Corporate Donor</h3>
+        </div>
+        <div class="edit-option" id="registerDonorButton">
+          <i class="material-icons">person</i>
+          <h3>Register Personal Donor</h3>
+        </div>
+        
       </div>
-      
-
       <div id="usersList"></div>
     </div>
-  </div>
 
   <script>
-    // Register new company button event listener
-    const registerCompanyButton = document.getElementById('registerCompanyButton');
-    registerCompanyButton.addEventListener('click', () => {
-      window.location.href = 'register-new-company.html'; // Redirect to register-new-company.html
-    });
+   // Register new company button event listener
+  const registerNewCompanyButton = document.getElementById('registerNewCompanyButton');
+  registerNewCompanyButton.addEventListener('click', () => {
+    window.location.href = 'register-new-company.html'; // Redirect to register-new-company.html
+  });
 
-    // Register new user button event listener
-    const registerUserButton = document.getElementById('registerUserButton');
-    registerUserButton.addEventListener('click', () => {
-      window.location.href = 'register-new-user.html'; // Redirect to register-new-user.html
-    });
+  // Register new publisher button event listener
+  const registerPublisherButton = document.getElementById('registerPublisherButton');
+  registerPublisherButton.addEventListener('click', () => {
+    window.location.href = 'register-new-user.html'; // Redirect to register-new-user.html
+  });
 
-    // Register new donor button event listener
-const registerDonorButton = document.getElementById('registerDonorButton');
-registerDonorButton.addEventListener('click', () => {
-  window.location.href = 'register-new-donor.html'; // Redirect to register-new-donor.html
-});
+  // Register new corporate donor button event listener
+  const registerCompanyButton = document.getElementById('registerCompanyButton');
+  registerCompanyButton.addEventListener('click', () => {
+    window.location.href = 'register-corporate-donor.html'; // Redirect to register-corporate-donor.html
+  });
+
+  // Register new donor button event listener
+  const registerDonorButton = document.getElementById('registerDonorButton');
+  registerDonorButton.addEventListener('click', () => {
+    window.location.href = 'register-new-donor.html'; // Redirect to register-new-donor.html
+  });
 
   </script>
 </body>

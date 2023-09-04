@@ -14,6 +14,7 @@
       margin: 0;
       padding: 0;
       background-color: #f2f5fa;
+      
     }
 
     /* Header Styling */
@@ -196,10 +197,10 @@
         <label for="search">Search:</label>
         <input type="text" id="search" placeholder="Search...">
         <button id="searchButton">Search</button>
-
+      
         <label for="searchPro">Search by PRO Name:</label>
-<input type="text" id="searchPro" placeholder="Search by PRO Name...">
-<button id="searchProButton">Search</button>
+        <input type="text" id="searchPro" placeholder="Search by PRO Name...">
+        <button id="searchProButton">Search</button>
       </div>
       <p id="databaseCount">Total databases: 0</p>
 
@@ -216,6 +217,7 @@
             <th>Fax</th>
             <th>Email</th>
             <th>PRO Name</th>
+            <th>Publisher</th>
           </tr>
         </thead>
         <tbody id="proList">
@@ -246,7 +248,8 @@
     hpNumber: '012-3456789',
     fax: '03-55551234',
     email: 'john@example.com',
-    proName: 'Ali Bin Ahmad'
+    proName: 'Ali Bin Ahmad',
+    publisher: 'MF WORLDWIDE RESOURCES' // Added publisher
   },
   {
     oldRegNumber: '67890',
@@ -258,120 +261,26 @@
     hpNumber: '017-6543210',
     fax: '03-55559876',
     email: 'jane@example.com',
-    proName: 'Ali Bin Ahmad'
+    proName: 'Ali Bin Ahmad',
+    publisher: 'MF WORLDWIDE RESOURCES' // Added publisher
   },
-  {
-    oldRegNumber: '24680',
-    newRegNumber: '86420',
-    companyName: 'LMN Industries',
-    personInCharge: 'Muhammad Hafiz',
-    address: '789 Jalan Ampang',
-    phone: '03-88881234',
-    hpNumber: '016-7778889',
-    fax: '03-88854321',
-    email: 'robert@example.com',
-    proName: 'Ali Bin Ahmad'
-  },
-  {
-    oldRegNumber: '13579',
-    newRegNumber: '97531',
-    companyName: 'PQR Ventures',
-    personInCharge: 'Nurul Azizah',
-    address: '567 Jalan Pudu',
-    phone: '03-33321111',
-    hpNumber: '019-5556667',
-    fax: '03-22244433',
-    email: 'emily@example.com',
-    proName: 'Ali Bin Ahmad'
-  },
-  // Add more data entries...
-  // 20 Malaysian data entries with Ali Bin Ahmad as PRO name
-  {
-    oldRegNumber: '11111',
-    newRegNumber: '55555',
-    companyName: 'Maju Sdn. Bhd.',
-    personInCharge: 'Fatimah Mohd Ali',
-    address: '123 Jalan Utama',
-    phone: '03-11123333',
-    hpNumber: '014-4445556',
-    fax: '03-77789999',
-    email: 'ahmad@maju.com.my',
-    proName: 'Ali Bin Ahmad'
-  },
-  {
-    oldRegNumber: '22222',
-    newRegNumber: '66666',
-    companyName: 'Gemilang Holdings',
-    personInCharge: 'Rahman Abdullah',
-    address: '456 Persiaran Indah',
-    phone: '03-88887777',
-    hpNumber: '011-2223334',
-    fax: '03-44456666',
-    email: 'siti@gemilang.com.my',
-    proName: 'Ali Bin Ahmad'
-  },
-  {
-    oldRegNumber: '33333',
-    newRegNumber: '77777',
-    companyName: 'Harmoni Sdn. Bhd.',
-    personInCharge: 'Ahmad Kamal',
-    address: '987 Jalan Damai',
-    phone: '03-33334444',
-    hpNumber: '014-7778889',
-    fax: '03-55558888',
-    email: 'ahmad@harmoni.com.my',
-    proName: 'Siti Binti Kamal'
-  },
-  {
-    oldRegNumber: '44444',
-    newRegNumber: '88888',
-    companyName: 'Berjaya Holdings',
-    personInCharge: 'Fatimah Kamal',
-    address: '567 Jalan Indah',
-    phone: '03-44445555',
-    hpNumber: '017-8889999',
-    fax: '03-55559999',
-    email: 'fatimah@berjaya.com.my',
-    proName: 'Siti Binti Kamal'
-  },
-  {
-    oldRegNumber: '55555',
-    newRegNumber: '99999',
-    companyName: 'Gemilang Ventures',
-    personInCharge: 'Rahman Kamal',
-    address: '789 Jalan Bahagia',
-    phone: '03-55556666',
-    hpNumber: '016-9998888',
-    fax: '03-55558888',
-    email: 'rahman@gemilangventures.com.my',
-    proName: 'Siti Binti Kamal'
-  },
-  {
-    oldRegNumber: '66666',
-    newRegNumber: '00000',
-    companyName: 'Megah Sdn. Bhd.',
-    personInCharge: 'Nur Kamal',
-    address: '123 Jalan Megah',
-    phone: '03-66667777',
-    hpNumber: '019-0001111',
-    fax: '03-55550000',
-    email: 'nur@megah.com.my',
-    proName: 'Siti Binti Kamal'
-  },
+  // Add more data entries with publisher...
   {
     oldRegNumber: '77777',
     newRegNumber: '11111',
     companyName: 'Murni Holdings',
     personInCharge: 'Ali Kamal',
-    address: '456 Jalan Murni',
+    address: '456 Jalan Murni, b5-120, pangsapuri sri melewar,sysken u1, shah alam, 4300, kajang, selangor',
     phone: '03-77778888',
     hpNumber: '011-1112222',
     fax: '03-55551111',
     email: 'ali@murni.com.my',
-    proName: 'Siti Binti Kamal'
+    proName: 'Siti Binti Kamal',
+    publisher: 'MURPHEES MARKETING & TRADING' // Added publisher
   }
-  // Add more Malaysian data entries with Ali Bin Ahmad...
+  // Add more data entries with publisher...
 ];
+
 
 const proList = document.getElementById('proList');
 const prevPageButton = document.getElementById('prevPage');
@@ -406,6 +315,7 @@ function populateTable(page) {
       <td>${pro.fax}</td>
       <td>${pro.email}</td>
       <td>${pro.proName}</td>
+      <td>${pro.publisher}</td>
     `;
   }
 
@@ -460,19 +370,20 @@ function searchProAndPopulate() {
 
 // Event listeners
 searchButton.addEventListener('click', searchAndPopulate);
-searchProButton.addEventListener('click', searchProAndPopulate);
+  searchProButton.addEventListener('click', searchProAndPopulate);
 
-searchInput.addEventListener('input', () => {
-  if (searchInput.value === '') {
-    searchAndPopulate();
-  }
-});
+  searchInput.addEventListener('input', () => {
+    if (searchInput.value === '') {
+      searchAndPopulate();
+    }
+  });
 
-searchProInput.addEventListener('input', () => {
-  if (searchProInput.value === '') {
-    searchProAndPopulate();
-  }
-});
+  searchProInput.addEventListener('input', () => {
+    if (searchProInput.value === '') {
+      searchProAndPopulate();
+    }
+  });
+
 
 prevPageButton.addEventListener('click', () => {
   if (currentPage > 1) {

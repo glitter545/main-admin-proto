@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Transfer Database</title>
+  <title>Login Information</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
@@ -26,9 +26,11 @@
 
     /* Container Styling */
     .container {
-      display: grid;
-      grid-template-columns: 1fr 3fr;
+      display: flex; /* Use flexbox to arrange items horizontally */
       gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
     }
 
     /* Side Menu Styling */
@@ -75,10 +77,11 @@
 
     /* Main Content Styling */
     .main-content {
+      flex: 1; /* Allow the content to expand and fill available space */
       background-color: #fff;
-      padding: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
+      padding: 20px;
     }
 
     .main-content h2 {
@@ -87,36 +90,28 @@
       margin: 0 0 20px;
     }
 
-    /* Dropdown Styling */
-    select {
+    /* Login Information Table Styling */
+    table {
       width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
       padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin-bottom: 10px;
+      text-align: center;
     }
 
-    /* Button Styling */
-    .transfer-button {
-      background-color: #512da8;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      font-size: 16px;
-    }
-
-    .transfer-button:hover {
-      background-color: #e1bee7;
+    th {
+      background-color: #f2f2f2;
     }
   </style>
 </head>
 
 <body>
   <header>
-    <h1>Transfer Database</h1>
+    <h1>Login Information</h1>
   </header>
 
   <div class="container">
@@ -136,51 +131,50 @@
     </div>
 
     <div class="main-content">
-      <h2>Transfer Data</h2>
-      <form id="transferForm">
-        <label for="oldPublisher">Old Publisher:</label>
-        <select id="oldPublisher" name="oldPublisher">
-          <!-- Replace with options for old publishers -->
-          <option value="publisher1">Publisher 1</option>
-          <option value="publisher2">Publisher 2</option>
-          <option value="publisher3">Publisher 3</option>
-        </select>
-
-        <label for="newPublisher">New Publisher:</label>
-        <select id="newPublisher" name="newPublisher">
-          <!-- Replace with options for new publishers -->
-          <option value="publisherA">Publisher A</option>
-          <option value="publisherB">Publisher B</option>
-          <option value="publisherC">Publisher C</option>
-        </select>
-
-        <label for="pro">PRO:</label>
-        <select id="pro" name="pro">
-          <!-- Replace with options for PROs -->
-          <option value="proX">PRO X</option>
-          <option value="proY">PRO Y</option>
-          <option value="proZ">PRO Z</option>
-        </select>
-
-        <button class="transfer-button" type="button" onclick="transferDatabase()">Transfer All Database</button>
-      </form>
+      <h2>Login Information Table</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Publisher</th>
+            <th>Name</th>
+            <th>Last Login</th>
+            <th>Last Logout</th>
+            <th>Online Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Publisher A</td>
+            <td>User 1</td>
+            <td>2023-08-20 14:30:00</td>
+            <td>2023-08-20 15:45:00</td>
+            <td>Online</td>
+          </tr>
+          <tr>
+            <td>Publisher B</td>
+            <td>User 2</td>
+            <td>2023-08-19 09:15:00</td>
+            <td>2023-08-19 11:20:00</td>
+            <td>Online</td>
+          </tr>
+          <tr>
+            <td>Publisher A</td>
+            <td>User 3</td>
+            <td>2023-08-18 17:45:00</td>
+            <td>2023-08-18 18:30:00</td>
+            <td>Offline</td>
+          </tr>
+          <tr>
+            <td>Publisher C</td>
+            <td>User 4</td>
+            <td>2023-08-17 12:10:00</td>
+            <td>2023-08-17 13:45:00</td>
+            <td>Online</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-
-  <script>
-    function transferDatabase() {
-      // Get selected values from dropdowns
-      const oldPublisher = document.getElementById('oldPublisher').value;
-      const newPublisher = document.getElementById('newPublisher').value;
-      const pro = document.getElementById('pro').value;
-
-      // Implement your logic to transfer the database here
-      // You can use the selected values to perform the database transfer
-
-      // For demonstration purposes, let's show an alert
-      alert(`Transfer initiated: Old Publisher - ${oldPublisher}, New Publisher - ${newPublisher}, PRO - ${pro}`);
-    }
-  </script>
 </body>
 
 </html>

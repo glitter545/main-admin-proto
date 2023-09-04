@@ -99,7 +99,7 @@
 
     /* Container Styling */
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 20px;
       display: grid;
@@ -153,6 +153,19 @@
     </div>
   </div>
 
+  <div class="dropdown">
+    <label for="frequency">Select Frequency:</label>
+    <select id="frequency">
+      <option value="all">All</option>
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+      <option value="monthly">Monthly</option>
+      <option value="quarterly">Quarterly</option>
+      <option value="yearly">Yearly</option>
+    </select>
+  </div>
+
+  <button id="downloadButton">Download Data</button>
       <!-- Donor Report Table -->
       <table class="donor-table">
         <thead>
@@ -160,7 +173,7 @@
             <th>Date</th>
             <th>Company</th>
             <th>Contribution Amount</th>
-            <th>Method</th>
+            <th>Transaction</th>
             <th>Bank</th>
             <th>PRO</th>
             <th>Publisher</th>
@@ -352,6 +365,78 @@ const donorList = document.getElementById('donorList');
     });
   }
 
+    // JavaScript to handle frequency dropdown selection
+const frequencyDropdown = document.getElementById('frequency');
+frequencyDropdown.addEventListener('change', filterDonorTable);
+
+// Function to filter the donor table based on frequency
+// Function to filter the donor table based on frequency
+function filterDonorTable() {
+  const selectedFrequency = frequencyDropdown.value;
+
+  // Clear current table data
+  donorList.innerHTML = '';
+
+  // Get the current date
+  const currentDate = new Date();
+
+  // Filter and populate the table with dummy data based on selected frequency
+  dummyData.forEach(data => {
+    const dataDate = new Date(data.date);
+
+    // Calculate the time difference in days between the current date and the data's date
+    const timeDiff = Math.floor((currentDate - dataDate) / (1000 * 60 * 60 * 24));
+
+    // Check if "All" is selected or if the frequency matches
+    if (
+      selectedFrequency === 'all' ||
+      (selectedFrequency === 'daily' && timeDiff === 0) ||
+      (selectedFrequency === 'weekly' && timeDiff <= 7) ||
+      (selectedFrequency === 'monthly' && currentDate.getMonth() === dataDate.getMonth() && currentDate.getFullYear() === dataDate.getFullYear()) ||
+      (selectedFrequency === 'quarterly' && Math.floor((currentDate.getMonth() / 3)) === Math.floor((dataDate.getMonth() / 3)) && currentDate.getFullYear() === dataDate.getFullYear()) ||
+      (selectedFrequency === 'yearly' && currentDate.getFullYear() === dataDate.getFullYear())
+    ) {
+      const row = donorList.insertRow();
+      row.innerHTML = `
+        <td>${data.date}</td>
+        <td>${data.company}</td>
+        <td>${data.contributionAmount}</td>
+        <td>${data.method}</td>
+        <td>${data.bank}</td>
+        <td>${data.pro}</td>
+        <td>${data.publisher}</td>
+        <td>${data.receiptNo}</td>
+      `;
+    }
+  });
+}
+
+// Function to convert table data to CSV format
+function convertTableToCSV() {
+  const table = document.querySelector('.donor-table');
+  const rows = Array.from(table.querySelectorAll('tr'));
+  const csvData = rows.map(row => {
+    const cells = Array.from(row.querySelectorAll('th, td'));
+    return cells.map(cell => cell.textContent).join(',');
+  }).join('\n');
+  return 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvData);
+}
+
+// Function to handle the download button click
+function handleDownloadButtonClick() {
+  const csvData = convertTableToCSV();
+  const downloadLink = document.createElement('a');
+  downloadLink.setAttribute('href', csvData);
+  downloadLink.setAttribute('download', 'donor_data.csv');
+  downloadLink.style.display = 'none';
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
+}
+
+// Attach the click event listener to the download button
+const downloadButton = document.getElementById('downloadButton');
+downloadButton.addEventListener('click', handleDownloadButtonClick);
 
   // Initial population of the table
   filterDonorTable();

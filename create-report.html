@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Make a New Report</title>
+  <title>Register New Company and User</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
     /* General Styling */
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
+      background-color: #f2f5fa;
     }
 
     /* Header Styling */
     header {
-      background-color: #512da8; /* Dark blue color */
+      background-color: #512da8;
       padding: 20px;
       text-align: center;
       color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     /* Container Styling */
@@ -27,7 +31,7 @@
       margin: 0 auto;
       padding: 20px;
       display: grid;
-      grid-template-columns: 1fr 3fr;
+      grid-template-columns: 200px 1fr;
       gap: 20px;
     }
 
@@ -35,9 +39,8 @@
     .side-menu {
       background-color: #fff;
       padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
-      color: #512da8; /* Dark blue color for default text color */
     }
 
     .side-menu ul {
@@ -54,7 +57,7 @@
       display: flex;
       align-items: center;
       padding: 10px 20px;
-      color: #512da8; /* Dark blue color */
+      color: #512da8;
       text-decoration: none;
       border-radius: 5px;
       transition: background-color 0.3s ease;
@@ -74,67 +77,44 @@
       font-weight: bold;
     }
 
-    /* Donation Report Styling ... (same as before) */
+    /* Edit Buttons Styling */
+    .edit-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
 
-    /* Donation Form Styling */
-    .donation-form {
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    .edit-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 200px;
+      background-color: #e1eaf1;
+      color: #512da8;
       border-radius: 10px;
-      color: #512da8; /* Dark blue color for default text color */
-      animation: slide-up 0.4s ease-in-out; /* Add the animation here */
-    }
-
-    .donation-form h2 {
-      color: #512da8; /* Dark blue color for the title */
-      margin-top: 0;
-    }
-
-    .donation-form label {
-      display: block;
-      margin-top: 10px;
-    }
-
-    .donation-form input,
-    .donation-form textarea {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-
-    .donation-form button {
-      background-color: #512da8; /* Dark blue color for the button */
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: transform 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-right: 20px;
+      animation: slide-up 0.4s ease-in-out;
     }
 
-    .donation-form button:hover {
-      background-color: #3b2064; /* Darker shade on hover */
+    .edit-option:hover {
+      transform: translateY(-5px);
     }
-    select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: white;
-  }
 
-  /* Style the options */
-  select option {
-    font-size: 14px;
-    padding: 8px;
-  }
-    /* Responsive Styling ... (same as before) */
+    .edit-option i {
+      font-size: 60px;
+      margin-bottom: 10px;
+    }
 
-    /* Animation Styling (copied from users.html) */
+    .edit-option h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
     @keyframes slide-up {
       0% {
         opacity: 0;
@@ -147,16 +127,14 @@
       }
     }
   </style>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
   <header>
-    <h1>Donation Reports</h1>
+    <h1>Register</h1>
   </header>
 
   <div class="container">
-    <!-- Side Menu -->
     <div class="side-menu">
       <ul>
         <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
@@ -171,132 +149,47 @@
       </ul>
     </div>
 
-    <main>
-      <!-- New section for the user to make their own report -->
-      <section id="make-report" class="donation-form">
-        <h2>Donor Report</h2>
-        <form>
-          
-          <label for="donorSelect">Select Donor:</label>
-          <select id="receiving_bank" name="receiving_bank" required>
-            <option value="">Select Donor</option>
- <option value="Siti Binti Kamal">Siti Binti Kamal</option>
-  <option value="Nurul Huda">Nurul Huda</option>
-  <option value="Khairul Azman">Khairul Azman</option>
-  <option value="Aisyah Binti Abdullah">Aisyah Binti Abdullah</option>
-  <option value="Nor Azman">Nor Azman</option>
-  <option value="Fatimah Binti Ali">Fatimah Binti Ali</option>
-  <option value="Kamarul Zaman">Kamarul Zaman</option>
-            
-          </select>
-
-          <label for="date">Date:</label>
-          <input type="date" id="date" name="date" required>
+    <div>
+      <div class="edit-buttons">
+        <div class="edit-option" id="registerCompanyButton">
+          <i class="material-icons">business</i>
+          <h3>Register Corporate Donor</h3>
+        </div>
+        <div class="edit-option" id="registerDonorButton">
+          <i class="material-icons">person</i>
+          <h3>Register Personal Donor</h3>
+        </div>
         
-          <label for="donor">Publisher/Organization:</label>
-          <select id="donor" name="donor" required>
-            <option value="">Select Publisher</option>
-            <option value="MF WORLDWIDE RESOURCES">MF WORLDWIDE RESOURCES</option>
-  <option value="MURPHEES MARKETING & TRADING">MURPHEES MARKETING & TRADING</option>
-  <option value="VJVJ MEDIA AD CONSULTANTS">VJVJ MEDIA AD CONSULTANTS</option>
-  <option value="KC REWARDS (M) SDN BHD">KC REWARDS (M) SDN BHD</option>
-  <option value="ML ADVANCED RESOURCES">ML ADVANCED RESOURCES</option>
-  <option value="YAWEH RESOURCES">YAWEH RESOURCES</option>
-            
-          </select>
-        
-          <label for="receiving_bank">Receiving Bank:</label>
-<select id="receiving_bank" name="receiving_bank" required>
-  <option value="">Select bank</option>
-  <option value="The Royal Bank of Scotland Berhad">The Royal Bank of Scotland Berhad</option>
-  <option value="Affin Bank Berhad">Affin Bank Berhad</option>
-  <option value="Alliance Bank Malaysia Berhad">Alliance Bank Malaysia Berhad</option>
-  <option value="AmBank (M) Berhad">AmBank (M) Berhad</option>
-  <option value="Bangkok Bank Berhad">Bangkok Bank Berhad</option>
-  <option value="CIMB Bank Berhad">CIMB Bank Berhad</option>
-  <option value="Bank of America Malaysia Berhad">Bank of America Malaysia Berhad</option>
-  <option value="Bank of China (Malaysia) Berhad">Bank of China (Malaysia) Berhad</option>
-  <option value="Bank of Tokyo-Mitsubishi UFJ (Malaysia) Berhad">Bank of Tokyo-Mitsubishi UFJ (Malaysia) Berhad</option>
-  <option value="Citibank Berhad">Citibank Berhad</option>
-  <option value="Deutsche Bank (Malaysia) Berhad">Deutsche Bank (Malaysia) Berhad</option>
-  <option value="EON Bank Berhad">EON Bank Berhad</option>
-  <option value="Hong Leong Bank Berhad">Hong Leong Bank Berhad</option>
-  <option value="HSBC Bank Malaysia Berhad">HSBC Bank Malaysia Berhad</option>
-  <option value="J.P. Morgan Chase Bank Berhad">J.P. Morgan Chase Bank Berhad</option>
-  <option value="Malayan Banking Berhad">Malayan Banking Berhad</option>
-  <option value="OCBC Bank (Malaysia) Berhad">OCBC Bank (Malaysia) Berhad</option>
-  <option value="Public Bank Berhad">Public Bank Berhad</option>
-  <option value="RHB Bank Berhad">RHB Bank Berhad</option>
-  <option value="Standard Chartered Bank Malaysia Berhad">Standard Chartered Bank Malaysia Berhad</option>
-  <option value="The Bank of Nova Scotia Berhad">The Bank of Nova Scotia Berhad</option>
-  <option value="United Overseas Bank (Malaysia) Berhad">United Overseas Bank (Malaysia) Berhad</option>
-  <option value="Affin Islamic Bank Berhad">Affin Islamic Bank Berhad</option>
-  <option value="Al Rajhi Banking & Investment Corporation (Malaysia) Berhad">Al Rajhi Banking & Investment Corporation (Malaysia) Berhad</option>
-  <option value="AmIslamic Bank Berhad">AmIslamic Bank Berhad</option>
-  <option value="Asian Finance Bank Berhad">Asian Finance Bank Berhad</option>
-  <option value="Bank Islam Malaysia Berhad">Bank Islam Malaysia Berhad</option>
-  <option value="Bank Muamalat Malaysia Berhad">Bank Muamalat Malaysia Berhad</option>
-  <option value="CIMB Islamic Bank Berhad">CIMB Islamic Bank Berhad</option>
-  <option value="EONCAP Islamic Bank Berhad">EONCAP Islamic Bank Berhad</option>
-  <option value="Hong Leong Islamic Bank Berhad">Hong Leong Islamic Bank Berhad</option>
-  <option value="Kuwait Finance House (Malaysia) Berhad">Kuwait Finance House (Malaysia) Berhad</option>
-  <option value="RHB ISLAMIC Bank Berhad">RHB ISLAMIC Bank Berhad</option>
-  <option value="Maybank Islamic Berhad">Maybank Islamic Berhad</option>
-  <option value="Alliance Islamic Bank Berhad">Alliance Islamic Bank Berhad</option>
-  <option value="HSBC Amanah Malaysia Berhad">HSBC Amanah Malaysia Berhad</option>
-  <option value="Standard Chartered Saadiq Berhad">Standard Chartered Saadiq Berhad</option>
-  <option value="Public Islamic Bank Berhad">Public Islamic Bank Berhad</option>
-  <option value="OCBC Al-Amin Bank Berhad">OCBC Al-Amin Bank Berhad</option>
-  <option value="Affin Investment Bank Berhad">Affin Investment Bank Berhad</option>
-  <option value="Alliance Investment Bank Berhad">Alliance Investment Bank Berhad</option>
-  <option value="AmInvestment Bank Berhad">AmInvestment Bank Berhad</option>
-  <option value="Maybank Investment Bank Berhad">Maybank Investment Bank Berhad</option>
-  <option value="CIMB Investment Bank Berhad">CIMB Investment Bank Berhad</option>
-  <option value="Hwang-DBS Investment Bank Berhad">Hwang-DBS Investment Bank Berhad</option>
-  <option value="KAF Investment Bank Berhad">KAF Investment Bank Berhad</option>
-  <option value="Kenanga Investment Bank Berhad">Kenanga Investment Bank Berhad</option>
-  <option value="MIDF Amanah Investment Bank Berhad">MIDF Amanah Investment Bank Berhad</option>
-  <option value="MIMB Investment Bank Berhad">MIMB Investment Bank Berhad</option>
-  <option value="OSK Investment Bank Berhad">OSK Investment Bank Berhad</option>
-  <option value="Public Investment Bank Berhad">Public Investment Bank Berhad</option>
-  <option value="RHB Investment Bank Berhad">RHB Investment Bank Berhad</option>
-  <option value="Hong Leong Investment Bank Berhad">Hong Leong Investment Bank Berhad</option>
-  <option value="ECM Libra Investment Bank Berhad">ECM Libra Investment Bank Berhad</option>
-</select>
+      </div>
+      <div id="usersList"></div>
+    </div>
 
-
-        
-          <label for="amount">Amount:</label>
-          <input type="number" id="amount" name="amount" required>
-        
-          <label for="receipt_no">Receipt Number:</label>
-          <input type="text" id="receipt_no" name="receipt_no" required>
-<!--         
-          <label for="publisher">Publisher:</label>
-          <input type="text" id="publisher" name="publisher" required> -->
-<!--         
-          <label for="pro">PRO:</label>
-          <input type="text" id="pro" name="pro" required> -->
-        
-          <button type="submit">Submit Report</button>
-        </form>
-        
-      </section>
-    </main>
-  </div>
-
-  <script>
-    // Smooth scroll to the "Make Your Own Donation Report" section
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
-
-  </script>
+    <script>
+    //   // Register new company button event listener
+    //  const registerNewCompanyButton = document.getElementById('registerNewCompanyButton');
+    //  registerNewCompanyButton.addEventListener('click', () => {
+    //    window.location.href = 'register-new-company.html'; // Redirect to register-new-company.html
+    //  });
+   
+    //  // Register new publisher button event listener
+    //  const registerPublisherButton = document.getElementById('registerPublisherButton');
+    //  registerPublisherButton.addEventListener('click', () => {
+    //    window.location.href = 'register-new-user.html'; // Redirect to register-new-user.html
+    //  });
+   
+     // Register new corporate donor button event listener
+     const registerCompanyButton = document.getElementById('registerCompanyButton');
+     registerCompanyButton.addEventListener('click', () => {
+       window.location.href = 'register-corporate-donor.html'; // Redirect to register-corporate-donor.html
+     });
+   
+     // Register new donor button event listener
+     const registerDonorButton = document.getElementById('registerDonorButton');
+     registerDonorButton.addEventListener('click', () => {
+       window.location.href = 'register-new-donor.html'; // Redirect to register-new-donor.html
+     });
+   
+     </script>
 </body>
+
 </html>

@@ -25,13 +25,47 @@
     
     /* Container Styling */
     .container {
-      max-width: 1200px;
+      display: grid;
+      grid-template-columns: auto 200px 1fr;
+      gap: 20px;
+      max-width: 1600px;
       margin: 0 auto;
       padding: 20px;
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 20px;
     }
+    
+    /* Logo Styling */
+    .logo img {
+      max-width: 100%;
+      height: auto;
+      max-height: 200px;
+    }
+
+    /* Header Styling */
+    header {
+      background-color: #512da8;
+      padding: 10px; /* Reduce the top and bottom padding */
+      text-align: center;
+      color: #fff;
+    }
+
+    /* Updated Header Text Styles */
+    .header-title {
+      color: red;
+      font-size: 24px; /* Reduce the font size */
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .header-subtitle {
+      font-size: 18px; /* Reduce the font size */
+      margin-top: 5px; /* Reduce the top margin */
+    }
+
+    .header-small-text {
+      font-size: 14px; /* Reduce the font size */
+      margin-top: 5px; /* Reduce the top margin */
+    }
+
     
     /* Side Menu Styling */
     .side-menu {
@@ -75,14 +109,13 @@
       font-weight: bold;
     }
     
-    /* Statistics Section Styling */
-    /* Statistics Section Styling */
-    .statistics-section {
+    /* Contents Styling (Statistics Box) */
+    .contents {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
     }
-
+    
     /* Styling for the statistics boxes */
     .statistics-box {
       background-color: #ffffff;
@@ -92,27 +125,27 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       transition: transform 0.2s;
     }
-
+    
     .statistics-box:hover {
       transform: translateY(-5px);
     }
-
+    
     .statistics-box h2 {
       color: #512da8;
       font-size: 24px;
       margin: 0 0 10px;
     }
-
+    
     .statistics-box .stat {
       font-size: 36px;
       font-weight: bold;
       color: #512da8;
     }
-
+    
     .statistics-box .view-button {
       margin-top: 20px;
     }
-
+    
     .statistics-box .view-button a {
       display: inline-block;
       padding: 10px 20px;
@@ -122,28 +155,36 @@
       border-radius: 5px;
       transition: background-color 0.3s ease;
     }
-
+    
     .statistics-box .view-button a:hover {
       background-color: #e1bee7;
     }
     
+     /* Larger Icons */
     .statistics-box .icon {
-      font-size: 48px;
+      font-size: 64px; /* Increase the font size for larger icons */
       color: #512da8;
       margin-bottom: 10px;
     }
-      
-      .side-menu {
-        margin-bottom: 20px;
-      }
-  
+    /* Footer Styling */
+    .footer {
+      background-color: #512da8;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Footer Text Styling */
+    .footer-text {
+      font-size: 14px;
+    }
     
     @keyframes slide-up {
       0% {
         opacity: 0;
         transform: translateY(20px);
       }
-
+    
       100% {
         opacity: 1;
         transform: translateY(0);
@@ -153,11 +194,20 @@
 </head>
 <body>
   <header>
-    <h1>Main Admin Dashboard</h1>
+    <div class="header-title">PERTUBUHAN MEMBANTU PESAKIT PARAH MISKIN MALAYSIA</div>
+    <div class="header-subtitle">(MALAYSIAN ASSOCIATION HELP FOR THE POOR TERMINALLY ILL)</div>
+    <div class="header-small-text">MAIN ADMIN DASHBOARD</div>
   </header>
   
   <div class="container">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="logo1.png" alt="Your Logo">
+    </div>
+    
+    <!-- Side Menu -->
     <div class="side-menu">
+      <!-- Your side menu content here -->
       <ul>
         <li><a href="main-admin-dashboard.html" class="active"><i class="material-icons">dashboard</i>Dashboard</a></li>
         <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO Information</a></li>
@@ -172,10 +222,12 @@
       </ul>
     </div>
     
-    <div class="statistics-section">
+    <!-- Contents (Statistics Box) -->
+    <div class="contents">
+      <!-- Your statistics boxes here -->
       <div class="statistics-box">
-        <h2>Total Database</h2>
-        <div class="stat">6</div>
+        <h2>Total Publishers</h2>
+        <div class="stat">5</div>
         <div class="view-button">
           <a href="companies.html">View All Database</a>
         </div>
@@ -188,7 +240,7 @@
         </div>
       </div>
       <div class="statistics-box">
-        <h2>PRO Database</h2>
+        <h2>Total Database</h2>
         <div class="stat">500</div>
         <div class="view-button">
           <a href="pro-database.html">View More</a>
@@ -209,7 +261,7 @@
           <i class="material-icons">swap_horiz</i>
         </div>
         <div class="view-button">
-          <a href="#">Transfer Data</a>
+          <a href="transfer.html">Transfer Data</a>
         </div>
       </div>
       <div class="statistics-box">
@@ -222,6 +274,51 @@
         </div>
       </div>
       <div class="statistics-box">
+        <h2>Login Information</h2>
+        <div class="icon">
+          <i class="material-icons">person</i>
+        </div>
+        <div class="view-button">
+          <a href="login-info.html">View Details</a>
+        </div>
+      </div>
+      <div class="statistics-box">
+        <h2>Publisher Renewal</h2>
+        <div class="icon">
+          <i class="material-icons">refresh</i>
+        </div>
+        <div class="view-button">
+          <a href="#">Renewals</a>
+        </div>
+      </div>
+      <div class="statistics-box">
+        <h2>Online Recurring Donation</h2>
+        <div class="icon">
+          <i class="material-icons">donut_small</i>
+        </div>
+        <div class="view-button">
+          <a href="#">View Donations</a>
+        </div>
+      </div>
+      <div class="statistics-box">
+        <h2>Online One Time Donation</h2>
+        <div class="icon">
+          <i class="material-icons">monetization_on</i>
+        </div>
+        <div class="view-button">
+          <a href="#">View Donations</a>
+        </div>
+      </div>
+      <div class="statistics-box">
+        <h2>Online Equipment Donation</h2>
+        <div class="icon">
+          <i class="material-icons">laptop</i>
+        </div>
+        <div class="view-button">
+          <a href="#">View Donations</a>
+        </div>
+      </div>
+      <div class="statistics-box">
         <h2>SSM E-Info</h2>
         <div class="icon">
           <i class="material-icons">receipt</i>
@@ -230,6 +327,13 @@
           <a href="https://www.ssm-einfo.my/index.php?id=login" target="_blank">Go to</a>
         </div>
       </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-text">
+      No. 5-3-2, Blok C, Jalan 3/50, Diamond Square Commercial Centre, Off Jalan Gombak, 53000 Kuala Lumpur.<br>
+      Tel: 03-4021 8271 Fax: 03-4022 4459 / Email: pesakitparah@outlook.com Website: www.pmppmm.com
     </div>
   </div>
 </body>

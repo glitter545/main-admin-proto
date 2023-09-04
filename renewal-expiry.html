@@ -191,6 +191,7 @@
         <thead>
           <tr>
             <th>Publisher</th>
+            <th>Registration Date</th> <!-- New column -->
             <th>Renewal Date</th>
             <th>Time Remaining</th>
             <th>Status</th>
@@ -205,110 +206,138 @@
   </div>
 
   <script>
-   const companies = [
-  {
-    name: 'MF WORLDWIDE RESOURCES',
-    renewalDate: '2023-09-01',
-    active: false,
-  },
-  {
-    name: 'MURPHEES MARKETING & TRADING',
-    renewalDate: '2023-09-05',
-    active: true,
-  },
-  {
-    name: 'VJVJ MEDIA AD CONSULTANTS',
-    renewalDate: '2023-08-15',
-    active: true,
-  },
-  {
-    name: 'KC REWARDS (M) SDN BHD',
-    renewalDate: '2023-08-28',
-    active: true,
-  },
-  {
-    name: 'ML ADVANCED RESOURCES',
-    renewalDate: '2023-09-10',
-    active: false,
-  },
-  {
-    name: 'YAWEH RESOURCES',
-    renewalDate: '2023-08-20',
-    active: true,
-  },
-];
-
-
-   
+    const companies = [
+      {
+        name: 'MF WORLDWIDE RESOURCES',
+        renewalDate: '2023-09-01',
+        active: false,
+      },
+      {
+        name: 'MURPHEES MARKETING & TRADING',
+        renewalDate: '2023-09-05',
+        active: true,
+      },
+      {
+        name: 'VJVJ MEDIA AD CONSULTANTS',
+        renewalDate: '2023-08-15',
+        active: true,
+      },
+      {
+        name: 'KC REWARDS (M) SDN BHD',
+        renewalDate: '2023-08-28',
+        active: true,
+      },
+      {
+        name: 'ML ADVANCED RESOURCES',
+        renewalDate: '2023-09-10',
+        active: false,
+      },
+      {
+        name: 'YAWEH RESOURCES',
+        renewalDate: '2023-08-20',
+        active: true,
+      },
+    ];
+    
     function populateTable() {
-  const tableBody = document.getElementById('companyTableBody');
-
-  companies.forEach((company, index) => {
-    const row = document.createElement('tr');
-
-    row.innerHTML = `
-      <td>${company.name}</td>
-      <td>${company.renewalDate}</td>
-      <td class="time-remaining">${calculateTimeRemaining(company.renewalDate, company.active)}</td>
-      <td class="status ${company.active ? 'available' : 'not-available'}">${company.active ? 'Active' : 'Inactive'}</td>
-      <td class="actions">${company.active ? 'No Action Required' : `<button class="renew-button" onclick="renewCompany(${index})">Renew</button>`}</td>
-    `;
-
-    if (company.active) {
-      const statusCell = row.querySelector('.status');
-      statusCell.textContent = 'Active';
-      statusCell.style.color = '#278827';
-      statusCell.style.backgroundColor = 'transparent'; // Set background color to transparent
-    } else {
-      row.style.backgroundColor = '#ffe0e0';
+      const tableBody = document.getElementById('companyTableBody');
+    
+      companies.forEach((company) => {
+        const row = document.createElement('tr');
+    
+        row.innerHTML = `
+          <td>${company.name}</td>
+          <td>${calculateRegistrationDate(company.renewalDate)}</td> <!-- New column -->
+          <td>${company.renewalDate}</td>
+          <td class="time-remaining">${calculateTimeRemaining(company.renewalDate, company.active)}</td>
+          <td class="status ${company.active ? 'available' : 'not-available'}">${company.active ? 'Active' : 'Inactive'}</td>
+          <td class="actions">${calculateActions(company)}</td>
+        `;
+    
+        if (company.active) {
+          const statusCell = row.querySelector('.status');
+          statusCell.textContent = 'Active';
+          statusCell.style.color = '#278827';
+          statusCell.style.backgroundColor = 'transparent'; // Set background color to transparent
+        } else {
+          row.style.backgroundColor = '#ffe0e0';
+        }
+    
+        tableBody.appendChild(row);
+      });
     }
+    
+    function calculateRegistrationDate(renewalDate) {
+      const renewalDateObj = new Date(renewalDate);
+      renewalDateObj.setMonth(renewalDateObj.getMonth() - 6);
+      const registrationDate = renewalDateObj.toLocaleDateString();
+      return registrationDate;
+    }
+    
+    function calculateTimeRemaining(renewalDate, isActive) {
+      if (!isActive) {
+        return '-';
+      }
+    
+      const currentDate = new Date();
+      const renewalDateObj = new Date(renewalDate);
+      const timeDifference = renewalDateObj - currentDate;
+    
+      if (timeDifference <= 0) {
+        return 'Active';
+      } else {
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const months = Math.floor(days / 30);
+        const remainingDays = days - (months * 30); // Calculate remaining days
+        return months === 0 ? `${remainingDays} days` : `${months} months and ${remainingDays} days`;
+      }
+    }
+    
+    function calculateActions(company) {
+      if (calculateTimeRemaining(company.renewalDate, company.active) === 'Active') {
+        return 'No Action Required';
+      } else {
+        return '<button class="renew-button" onclick="renewCompany()">Renew</button>';
+      }
+    }
+    
+    function renewCompany() {
+  // You can implement the renewal logic here
+  // For demonstration purposes, we'll set the status to "Active" and update the table row
 
-    tableBody.appendChild(row);
-  });
-}
+  // Assuming you have a way to identify the selected row or company to renew, let's say you have the index
+  const selectedRowIndex = 0; // Replace this with the actual index of the selected row
 
-function renewCompany(index) {
-  companies[index].active = true;
+  // Check if the selected company is already active; if not, proceed with the renewal
+  if (!companies[selectedRowIndex].active) {
+    // Update the company's status to "Active"
+    companies[selectedRowIndex].active = true;
 
-  const tableBody = document.getElementById('companyTableBody');
-  const row = tableBody.rows[index];
+    // Update the table row to reflect the changes
+    const tableBody = document.getElementById('companyTableBody');
+    const row = tableBody.rows[selectedRowIndex];
 
-  const statusCell = row.querySelector('.status');
-  statusCell.textContent = 'Active';
-  statusCell.style.color = '#278827';
-  row.style.backgroundColor = '';
+    const statusCell = row.querySelector('.status');
+    statusCell.textContent = 'Active';
+    statusCell.style.color = '#278827';
+    row.style.backgroundColor = '';
 
+    const timeRemainingCell = row.querySelector('.time-remaining');
+    timeRemainingCell.textContent = 'Active';
 
-  const timeRemainingCell = row.querySelector('.time-remaining');
-  timeRemainingCell.textContent = '6 months, 6 days';
+    const actionsCell = row.querySelector('.actions');
+    actionsCell.innerHTML = 'No Action Required';
 
-  const actionsCell = row.querySelector('.actions');
-  actionsCell.innerHTML = 'No Action Required';
-  // Show a notification
-  alert('Publisher renewed!');
-}
-
-  function calculateTimeRemaining(renewalDate, isActive) {
-  if (!isActive) {
-    return '-';
-  }
-
-  const currentDate = new Date();
-  const renewalDateObj = new Date(renewalDate);
-  const timeDifference = renewalDateObj - currentDate;
-
-  if (timeDifference <= 0) {
-    return 'Active';
+    // Show a notification to indicate the renewal
+    alert('Publisher renewed!');
   } else {
-    const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-    const months = Math.floor(days / 30);
-    const remainingDays = days - (months * 30); // Calculate remaining days
-    return months === 0 ? `${remainingDays} days` : `${months} months and ${remainingDays} days`;
+    // If the company is already active, you can handle this scenario accordingly
+    alert('Publisher is already active.');
   }
 }
-
-  window.addEventListener('load', populateTable);
-  </script>
+    
+    window.addEventListener('load', populateTable);
+    </script>
 </body>
 
 </html>

@@ -13,6 +13,7 @@
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
+      font-size: 15px;
       background-color: #f2f5fa;
     }
 
@@ -99,7 +100,7 @@
 
     /* Container Styling */
     .container {
-      max-width: 1200px;
+      max-width: 1800px;
       margin: 0 auto;
       padding: 20px;
       display: grid;
@@ -146,17 +147,21 @@
             <option value="yearly">Yearly</option>
           </select>
         </div>
+        <button id="downloadButton">Download Data</button>
         <!-- Donor Report Table -->
         <table class="donor-table">
           <thead>
             <tr>
+              <th>Date</th>
               <th>Name</th>
               <th>IC Number</th>
               <th>Address</th>
               <th>Phone</th>
               <th>Email</th>
-              <th>Date</th>
-              <th>Amount</th> <!-- New column for Amount -->
+              <th>Amount</th>
+              <th>Receipt Number</th>
+              <th>Publisher</th>
+              <th>PRO</th>
             </tr>
           </thead>
           <tbody id="donorList">
@@ -168,140 +173,96 @@
   <script>
       
       const dummyPersonalData = [
-    {
-      name: 'Ahmad Bin Ali',
-      icNumber: '910101-14-5678',
-      address: '123 Jalan Raya, Kuala Lumpur',
-      phone: '012-3456789',
-      email: 'ahmad@example.com',
-      date: '2023-08-01',
-      amount: '100' // Amount for Ahmad Bin Ali
-    },
-    {
-      name: 'Siti Binti Rahman',
-      icNumber: '960202-12-3456',
-      address: '456 Jalan Indah, Selangor',
-      phone: '011-9876543',
-      email: 'siti@example.com',
-      date: '2023-08-02',
-      amount: '50' // Amount for Siti Binti Rahman
-    },
-    {
-      name: 'Mohammad Abdullah',
-      icNumber: '881212-05-6789',
-      address: '789 Jalan Damai, Penang',
-      phone: '017-1234567',
-      email: 'mohammad@example.com',
-      date: '2023-08-03',
-      amount: '75' // Amount for Mohammad Abdullah
-    },
-    // Add more dummy personal data entries here for testing
-    {
-      name: 'Nurul Aini',
-      icNumber: '910501-08-1234',
-      address: '234 Jalan Bahagia, Johor',
-      phone: '012-3456789',
-      email: 'nurul@example.com',
-      date: '2023-08-04',
-      amount: '150'
-    },
-    {
-      name: 'Lim Wei Jie',
-      icNumber: '950601-07-5678',
-      address: '567 Jalan Sentosa, Perak',
-      phone: '011-9876543',
-      email: 'lim@example.com',
-      date: '2023-08-05',
-      amount: '90'
-    },
-    {
-      name: 'Tan Mei Ling',
-      icNumber: '890710-01-3456',
-      address: '789 Jalan Damansara, Selangor',
-      phone: '017-1234567',
-      email: 'tan@example.com',
-      date: '2023-08-06',
-      amount: '120'
-    },
-    {
-      name: 'Chong Wei Ming',
-      icNumber: '930802-12-1234',
-      address: '123 Jalan Raya, Penang',
-      phone: '012-3456789',
-      email: 'chong@example.com',
-      date: '2023-08-07',
-      amount: '80'
-    }
-    ,
-    {
-      name: 'Ng Chee Weng',
-      icNumber: '880702-10-3456',
-      address: '345 Jalan Indah, Kuala Lumpur',
-      phone: '017-1234567',
-      email: 'ng@example.com',
-      date: '2023-02-12',
-      amount: '110'
-    },
-    // Add more dummy personal data entries here for testing
-    {
-      name: 'Aisha Binti Ibrahim',
-      icNumber: '910813-04-5678',
-      address: '789 Jalan Mutiara, Selangor',
-      phone: '012-3456789',
-      email: 'aisha@example.com',
-      date: '2023-08-26',
-      amount: '85'
-    },
-    {
-      name: 'Lim Chen Hui',
-      icNumber: '890901-09-1234',
-      address: '234 Jalan Harmoni, Kuala Lumpur',
-      phone: '011-9876543',
-      email: 'lim@example.com',
-      date: '2023-08-26',
-      amount: '120'
-    },
-    {
-      name: 'Siti Nor Azizah',
-      icNumber: '880917-05-5678',
-      address: '345 Jalan Ceria, Penang',
-      phone: '017-1234567',
-      email: 'siti@example.com',
-      date: '2023-08-26',
-      amount: '70'
-    },
-    {
-      name: 'Ahmad Hakim',
-      icNumber: '950702-07-1234',
-      address: '567 Jalan Bahagia, Selangor',
-      phone: '012-3456789',
-      email: 'hakim@example.com',
-      date: '2023-08-26',
-      amount: '150'
-    },
-    {
-  name: 'Joanna Tan',
-  icNumber: '900215-11-3456',
-  address: '567 Jalan Mutiara, Selangor',
-  phone: '011-9876543',
-  email: 'joanna@example.com',
-  date: '2023-08-01', // Quarterly interval (May, August, November, February)
-  amount: '200'
-},
-    {
-    name: 'Nadia Abdullah',
-    icNumber: '890511-08-9012',
-    address: '123 Jalan Harmoni, Johor',
-    phone: '012-3456789',
-    email: 'nadia@example.com',
+  {
     date: '2023-08-01',
-    amount: '130' // Amount for Nadia Abdullah
+    publisher: 'ABC Publisher',
+    pro: 'XYZ PRO',
+    receiptNum: '12345',
+    name: 'Ahmad Bin Ali',
+    icNumber: '910101-14-5678',
+    address: '123 Jalan Raya, Kuala Lumpur',
+    phone: '012-3456789',
+    email: 'ahmad@example.com',
+    amount: '100'
+  },
+  {
+    date: '2023-08-02',
+    publisher: 'MF WORLDWIDE RESOURCES',
+    pro: 'LMN PRO',
+    receiptNum: '67890',
+    name: 'Siti Binti Rahman',
+    icNumber: '960202-12-3456',
+    address: 'B5-120, PANGSAPURI SRI MELEWAR, SEKSYEN U1, SHAH ALAM, 53000, SELANGOR,MALAYSIA',
+    phone: '011-9876543',
+    email: 'siti@example.com',
+    amount: '50'
+  },
+  {
+    date: '2023-08-02',
+    publisher: 'MF WORLDWIDE RESOURCES',
+    pro: 'LMN PRO',
+    receiptNum: '67890',
+    name: 'Siti Binti Rahman',
+    icNumber: '960202-12-3456',
+    address: 'B5-120, PANGSAPURI SRI MELEWAR, SEKSYEN U1, SHAH ALAM, 53000, SELANGOR,MALAYSIA',
+    phone: '011-9876543',
+    email: 'siti@example.com',
+    amount: '50'
+  },
+  {
+    date: '2023-08-02',
+    publisher: 'MF WORLDWIDE RESOURCES',
+    pro: 'LMN PRO',
+    receiptNum: '67890',
+    name: 'Siti Binti Rahman',
+    icNumber: '960202-12-3456',
+    address: 'B5-120, PANGSAPURI SRI MELEWAR, SEKSYEN U1, SHAH ALAM, 53000, SELANGOR,MALAYSIA',
+    phone: '011-9876543',
+    email: 'siti@example.com',
+    amount: '50'
+  },
+  {
+    date: '2023-08-02',
+    publisher: 'MF WORLDWIDE RESOURCES',
+    pro: 'LMN PRO',
+    receiptNum: '67890',
+    name: 'Siti Binti Rahman',
+    icNumber: '960202-12-3456',
+    address: 'B5-120, PANGSAPURI SRI MELEWAR, SEKSYEN U1, SHAH ALAM, 53000, SELANGOR,MALAYSIA',
+    phone: '011-9876543',
+    email: 'siti@example.com',
+    amount: '50'
+  },
+  {
+    date: '2023-08-02',
+    publisher: 'MF WORLDWIDE RESOURCES',
+    pro: 'LMN PRO',
+    receiptNum: '67890',
+    name: 'Siti Binti Rahman',
+    icNumber: '960202-12-3456',
+    address: 'B5-120, PANGSAPURI SRI MELEWAR, SEKSYEN U1, SHAH ALAM, 53000, SELANGOR,MALAYSIA',
+    phone: '011-9876543',
+    email: 'siti@example.com',
+    amount: '50'
+  },
+  {
+    date: '2023-08-02',
+    publisher: 'MF WORLDWIDE RESOURCES',
+    pro: 'SITI BIN RAHMAN BIN ABDUL',
+    receiptNum: '67890',
+    name: 'Siti Binti Rahman',
+    icNumber: '960202-12-3456',
+    address: 'B5-120, PANGSAPURI SRI MELEWAR, SEKSYEN U1, SHAH ALAM, 53000, SELANGOR,MALAYSIA',
+    phone: '011-9876543',
+    email: 'siti@example.com',
+    amount: '50'
   }
-  ];
+  // Add more data entries here
+];
+
   const donorList = document.getElementById('donorList');
   const frequencyDropdown = document.getElementById('frequency');
 
-  // Function to filter and populate the table based on selected frequency
   function updateDonorList() {
   const selectedFrequency = frequencyDropdown.value;
 
@@ -329,23 +290,57 @@
     ) {
       const row = donorList.insertRow();
       row.innerHTML = `
+        <td>${data.date}</td>
         <td>${data.name}</td>
         <td>${data.icNumber}</td>
         <td>${data.address}</td>
         <td>${data.phone}</td>
         <td>${data.email}</td>
-        <td>${data.date}</td>
         <td>${data.amount}</td>
+        <td>${data.receiptNum}</td>
+        <td>${data.publisher}</td>
+        <td>${data.pro}</td>
       `;
     }
   });
 }
+
 
   // JavaScript to handle frequency dropdown selection
   frequencyDropdown.addEventListener('change', updateDonorList);
 
   // Initial population of the table
   updateDonorList();
+
+  // Function to convert table data to CSV format
+function convertTableToCSV() {
+  const table = document.querySelector('.donor-table');
+  const rows = Array.from(table.querySelectorAll('tr'));
+  const csvData = rows.map(row => {
+    const cells = Array.from(row.querySelectorAll('th, td'));
+    return cells.map(cell => cell.textContent).join(',');
+  }).join('\n');
+  return 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvData);
+}
+
+// Function to handle the download button click
+function handleDownloadButtonClick() {
+  const csvData = convertTableToCSV();
+  const downloadLink = document.createElement('a');
+  downloadLink.setAttribute('href', csvData);
+  downloadLink.setAttribute('download', 'donor_data.csv');
+  downloadLink.style.display = 'none';
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  document.body.removeChild(downloadLink);
+}
+
+// Attach the click event listener to the download button
+const downloadButton = document.getElementById('downloadButton');
+downloadButton.addEventListener('click', handleDownloadButtonClick);
+
+
+
   </script>
 </body>
 

@@ -176,7 +176,7 @@
     
     <div class="form-section">
       <h2>Register New User/Publisher</h2>
-      <form id="registerForm">
+      <form action="/admin/register-new-user" method="post">
         <div>
           <label for="username">Username:</label>
           <input type="text" id="username" name="username" required>
@@ -186,47 +186,44 @@
           <input type="password" id="password" name="password" required>
         </div>
         <div>
-          <label for="companyName">Publisher Name:</label>
-          <input type="text" id="companyName" name="companyName" required>
+          <label for="pub_name">Publisher Name:</label>
+          <input type="text" id="pub_name" name="pub_name" required>
         </div>
         <div>
           <label for="companyLabel">Company Label:</label>
           <select id="companyLabel" name="companyLabel" required>
             <option value="" disabled selected>Select Company Label</option>
             <option value="Sdn Bhd">Sdn Bhd</option>
-            <option value="International">International</option>
-            <option value="Private Limited">Private Limited</option>
-            <option value="Berhad">Berhad</option>
-            <option value="Koperasi">Koperasi</option>
-            <option value="Yayasan">Yayasan</option>
-            <option value="Pertubuhan">Pertubuhan</option>
-            <option value="Persutuan">Persutuan</option>
+            <!-- Add more options as needed -->
           </select>
         </div>
-        
         <div>
-          <label for="registrationNumber">Registration Number:</label>
-          <input type="text" id="registrationNumber" name="registrationNumber" required>
+          <label for="registration_num">Registration Number:</label>
+          <input type="text" id="registration_num" name="registration_num" required>
         </div>
         <div>
-          <label for="phoneNumber">Phone Number:</label>
-          <input type="tel" id="phoneNumber" name="phoneNumber" required>
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" required>
         </div>
         <div>
           <label for="address">Address:</label>
           <input type="text" id="address" name="address" required>
         </div>
         <div>
-          <label for="secondaryAddress">Person in Charge:</label>
-          <input type="text" id="secondaryAddress" name="secondaryAddress" required>
+          <label for="person_in_charge">Person in Charge:</label>
+          <input type="text" id="person_in_charge" name="person_in_charge" required>
         </div>
         <div>
           <label for="email">Email:</label>
           <input type="email" id="email" name="email" required>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit" value="submit">Register</button>
       </form>
-    </div>
+
+      </div>
+      <script>
+      
+    </script>
   </div>
 </body>
 </html>

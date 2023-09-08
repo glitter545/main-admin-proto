@@ -185,264 +185,264 @@
 
   <script>
     // User data
-    const userData = [
-  {
-    username: 'johnsmith',
-    password: 'password123',
-    companies: [
-      {
-        companyName: 'ABC Corporation',
-        companyLabel: 'Sdn Bhd',
-        registrationNumber: '123456789'
-      }
-    ],
-    personInCharge: 'John Smith',
-    phoneNumber: '+60123456789',
-    address: '123 Main Street',
-    secondaryAddress: 'Apt 4B',
-    email: 'johnsmith@example.com'
-  },
-  {
-    username: 'emilyjohnson',
-    password: 'password456',
-    companies: [
-      {
-        companyName: 'XYZ Holdings',
-        companyLabel: 'Private Limited',
-        registrationNumber: '987654321'
-      }
-    ],
-    personInCharge: 'Emily Johnson',
-    phoneNumber: '+60123456789',
-    address: '456 Elm Avenue',
-    secondaryAddress: 'Suite 202',
-    email: 'emilyjohnson@example.com'
-  },
-  {
-    username: 'ahmedkhalid',
-    password: 'password234',
-    companies: [
-      {
-        companyName: 'Khalid Engineering',
-        companyLabel: 'Private Limited',
-        registrationNumber: '827472849'
-      },
-      {
-        companyName: 'Khaldun',
-        companyLabel: 'Private Limited',
-        registrationNumber: '827467284'
-      },
-      {
-        companyName: 'Burger',
-        companyLabel: 'International',
-        registrationNumber: '883747384'
-      }
-    ],
-    personInCharge: 'Ahmed Khalid',
-    phoneNumber: '+60129876543',
-    address: '456 Jalan Teknik',
-    secondaryAddress: 'Block C',
-    email: 'ahmedkhalid@example.com'
-  },
-  {
-    username: 'malikahmad',
-    password: 'password789',
-    companies: [
-      {
-        companyName: 'Malik Holdings',
-        companyLabel: 'Sdn Bhd',
-        registrationNumber: '394829348'
-      }
-    ],
-    personInCharge: 'Malik Ahmad',
-    phoneNumber: '+60123456789',
-    address: '789 Elm Street',
-    secondaryAddress: 'Suite 501',
-    email: 'malikahmad@example.com'
-  },
-  {
-    username: 'laylabinti',
-    password: 'password321',
-    companies: [
-      {
-        companyName: 'Layla Corporation',
-        companyLabel: 'Private Limited',
-        registrationNumber: '827476589'
-      },
-      {
-        companyName: 'Layla Industries',
-        companyLabel: 'Public Limited',
-        registrationNumber: '983747239'
-      }
-    ],
-    personInCharge: 'Layla Binti',
-    phoneNumber: '+60129876543',
-    address: '293 Jalan Raya',
-    secondaryAddress: 'Block D',
-    email: 'laylabinti@example.com'
-  },
-  // 10 additional users with Malaysian names
-  {
-    username: 'muhammadali',
-    password: 'password246',
-    companies: [
-      {
-        companyName: 'Ali Enterprises',
-        companyLabel: 'Sdn Bhd',
-        registrationNumber: '293847561'
-      }
-    ],
-    personInCharge: 'Muhammad Ali',
-    phoneNumber: '+60123456789',
-    address: '456 Jalan Utama',
-    secondaryAddress: 'Block A',
-    email: 'muhammadali@example.com'
-  },
-  {
-    username: 'nurazizah',
-    password: 'password753',
-    companies: [
-      {
-        companyName: 'Azizah Trading',
-        companyLabel: 'Sdn Bhd',
-        registrationNumber: '918273645'
-      }
-    ],
-    personInCharge: 'Nur Azizah',
-    phoneNumber: '+60129876543',
-    address: '789 Jalan Mega',
-    secondaryAddress: 'Suite 101',
-    email: 'nurazizah@example.com'
-  },
-  {
-    username: 'amirahmed',
-    password: 'password864',
-    companies: [
-      {
-        companyName: 'Amirah Holdings',
-        companyLabel: 'Sdn Bhd',
-        registrationNumber: '657483920'
-      }
-    ],
-    personInCharge: 'Amir Ahmed',
-    phoneNumber: '+60123456789',
-    address: '293 Jalan Rakyat',
-    secondaryAddress: 'Block B',
-    email: 'amirahmed@example.com'
-  },
-  {
-    username: 'sitiyusof',
-    password: 'password951',
-    companies: [
-      {
-        companyName: 'Yusof Corporation',
-        companyLabel: 'Sdn Bhd',
-        registrationNumber: '183746592'
-      }
-    ],
-    personInCharge: 'Siti Yusof',
-    phoneNumber: '+60129876543',
-    address: '293 Jalan Perdana',
-    secondaryAddress: 'Block C',
-    email: 'sitiyusof@example.com'
-  },
-  {
-    username: 'ahmadali',
-    password: 'password753',
-    companies: [
-      {
-        companyName: 'Ali Group',
-        companyLabel: 'Sdn Bhd',
-        registrationNumber: '485739201'
-      }
-    ],
-    personInCharge: 'Ahmad Ali',
-    phoneNumber: '+60123456789',
-    address: '789 Jalan Maju',
-    secondaryAddress: 'Suite 201',
-    email: 'ahmadali@example.com'
-  },
-  {
-    username: 'nurasma',
-    password: 'password864',
-    companies: [
-      {
-        companyName: 'Asma Corporation',
-        companyLabel: 'Sdn Bhd',
-        registrationNumber: '374829506'
-      }
-    ],
-    personInCharge: 'Nur Asma',
-    phoneNumber: '+60129876543',
-    address: '293 Jalan Gemilang',
-    secondaryAddress: 'Block D',
-    email: 'nurasma@example.com'
-  },
-  {
-    username: 'azmikhalid',
-    password: 'password951',
-    companies: [
-      {
-        companyName: 'Khalid Holdings',
-        companyLabel: 'Sdn Bhd',
-        registrationNumber: '273849506'
-      }
-    ],
-    personInCharge: 'Azmi Khalid',
-    phoneNumber: '+60123456789',
-    address: '123 Jalan Indah',
-    secondaryAddress: 'Apt 2C',
-    email: 'azmikhalid@example.com'
-  },
-  {
-    username: 'norazizah',
-    password: 'password753',
-    companies: [
-      {
-        companyName: 'Azizah Industries',
-        companyLabel: 'Sdn Bhd',
-        registrationNumber: '839274651'
-      }
-    ],
-    personInCharge: 'Nor Azizah',
-    phoneNumber: '+60129876543',
-    address: '456 Jalan Seri',
-    secondaryAddress: 'Suite 301',
-    email: 'norazizah@example.com'
-  },
-  {
-    username: 'amirahmad',
-    password: 'password864',
-    companies: [
-      {
-        companyName: 'Amirah Corporation',
-        companyLabel: 'Sdn Bhd',
-        registrationNumber: '485739203'
-      }
-    ],
-    personInCharge: 'Amir Ahmad',
-    phoneNumber: '+60123456789',
-    address: '789 Jalan Indah',
-    secondaryAddress: 'Suite 401',
-    email: 'amirahmad@example.com'
-  },
-  {
-    username: 'nursiti',
-    password: 'password951',
-    companies: [
-      {
-        companyName: 'Siti Holdings',
-        companyLabel: 'Sdn Bhd',
-        registrationNumber: '374829508'
-      }
-    ],
-    personInCharge: 'Nur Siti',
-    phoneNumber: '+60129876543',
-    address: '123 Jalan Seri',
-    secondaryAddress: 'Apt 3B',
-    email: 'nursiti@example.com'
-  }
-];
+//     const userData = [
+//   {
+//     username: 'johnsmith',
+//     password: 'password123',
+//     companies: [
+//       {
+//         companyName: 'ABC Corporation',
+//         companyLabel: 'Sdn Bhd',
+//         registrationNumber: '123456789'
+//       }
+//     ],
+//     personInCharge: 'John Smith',
+//     phoneNumber: '+60123456789',
+//     address: '123 Main Street',
+//     secondaryAddress: 'Apt 4B',
+//     email: 'johnsmith@example.com'
+//   },
+//   {
+//     username: 'emilyjohnson',
+//     password: 'password456',
+//     companies: [
+//       {
+//         companyName: 'XYZ Holdings',
+//         companyLabel: 'Private Limited',
+//         registrationNumber: '987654321'
+//       }
+//     ],
+//     personInCharge: 'Emily Johnson',
+//     phoneNumber: '+60123456789',
+//     address: '456 Elm Avenue',
+//     secondaryAddress: 'Suite 202',
+//     email: 'emilyjohnson@example.com'
+//   },
+//   {
+//     username: 'ahmedkhalid',
+//     password: 'password234',
+//     companies: [
+//       {
+//         companyName: 'Khalid Engineering',
+//         companyLabel: 'Private Limited',
+//         registrationNumber: '827472849'
+//       },
+//       {
+//         companyName: 'Khaldun',
+//         companyLabel: 'Private Limited',
+//         registrationNumber: '827467284'
+//       },
+//       {
+//         companyName: 'Burger',
+//         companyLabel: 'International',
+//         registrationNumber: '883747384'
+//       }
+//     ],
+//     personInCharge: 'Ahmed Khalid',
+//     phoneNumber: '+60129876543',
+//     address: '456 Jalan Teknik',
+//     secondaryAddress: 'Block C',
+//     email: 'ahmedkhalid@example.com'
+//   },
+//   {
+//     username: 'malikahmad',
+//     password: 'password789',
+//     companies: [
+//       {
+//         companyName: 'Malik Holdings',
+//         companyLabel: 'Sdn Bhd',
+//         registrationNumber: '394829348'
+//       }
+//     ],
+//     personInCharge: 'Malik Ahmad',
+//     phoneNumber: '+60123456789',
+//     address: '789 Elm Street',
+//     secondaryAddress: 'Suite 501',
+//     email: 'malikahmad@example.com'
+//   },
+//   {
+//     username: 'laylabinti',
+//     password: 'password321',
+//     companies: [
+//       {
+//         companyName: 'Layla Corporation',
+//         companyLabel: 'Private Limited',
+//         registrationNumber: '827476589'
+//       },
+//       {
+//         companyName: 'Layla Industries',
+//         companyLabel: 'Public Limited',
+//         registrationNumber: '983747239'
+//       }
+//     ],
+//     personInCharge: 'Layla Binti',
+//     phoneNumber: '+60129876543',
+//     address: '293 Jalan Raya',
+//     secondaryAddress: 'Block D',
+//     email: 'laylabinti@example.com'
+//   },
+//   // 10 additional users with Malaysian names
+//   {
+//     username: 'muhammadali',
+//     password: 'password246',
+//     companies: [
+//       {
+//         companyName: 'Ali Enterprises',
+//         companyLabel: 'Sdn Bhd',
+//         registrationNumber: '293847561'
+//       }
+//     ],
+//     personInCharge: 'Muhammad Ali',
+//     phoneNumber: '+60123456789',
+//     address: '456 Jalan Utama',
+//     secondaryAddress: 'Block A',
+//     email: 'muhammadali@example.com'
+//   },
+//   {
+//     username: 'nurazizah',
+//     password: 'password753',
+//     companies: [
+//       {
+//         companyName: 'Azizah Trading',
+//         companyLabel: 'Sdn Bhd',
+//         registrationNumber: '918273645'
+//       }
+//     ],
+//     personInCharge: 'Nur Azizah',
+//     phoneNumber: '+60129876543',
+//     address: '789 Jalan Mega',
+//     secondaryAddress: 'Suite 101',
+//     email: 'nurazizah@example.com'
+//   },
+//   {
+//     username: 'amirahmed',
+//     password: 'password864',
+//     companies: [
+//       {
+//         companyName: 'Amirah Holdings',
+//         companyLabel: 'Sdn Bhd',
+//         registrationNumber: '657483920'
+//       }
+//     ],
+//     personInCharge: 'Amir Ahmed',
+//     phoneNumber: '+60123456789',
+//     address: '293 Jalan Rakyat',
+//     secondaryAddress: 'Block B',
+//     email: 'amirahmed@example.com'
+//   },
+//   {
+//     username: 'sitiyusof',
+//     password: 'password951',
+//     companies: [
+//       {
+//         companyName: 'Yusof Corporation',
+//         companyLabel: 'Sdn Bhd',
+//         registrationNumber: '183746592'
+//       }
+//     ],
+//     personInCharge: 'Siti Yusof',
+//     phoneNumber: '+60129876543',
+//     address: '293 Jalan Perdana',
+//     secondaryAddress: 'Block C',
+//     email: 'sitiyusof@example.com'
+//   },
+//   {
+//     username: 'ahmadali',
+//     password: 'password753',
+//     companies: [
+//       {
+//         companyName: 'Ali Group',
+//         companyLabel: 'Sdn Bhd',
+//         registrationNumber: '485739201'
+//       }
+//     ],
+//     personInCharge: 'Ahmad Ali',
+//     phoneNumber: '+60123456789',
+//     address: '789 Jalan Maju',
+//     secondaryAddress: 'Suite 201',
+//     email: 'ahmadali@example.com'
+//   },
+//   {
+//     username: 'nurasma',
+//     password: 'password864',
+//     companies: [
+//       {
+//         companyName: 'Asma Corporation',
+//         companyLabel: 'Sdn Bhd',
+//         registrationNumber: '374829506'
+//       }
+//     ],
+//     personInCharge: 'Nur Asma',
+//     phoneNumber: '+60129876543',
+//     address: '293 Jalan Gemilang',
+//     secondaryAddress: 'Block D',
+//     email: 'nurasma@example.com'
+//   },
+//   {
+//     username: 'azmikhalid',
+//     password: 'password951',
+//     companies: [
+//       {
+//         companyName: 'Khalid Holdings',
+//         companyLabel: 'Sdn Bhd',
+//         registrationNumber: '273849506'
+//       }
+//     ],
+//     personInCharge: 'Azmi Khalid',
+//     phoneNumber: '+60123456789',
+//     address: '123 Jalan Indah',
+//     secondaryAddress: 'Apt 2C',
+//     email: 'azmikhalid@example.com'
+//   },
+//   {
+//     username: 'norazizah',
+//     password: 'password753',
+//     companies: [
+//       {
+//         companyName: 'Azizah Industries',
+//         companyLabel: 'Sdn Bhd',
+//         registrationNumber: '839274651'
+//       }
+//     ],
+//     personInCharge: 'Nor Azizah',
+//     phoneNumber: '+60129876543',
+//     address: '456 Jalan Seri',
+//     secondaryAddress: 'Suite 301',
+//     email: 'norazizah@example.com'
+//   },
+//   {
+//     username: 'amirahmad',
+//     password: 'password864',
+//     companies: [
+//       {
+//         companyName: 'Amirah Corporation',
+//         companyLabel: 'Sdn Bhd',
+//         registrationNumber: '485739203'
+//       }
+//     ],
+//     personInCharge: 'Amir Ahmad',
+//     phoneNumber: '+60123456789',
+//     address: '789 Jalan Indah',
+//     secondaryAddress: 'Suite 401',
+//     email: 'amirahmad@example.com'
+//   },
+//   {
+//     username: 'nursiti',
+//     password: 'password951',
+//     companies: [
+//       {
+//         companyName: 'Siti Holdings',
+//         companyLabel: 'Sdn Bhd',
+//         registrationNumber: '374829508'
+//       }
+//     ],
+//     personInCharge: 'Nur Siti',
+//     phoneNumber: '+60129876543',
+//     address: '123 Jalan Seri',
+//     secondaryAddress: 'Apt 3B',
+//     email: 'nursiti@example.com'
+//   }
+// ];
 
     // Function to create a user card
     function createUserCard(user) {

@@ -1,107 +1,107 @@
-const people = [
-  {
-    name: "Ali Bin Ahmad",
-    ic: "123456-12-1234",
-    picture: "./pictures/ali.png",
-    address: "123 Jalan ABC, Taman XYZ, 12345 Kuala Lumpur",
-    phone: "012-3456789",
-    email: "ali@example.com",
-    database: 5,
-    publisher: "MF WORLDWIDE RESOURCES"
-  },
-  {
-    name: "Siti Binti Kamal",
-    ic: "987654-23-5678",
-    picture: "./pictures/ali.png",
-    address: "456 Jalan DEF, Taman UVW, 67890 Petaling Jaya",
-    phone: "011-9876543",
-    email: "siti@example.com",
-    database: 3,
-    publisher: "MF WORLDWIDE RESOURCES"
-  },
-  {
-    name: "Ahmad Bin Ismail",
-    ic: "456789-34-6789",
-    picture: "./pictures/ali.png",
-    address: "789 Jalan GHI, Taman RST, 54321 Shah Alam",
-    phone: "017-1234567",
-    email: "ahmad@example.com",
-    database: 7,
-    publisher: "MF WORLDWIDE RESOURCES"
-  },
-  {
-    name: "Khairul Azman",
-    ic: "234567-45-2345",
-    picture: "./pictures/ali.png",
-    address: "246 Jalan STU, Taman VWX, 77777 Shah Alam",
-    phone: "016-9871234",
-    email: "khairul@example.com",
-    database: 4,
-    publisher: "MF WORLDWIDE RESOURCES"
-  },
-  {
-    name: "Nurul Huda",
-    ic: "789012-56-7890",
-    picture: "./pictures/ali.png",
-    address: "101 Lorong MNO, Taman PQR, 88888 Subang Jaya",
-    phone: "019-5554443",
-    email: "nurul@example.com",
-    database: 6,
-    publisher: "MF WORLDWIDE RESOURCES"
-  },
-  // ... (other people data)
+// const people = [
+//   {
+//     name: "Ali Bin Ahmad",
+//     ic: "123456-12-1234",
+//     picture: "./pictures/ali.png",
+//     address: "123 Jalan ABC, Taman XYZ, 12345 Kuala Lumpur",
+//     phone: "012-3456789",
+//     email: "ali@example.com",
+//     database: 5,
+//     publisher: "MF WORLDWIDE RESOURCES"
+//   },
+//   {
+//     name: "Siti Binti Kamal",
+//     ic: "987654-23-5678",
+//     picture: "./pictures/ali.png",
+//     address: "456 Jalan DEF, Taman UVW, 67890 Petaling Jaya",
+//     phone: "011-9876543",
+//     email: "siti@example.com",
+//     database: 3,
+//     publisher: "MF WORLDWIDE RESOURCES"
+//   },
+//   {
+//     name: "Ahmad Bin Ismail",
+//     ic: "456789-34-6789",
+//     picture: "./pictures/ali.png",
+//     address: "789 Jalan GHI, Taman RST, 54321 Shah Alam",
+//     phone: "017-1234567",
+//     email: "ahmad@example.com",
+//     database: 7,
+//     publisher: "MF WORLDWIDE RESOURCES"
+//   },
+//   {
+//     name: "Khairul Azman",
+//     ic: "234567-45-2345",
+//     picture: "./pictures/ali.png",
+//     address: "246 Jalan STU, Taman VWX, 77777 Shah Alam",
+//     phone: "016-9871234",
+//     email: "khairul@example.com",
+//     database: 4,
+//     publisher: "MF WORLDWIDE RESOURCES"
+//   },
+//   {
+//     name: "Nurul Huda",
+//     ic: "789012-56-7890",
+//     picture: "./pictures/ali.png",
+//     address: "101 Lorong MNO, Taman PQR, 88888 Subang Jaya",
+//     phone: "019-5554443",
+//     email: "nurul@example.com",
+//     database: 6,
+//     publisher: "MF WORLDWIDE RESOURCES"
+//   },
+//   // ... (other people data)
 
-  {
-    name: "Aisyah Binti Abdullah",
-    ic: "123456-12-1234",
-    picture: "./pictures/ali.png",
-    address: "123 Jalan Harmoni, Taman Murni, 12345 Kuala Lumpur",
-    phone: "012-3456789",
-    email: "aisyah@example.com",
-    database: 1,
-    publisher: "MURPHEES MARKETING & TRADING"
-  },
-  {
-    name: "Zainal Bin Ahmad",
-    ic: "987654-23-5678",
-    picture: "./pictures/ali.png",
-    address: "456 Jalan Bahagia, Taman Damai, 67890 Petaling Jaya",
-    phone: "011-9876543",
-    email: "zainal@example.com",
-    database: 1,
-    publisher: "MURPHEES MARKETING & TRADING"
-  },
-  {
-    name: "Nor Azman",
-    ic: "456789-34-6789",
-    picture: "/pictures/nor.png",
-    address: "789 Jalan Mesra, Taman Ceria, 54321 Shah Alam",
-    phone: "017-1234567",
-    email: "nor@example.com",
-    database: 1,
-    publisher: "MURPHEES MARKETING & TRADING"
-  },
-  {
-    name: "Fatimah Binti Ali",
-    ic: "234567-45-2345",
-    picture: "/pictures/fatimah.png",
-    address: "101 Lorong Bahagia, Taman Seri, 88888 Subang Jaya",
-    phone: "019-5554443",
-    email: "fatimah@example.com",
-    database: 1,
-    publisher: "MURPHEES MARKETING & TRADING"
-  },
-  {
-    name: "Kamarul Zaman",
-    ic: "789012-56-7890",
-    picture: "/pictures/kamarul.png",
-    address: "246 Jalan Gemilang, Taman Sentosa, 77777 Shah Alam",
-    phone: "016-9871234",
-    email: "kamarul@example.com",
-    database: 1,
-    publisher: "MURPHEES MARKETING & TRADING"
-  }
-];
+//   {
+//     name: "Aisyah Binti Abdullah",
+//     ic: "123456-12-1234",
+//     picture: "./pictures/ali.png",
+//     address: "123 Jalan Harmoni, Taman Murni, 12345 Kuala Lumpur",
+//     phone: "012-3456789",
+//     email: "aisyah@example.com",
+//     database: 1,
+//     publisher: "MURPHEES MARKETING & TRADING"
+//   },
+//   {
+//     name: "Zainal Bin Ahmad",
+//     ic: "987654-23-5678",
+//     picture: "./pictures/ali.png",
+//     address: "456 Jalan Bahagia, Taman Damai, 67890 Petaling Jaya",
+//     phone: "011-9876543",
+//     email: "zainal@example.com",
+//     database: 1,
+//     publisher: "MURPHEES MARKETING & TRADING"
+//   },
+//   {
+//     name: "Nor Azman",
+//     ic: "456789-34-6789",
+//     picture: "/pictures/nor.png",
+//     address: "789 Jalan Mesra, Taman Ceria, 54321 Shah Alam",
+//     phone: "017-1234567",
+//     email: "nor@example.com",
+//     database: 1,
+//     publisher: "MURPHEES MARKETING & TRADING"
+//   },
+//   {
+//     name: "Fatimah Binti Ali",
+//     ic: "234567-45-2345",
+//     picture: "/pictures/fatimah.png",
+//     address: "101 Lorong Bahagia, Taman Seri, 88888 Subang Jaya",
+//     phone: "019-5554443",
+//     email: "fatimah@example.com",
+//     database: 1,
+//     publisher: "MURPHEES MARKETING & TRADING"
+//   },
+//   {
+//     name: "Kamarul Zaman",
+//     ic: "789012-56-7890",
+//     picture: "/pictures/kamarul.png",
+//     address: "246 Jalan Gemilang, Taman Sentosa, 77777 Shah Alam",
+//     phone: "016-9871234",
+//     email: "kamarul@example.com",
+//     database: 1,
+//     publisher: "MURPHEES MARKETING & TRADING"
+//   }
+// ];
 
 
 const allNames = people.map(pro => pro.name);

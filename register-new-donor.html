@@ -74,7 +74,6 @@
       color: #fff;
       font-weight: bold;
     }
-    
     /* Form Styling */
     .form-section {
       background-color: #f5f5f5;
@@ -125,6 +124,13 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
+    .form-section textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  resize: vertical; /* Allows the user to resize the textarea vertically */
+}
     
     .form-section button:hover {
       background-color: #e1bee7;
@@ -161,63 +167,85 @@
   
   <div class="container">
     <div class="side-menu">
-      <ul>
-        <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
-        <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO Information</a></li>
-        <li><a href="pro-database.html"><i class="material-icons">storage</i>PRO Database</a></li>
-        <li><a href="companies.html"><i class="material-icons">business</i>Publisher</a></li>
-        <li><a href="register.html"><i class="material-icons">person_add</i>Register</a></li>
-        <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
-        <li><a href="reports.html"><i class="material-icons">description</i>View Reports</a></li>
-        <li><a href="create-report.html" class="active"><i class="material-icons">create</i>Create Report</a></li>
-        <li><a href="renewal-expiry.html"><i class="material-icons">refresh</i>Renewals</a></li>
-        <li><a href="block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
-      </ul>
+        <div class="side-menu">
+            <ul>
+              <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
+              <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO Information</a></li>
+              <li><a href="pro-database.html"><i class="material-icons">storage</i>PRO Database</a></li>
+              <li><a href="companies.html"><i class="material-icons">business</i>Publisher</a></li>
+              <li><a href="register.html"><i class="material-icons">person_add</i>Register</a></li>
+              <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
+              <li><a href="reports.html"><i class="material-icons">description</i>View Reports</a></li>
+              <li><a href="create-report.html" class="active"><i class="material-icons">create</i>Create Report</a></li>
+              <li><a href="renewal-expiry.html"><i class="material-icons">refresh</i>Renewals</a></li>
+              <li><a href="block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
+            </ul>
+          </div>
     </div>
     
     <div class="form-section">
       <h2>Register Personal Donor</h2>
-      <form id="registerForm">
-        <div>
-          <label for="date">Date:</label>
-          <input type="date" id="date" name="date" required>
-        </div>
-        <div>
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-        <div>
-          <label for="icNumber">IC Number:</label>
-          <input type="text" id="icNumber" name="icNumber" required>
-        </div>
-        <div>
-          <label for="address">Address:</label>
-          <input type="text" id="address" name="address" required>
-        </div>
-        <div>
-          <label for="phone">Phone:</label>
-          <input type="tel" id="phone" name="phone" required>
-        </div>
-        <div>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-        <div>
-          <label for="amount">Amount:</label>
-          <input type="text" id="amount" name="amount" required>
-        </div>
-        <div>
-          <label for="receiptNumber">Receipt Number:</label>
-          <input type="text" id="receiptNumber" name="receiptNumber" required>
-        </div>
-        <div>
-          <label for="publisher">Publisher:</label>
-          <input type="text" id="publisher" name="publisher" required>
-        </div>
-        <div>
-          <label for="pro">PRO:</label>
-          <input type="text" id="pro" name="pro" required>
-        </div>
+      <% if (message) { %>
+        <p><%= message %></p>
+      <% } %>
+
+      <form action="/admin/insert-personal-donor-data" method="post">
+         <!-- Date -->
+         <label for="date">Date:</label>
+         <input type="date" id="date" name="date" required>
+
+         <!-- Name -->
+         <label for="name">Name:</label>
+         <input type="text" id="name" name="name" required>
+
+         <!-- IC (Identification Card) -->
+         <label for="ic">IC (Identification Card):</label>
+         <input type="text" id="ic" name="ic" required>
+
+         <!-- Address -->
+         <label for="address">Address:</label>
+         <textarea id="address" name="address" rows="4" required></textarea>
+
+         <!-- Phone -->
+         <label for="phone">Phone:</label>
+         <input type="text" id="phone" name="phone" required>
+
+         <!-- Email -->
+         <label for="email">Email:</label>
+         <input type="email" id="email" name="email" required>
+
+         <!-- Amount -->
+         <label for="amount">Amount:</label>
+         <input type="number" id="amount" name="amount" step="0.01" required>
+
+         <!-- Receipt -->
+         <label for="receipt">Receipt:</label>
+         <input type="text" id="receipt" name="receipt" required>
+
+         <!-- Publisher Dropdown -->
+         <label for="publisher">Publisher:</label>
+         <select id="publisher" name="pub_id" onchange="updateProDropdown()">
+             <% publishers.forEach(publisher => { %>
+                 <option value="<%= publisher.pub_id %>"><%= publisher.pub_name %></option>
+             <% }); %>
+         </select>
+
+         <!-- Pro Dropdown (Initially populated, will be updated dynamically using JavaScript) -->
+         <div id="proDropdownContainer">
+             <label for="pro">Pro:</label>
+             <select id="pro" name="pro_id">
+                 <% pros.forEach(pro => { %>
+                     <option value="<%= pro.pro_id %>"><%= pro.name %></option>
+                 <% }); %>
+             </select>
+         </div>
+
+         <!-- Hidden Fields for pub_name and pro_name -->
+         <input type="hidden" id="pub_name" name="pub_name">
+         <input type="hidden" id="pro_name" name="pro_name">
+
+       
+
         <button type="submit">Register</button>
       </form>
     </div>

@@ -174,89 +174,89 @@
 
   <script>
     // Company data
-    const companyData = [
-      {
-        companyName: 'ABC Corporation',
-        companyLabel: 'Sdn Bhd',
-        registrationNumber: '123456789',
-        personInCharge: 'John Smith',
-        phoneNumber: '+60123456789',
-        address: '123 Main Street',
-        secondaryAddress: 'Apt 4B',
-        email: 'johnsmith@example.com'
-      },
-      {
-        companyName: 'XYZ Holdings',
-        companyLabel: 'Private Limited',
-        registrationNumber: '987654321',
-        personInCharge: 'Emily Johnson',
-        phoneNumber: '+60123456789',
-        address: '456 Elm Avenue',
-        secondaryAddress: 'Suite 202',
-        email: 'emilyjohnson@example.com'
-      },
-      {
-        companyName: 'Khalid Engineering',
-        companyLabel: 'Private Limited',
-        registrationNumber: '827472849',
-        personInCharge: 'Ahmed Khalid',
-        phoneNumber: '+60129876543',
-        address: '456 Jalan Teknik',
-        secondaryAddress: 'Block C',
-        email: 'ahmedkhalid@example.com'
-      },
-      {
-        companyName: 'Khaldun',
-        companyLabel: 'Private Limited',
-        registrationNumber: '827467284',
-        personInCharge: 'Ahmed Khalid',
-        phoneNumber: '+60129876543',
-        address: '456 Jalan Teknik',
-        secondaryAddress: 'Block C',
-        email: 'ahmedkhalid@example.com'
-      },
-      {
-        companyName: 'Burger',
-        companyLabel: 'International',
-        registrationNumber: '883747384',
-        personInCharge: 'Ahmed Khalid',
-        phoneNumber: '+60129876543',
-        address: '456 Jalan Teknik',
-        secondaryAddress: 'Block C',
-        email: 'ahmedkhalid@example.com'
-      },
-      {
-        companyName: 'Malik Holdings',
-        companyLabel: 'Sdn Bhd',
-        registrationNumber: '394829348',
-        personInCharge: 'Malik Ahmad',
-        phoneNumber: '+60123456789',
-        address: '789 Elm Street',
-        secondaryAddress: 'Suite 501',
-        email: 'malikahmad@example.com'
-      },
-      {
-        companyName: 'Layla Corporation',
-        companyLabel: 'Private Limited',
-        registrationNumber: '827476589',
-        personInCharge: 'Layla Binti',
-        phoneNumber: '+60129876543',
-        address: '293 Jalan Raya',
-        secondaryAddress: 'Block D',
-        email: 'laylabinti@example.com'
-      },
-      {
-        companyName: 'Layla Industries',
-        companyLabel: 'Public Limited',
-        registrationNumber: '983747239',
-        personInCharge: 'Layla Binti',
-        phoneNumber: '+60129876543',
-        address: '293 Jalan Raya',
-        secondaryAddress: 'Block D',
-        email: 'laylabinti@example.com'
-      }
-      // Add more company data here
-    ];
+    // const companyData = [
+    //   {
+    //     companyName: 'ABC Corporation',
+    //     companyLabel: 'Sdn Bhd',
+    //     registrationNumber: '123456789',
+    //     personInCharge: 'John Smith',
+    //     phoneNumber: '+60123456789',
+    //     address: '123 Main Street',
+    //     secondaryAddress: 'Apt 4B',
+    //     email: 'johnsmith@example.com'
+    //   },
+    //   {
+    //     companyName: 'XYZ Holdings',
+    //     companyLabel: 'Private Limited',
+    //     registrationNumber: '987654321',
+    //     personInCharge: 'Emily Johnson',
+    //     phoneNumber: '+60123456789',
+    //     address: '456 Elm Avenue',
+    //     secondaryAddress: 'Suite 202',
+    //     email: 'emilyjohnson@example.com'
+    //   },
+    //   {
+    //     companyName: 'Khalid Engineering',
+    //     companyLabel: 'Private Limited',
+    //     registrationNumber: '827472849',
+    //     personInCharge: 'Ahmed Khalid',
+    //     phoneNumber: '+60129876543',
+    //     address: '456 Jalan Teknik',
+    //     secondaryAddress: 'Block C',
+    //     email: 'ahmedkhalid@example.com'
+    //   },
+    //   {
+    //     companyName: 'Khaldun',
+    //     companyLabel: 'Private Limited',
+    //     registrationNumber: '827467284',
+    //     personInCharge: 'Ahmed Khalid',
+    //     phoneNumber: '+60129876543',
+    //     address: '456 Jalan Teknik',
+    //     secondaryAddress: 'Block C',
+    //     email: 'ahmedkhalid@example.com'
+    //   },
+    //   {
+    //     companyName: 'Burger',
+    //     companyLabel: 'International',
+    //     registrationNumber: '883747384',
+    //     personInCharge: 'Ahmed Khalid',
+    //     phoneNumber: '+60129876543',
+    //     address: '456 Jalan Teknik',
+    //     secondaryAddress: 'Block C',
+    //     email: 'ahmedkhalid@example.com'
+    //   },
+    //   {
+    //     companyName: 'Malik Holdings',
+    //     companyLabel: 'Sdn Bhd',
+    //     registrationNumber: '394829348',
+    //     personInCharge: 'Malik Ahmad',
+    //     phoneNumber: '+60123456789',
+    //     address: '789 Elm Street',
+    //     secondaryAddress: 'Suite 501',
+    //     email: 'malikahmad@example.com'
+    //   },
+    //   {
+    //     companyName: 'Layla Corporation',
+    //     companyLabel: 'Private Limited',
+    //     registrationNumber: '827476589',
+    //     personInCharge: 'Layla Binti',
+    //     phoneNumber: '+60129876543',
+    //     address: '293 Jalan Raya',
+    //     secondaryAddress: 'Block D',
+    //     email: 'laylabinti@example.com'
+    //   },
+    //   {
+    //     companyName: 'Layla Industries',
+    //     companyLabel: 'Public Limited',
+    //     registrationNumber: '983747239',
+    //     personInCharge: 'Layla Binti',
+    //     phoneNumber: '+60129876543',
+    //     address: '293 Jalan Raya',
+    //     secondaryAddress: 'Block D',
+    //     email: 'laylabinti@example.com'
+    //   }
+    //   // Add more company data here
+    // ];
 
     // Function to create a company card
     function createCompanyCard(company) {

@@ -208,12 +208,14 @@ header {
     const companyData = [
     {
       companyName: "MF WORLDWIDE RESOURCES",
-      registrationNum: "SA0594068-V",
-      email: "meenapmppmm@gmail.com",
-      address: "NO DD7-9F, DESA SATU AMAN PURI APARTMENT, 52100 KEPONG",
-      phone: "012-6977190",
-      personInCharge: "MENACI A/P GOVINDASAMY",
-      link: "./pros/pro-list-mfworldwide.html"
+        registrationNum: "SA0594068-V",
+        email: "meenapmppmm@gmail.com",
+        address: "NO DD7-9F, DESA SATU AMAN PURI APARTMENT, 52100 KEPONG",
+        phone: "012-6977190",
+        personInCharge: "MENACI A/P GOVINDASAMY",
+        username: "Mfworld",
+        password: "pmppmm5700",
+        link: "./pros/pro-list-mfworldwide.html"
     },
     {
       companyName: "MURPHEES MARKETING & TRADING",
@@ -222,6 +224,8 @@ header {
       address: "JALAN DAMAI PERDANA 1/4C, BANDAR DAMAI PERDANA, 42000 BATU 9, CHERAS SELANGOR",
       phone: "019-3982172",
       personInCharge: "JAYA SEELAN A/L VELU",
+      username: "Murphees",
+      password: "pmppmm5349",
       link : "./pros/pro-list-murphees.html"
     },
     {
@@ -230,7 +234,9 @@ header {
       email: "pesakit.parah@gmail.com",
       address: "C29, JALAN SM1/4, TAMAN SELAYANG MULIA, 68100 BATU CAVES SELANGOR",
       phone: "019-3612669",
-      personInCharge: "JAYA SEELAN A/L MUNISAMY"
+      personInCharge: "JAYA SEELAN A/L MUNISAMY",
+      username: "Vjvj",
+        password: "pmppmm5523"
     },
     {
   companyName: "KC REWARDS (M) SDN BHD",
@@ -238,7 +244,9 @@ header {
   email: "pmpparahmiskinmalaysia@gmail.com",
   address: "NO 36A, TAMAN BERSATU 10, TAMAN BERSATU 48000 RAWANG",
   phone: "013-3916443",
-  personInCharge: "SARAVANAN A/L KANESAN"
+  personInCharge: "SARAVANAN A/L KANESAN",
+  username: "Kc'rewards",
+        password: "pmppmm5256"
 },
 {
   companyName: "ML ADVANCED RESOURCES",
@@ -246,7 +254,9 @@ header {
   email: "pesakitparahkl@outlook.com",
   address: "NO 10, SG 8/5 TAMAN SERI GOMBAK 68100 BATU CAVES, SELANGOR",
   phone: "016-6162598",
-  personInCharge: "LAVINDRAN A/L PARAMASIVAM"
+  personInCharge: "LAVINDRAN A/L PARAMASIVAM",
+  username: "Ml'advanced",
+        password: "pmppmm6433",
 }
 ,
 {
@@ -255,7 +265,9 @@ header {
   email: "pesakitparah1234@outlook.com",
   address: "PANGSAPURI SAUJANA, BLOK B-13A-7,68100 BATU CAVES, SELANGOR",
   phone: "018-2440729",
-  personInCharge: "MARIARAJ A/L ANTHONYRAJAN"
+  personInCharge: "MARIARAJ A/L ANTHONYRAJAN",
+  username: "Yaweh",
+        password: "pmppmm6685"
 }
 
 
@@ -264,59 +276,59 @@ header {
     
 
   function createCompanyCard(company) {
-  const companyCard = document.createElement('div');
-  companyCard.classList.add('company-card');
+      const companyCard = document.createElement('div');
+      companyCard.classList.add('company-card');
 
-  const companyInfo = document.createElement('div');
-  companyInfo.classList.add('company-info');
+      const companyInfo = document.createElement('div');
+      companyInfo.classList.add('company-info');
 
-  const companyName = document.createElement('div');
-  companyName.classList.add('company-name');
-  companyName.textContent = `${company.companyName}`;
+      const companyName = document.createElement('div');
+      companyName.classList.add('company-name');
+      companyName.textContent = `${company.companyName}`;
 
-  const registrationNumber = document.createElement('p');
-  registrationNumber.classList.add('company-details');
-  registrationNumber.textContent = `Registration Number: ${company.registrationNum}`;
+      const registrationNumber = document.createElement('p');
+      registrationNumber.classList.add('company-details');
+      registrationNumber.textContent = `Registration Number: ${company.registrationNum}`;
 
-  const email = document.createElement('p');
-  email.classList.add('company-details');
-  email.textContent = `Email: ${company.email}`;
+      const email = document.createElement('p');
+      email.classList.add('company-details');
+      email.textContent = `Email: ${company.email}`;
 
-  const address = document.createElement('p');
-  address.classList.add('company-details');
-  address.textContent = `Address: ${company.address}`;
+      const address = document.createElement('p');
+      address.classList.add('company-details');
+      address.textContent = `Address: ${company.address}`;
 
-  const phone = document.createElement('p');
-  phone.classList.add('company-details');
-  phone.textContent = `Phone: ${company.phone}`;
+      const phone = document.createElement('p');
+      phone.classList.add('company-details');
+      phone.textContent = `Phone: ${company.phone}`;
 
-  const personInCharge = document.createElement('p');
-  personInCharge.classList.add('company-details');
-  personInCharge.textContent = `Person in Charge: ${company.personInCharge}`;
+      const personInCharge = document.createElement('p');
+      personInCharge.classList.add('company-details');
+      personInCharge.textContent = `Person in Charge: ${company.personInCharge}`;
 
-  const viewProsButton = document.createElement('button');
-  viewProsButton.classList.add('view-pros-button');
-  viewProsButton.textContent = 'View Staffs';
-  
+      // Add the new properties (username and password) to the card
+      const username = document.createElement('p');
+      username.classList.add('company-details');
+      username.textContent = `Username: ${company.username}`;
 
+      const password = document.createElement('p');
+      password.classList.add('company-details');
+      password.textContent = `Password: ${company.password}`;
 
-// Add click event listener to the button
-viewProsButton.addEventListener('click', function() {
-    window.location.href = company.link; // Use the link from the "link" property
-  });
+      companyInfo.appendChild(companyName);
+      companyInfo.appendChild(registrationNumber);
+      companyInfo.appendChild(email);
+      companyInfo.appendChild(address);
+      companyInfo.appendChild(phone);
+      companyInfo.appendChild(personInCharge);
+      companyInfo.appendChild(username); // Add username
+      companyInfo.appendChild(password); // Add password
 
-  companyInfo.appendChild(companyName);
-  companyInfo.appendChild(registrationNumber);
-  companyInfo.appendChild(email);
-  companyInfo.appendChild(address);
-  companyInfo.appendChild(phone);
-  companyInfo.appendChild(personInCharge);
-  companyInfo.appendChild(viewProsButton);
+      companyCard.appendChild(companyInfo);
 
-  companyCard.appendChild(companyInfo);
+      return companyCard;
+    }
 
-  return companyCard;
-}
 
 
     function createProGrid(personInCharge) {

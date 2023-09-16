@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register Personal Donor</title>
+  <title>Create Personal Donor Report</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
@@ -162,7 +162,7 @@
 </head>
 <body>
   <header>
-    <h1>Main Admin Dashboard</h1>
+    <h1>Create Personal Donor Report</h1>
   </header>
   
   <div class="container">
@@ -173,10 +173,10 @@
               <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO Information</a></li>
               <li><a href="pro-database.html"><i class="material-icons">storage</i>PRO Database</a></li>
               <li><a href="companies.html"><i class="material-icons">business</i>Publisher</a></li>
-              <li><a href="register.html" class="active"><i class="material-icons">person_add</i>Register</a></li>
+              <li><a href="register.html"><i class="material-icons">person_add</i>Register</a></li>
               <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
               <li><a href="reports.html"><i class="material-icons">description</i>View Reports</a></li>
-              <li><a href="create-report.html"><i class="material-icons">create</i>Create Report</a></li>
+              <li><a href="create-report.html" class="active"><i class="material-icons">create</i>Create Report</a></li>
               <li><a href="renewal-expiry.html"><i class="material-icons">refresh</i>Renewals</a></li>
               <li><a href="block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
             </ul>
@@ -184,10 +184,15 @@
     </div>
     
     <div class="form-section">
-      <h2>Register Personal Donor</h2>
+      <h2>Personal Donor Report</h2>
 
       <form action="/admin/insert-personal-donor-data" method="post">
         
+
+        <!-- Name -->
+        <label for="name">Date:</label>
+        <input type="date" id="date" name="name" required>
+
 
          <!-- Name -->
          <label for="name">Name:</label>
@@ -209,6 +214,15 @@
          <label for="email">Email:</label>
          <input type="email" id="email" name="email" required>
 
+
+          <!-- Email -->
+          <label for="email">Amount:</label>
+          <input type="email" id="email" name="email" required>
+
+
+           <!-- Email -->
+         <label for="email">Receipt:</label>
+         <input type="email" id="email" name="email" required>
         
          <!-- Publisher Dropdown -->
          <label for="publisher">Publisher:</label>

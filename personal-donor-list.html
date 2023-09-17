@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Donor Database</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f5fa;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #512da8;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Container Styling */
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 20px;
+        }
+
+        .side-menu {
+            background-color: #fff;
+            padding: 20px;
+            margin-left: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .side-menu ul {
+            margin: 0;
+            /* Reset margin for the ul element */
+            padding: 0;
+            list-style-type: none;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        /* Table Styling */
+        .pro-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .pro-table th,
+        .pro-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .pro-table th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+
+        /* Pagination Styling */
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        /* Side Menu Styling */
+        .side-menu {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .side-menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .side-menu li {
+            margin-bottom: 10px;
+        }
+
+        .side-menu a {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            color: #512da8;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .side-menu a:hover {
+            background-color: #e1bee7;
+        }
+
+        .side-menu a i {
+            margin-right: 10px;
+        }
+
+        .side-menu a.active {
+            background-color: #e1bee7;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* Search Bar Styling */
+        .search-bar {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .side-menu,
+            .main-content {
+                padding: 10px;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .side-menu,
+            .main-content {
+                padding: 10px;
+            }
+
+            .pro-table {
+                display: block;
+                width: 100%;
+                overflow-x: auto;
+            }
+
+            .pro-table th,
+            .pro-table td {
+                white-space: nowrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Personal Donor Database</h1>
+    </header>
+
+    <div class="container">
+        <div class="side-menu">
+            <ul>
+                <li><a href="main-admin-dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
+                <li><a href="pro-lists.html"><i class="material-icons">supervisor_account</i>PRO Information</a></li>
+                <li><a href="pro-database.html"><i class="material-icons">storage</i>PRO Database</a>
+                </li>
+                <li><a href="personal-donor.html" class="active"><i class="material-icons">person</i>Personal Donor</a></li> <!-- New
+                                                                                                              line -->
+                <li><a href="companies.html"><i class="material-icons">business</i>Publisher</a></li>
+                <li><a href="register.html"><i class="material-icons">person_add</i>Register</a></li>
+                <li><a href="edit.html"><i class="material-icons">build</i>Modify Data</a></li>
+                <li><a href="reports.html"><i class="material-icons">description</i>View Reports</a></li>
+                <li><a href="create-report.html"><i class="material-icons">create</i>Create Report</a></li>
+                <li><a href="renewal-expiry.html"><i class="material-icons">refresh</i>Renewals</a></li>
+                <li><a href="block.html"><i class="material-icons">block</i>Block/Unblock User</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <h2>Personal Donor Database</h2>
+
+            <div class="search-bar">
+                <label for="search">Search by IC or Name:</label>
+                <input type="text" id="search" placeholder="Search...">
+                <button id="searchButton">Search</button>
+            </div>
+            <p id="databaseCount">Total databases: 0</p>
+
+            <table class="pro-table">
+                <thead>
+                    <tr>
+                        <th>IC</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>PRO</th>
+                        <th>Publisher</th>
+                    </tr>
+                </thead>
+                <tbody id="donorList">
+                    <!-- JavaScript will populate the donor list here -->
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <button id="prevPage">Previous</button>
+                <span id="currentPage">Page 1</span>
+                <button id="nextPage">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code for search, pagination, and data population...
+
+        const donorData = [
+            {
+                ic: '123456-01-1234',
+                name: 'John Doe',
+                phone: '012-3456789',
+                email: 'john@example.com',
+                address: '123 Main St, City'
+            },
+            {
+                ic: '567890-12-5678',
+                name: 'Jane Smith',
+                phone: '987-6543210',
+                email: 'jane@example.com',
+                address: '456 Elm St, Town'
+            },
+            // Add more data entries...
+        ];
+
+        const donorList = document.getElementById('donorList');
+        const prevPageButton = document.getElementById('prevPage');
+        const nextPageButton = document.getElementById('nextPage');
+        const currentPageSpan = document.getElementById('currentPage');
+        const databaseCount = document.getElementById('databaseCount');
+        const searchInput = document.getElementById('search'); // Add this line
+        const searchButton = document.getElementById('searchButton'); // Add this line
+        const itemsPerPage = 6; // Number of items per page
+        let currentPage = 1; // Current page number
+        const originalDonorData = [...donorData]; // Store a copy of the original data
+
+        function populateTable(page) {
+            donorList.innerHTML = '';
+
+            const startIndex = (page - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+
+            for (let i = startIndex; i < endIndex && i < donorData.length; i++) {
+                const donor = donorData[i];
+                const row = donorList.insertRow();
+                row.innerHTML = `
+                    <td>${donor.ic}</td>
+                    <td>${donor.name}</td>
+                    <td>${donor.phone}</td>
+                    <td>${donor.email}</td>
+                    <td>${donor.address}</td>
+                `;
+            }
+
+            databaseCount.textContent = `Total databases: ${donorData.length}`;
+        }
+
+        function updatePagination() {
+            currentPageSpan.textContent = `Page ${currentPage}`;
+            prevPageButton.disabled = currentPage === 1;
+            nextPageButton.disabled = currentPage * itemsPerPage >= donorData.length;
+        }
+
+        function searchAndPopulate() {
+            const searchTerm = searchInput.value.toLowerCase();
+            currentPage = 1;
+
+            if (searchTerm === '') {
+                donorData.length = 0;
+                donorData.push(...originalDonorData);
+            } else {
+                const filteredData = originalDonorData.filter(donor => {
+                    return donor.ic.includes(searchTerm) || donor.name.toLowerCase().includes(searchTerm);
+                });
+
+                donorData.length = 0;
+                donorData.push(...filteredData);
+            }
+
+            populateTable(currentPage);
+            updatePagination();
+        }
+
+        // Event listeners
+        searchButton.addEventListener('click', searchAndPopulate);
+
+        searchInput.addEventListener('input', () => {
+            if (searchInput.value === '') {
+                searchAndPopulate();
+            }
+        });
+
+        prevPageButton.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                populateTable(currentPage);
+                updatePagination();
+            }
+        });
+
+        nextPageButton.addEventListener('click', () => {
+            if (currentPage * itemsPerPage < donorData.length) {
+                currentPage++;
+                populateTable(currentPage);
+                updatePagination();
+            }
+        });
+
+        // Initial population
+        populateTable(currentPage);
+        updatePagination();
+    </script>
+</body>
+
+</html>
